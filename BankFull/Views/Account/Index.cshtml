@@ -1,0 +1,76 @@
+﻿@model BankFull.Models.User
+
+@if(@ViewBag.IsSuccess)
+{
+    <div class="alert alert-danger" role="alert">
+  Sorry ! Credential Doesnot exist
+</div>
+}
+
+<div class=" d-flex flex-row-reverse overflow-hidden  p-0"  style="height:760px;">
+        <div class="col-lg-10 col-md-9 ">
+            
+
+
+     <div class="  d-flex row p-0 " >
+  <!--  <div class=" d-sm-none d-lg-block d-none col-lg-3 background bg-dark " >
+
+    </div> -->
+    <div class=" col-lg-12 col-sm-12 mt-5  ">
+
+      
+      <!-- Login form -->
+
+  
+      <div class=" d-flex col-sm-12 col-md-8 col-lg-6 mt-5 container-fluid ">
+       
+        <form class="row g-3 py-5 px-4   shadow-lg " style="border-radius:9px;" method="post" asp-controller="Account" asp-action="Login">
+        <div class="text-center w-100 mb-5 "><h1 class=" text-forth-color" >Login</h1></div>  
+
+        
+          <div class="w-100  mt-2 p-0">
+            <div class="d-flex flex-col">
+              @*<label for="Name" class="form-label mx-2 mt-1 ">Name:</label>*@
+              <input asp-for="Email" required type="text" class="form-control " id="name" name="Email" placeholder="Email Address">
+              <span class="text-danger" asp-validation-for="Email"></span>  
+          </div>
+          </div>
+
+         
+          <div class="w-100 mt-3 p-0">
+             <div class="d-flex flex-col ">
+          @*  <label for="Password" class="mx-2 mt-1 ">Password:</label> *@
+            <input asp-for="Password" required type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <span class="text-danger" asp-validation-for="Password"></span>    
+        </div>       
+          </div>
+
+       
+        <div class="d-flex justify-content-between w-100 mt-3 ">
+             <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Remember me</label>
+                </div>
+
+                <div>
+                       <a href="" class=" mt-3 "><span>Forgot password ?</span></a>
+                </div>
+
+          
+        </div>
+         <div class="w-100" > <input type="submit" class="btn btn-info px-3 mt-2" placeholder="Submit" /></div>
+
+          <a href="Registration" class="  mt-3">Sign up</a>
+         
+        </form>
+
+        
+      </div>
+
+    </div>
+
+  </div>
+
+
+      </div>
+    </div>
