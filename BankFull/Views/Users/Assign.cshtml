@@ -1,19 +1,15 @@
-﻿@model IEnumerable<BankFull.Models.UserMessage>
-
-
+﻿
+@model IEnumerable<BankFull.Models.UserMessage>
 
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
-   
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
-        <tr>
+          <tr>
             <th>
                 @Html.DisplayNameFor(model => model.tblMessage.Bank)
             </th>
@@ -43,10 +39,12 @@
             </th>
             }
         </tr>
+            
+        
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+               <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.tblMessage.Bank)
             </td>
@@ -97,39 +95,3 @@
     </tbody>
 </table>
 
-
-<script>
-   
-$(document).ready(function() {
-   
-    $(".userid").click(function(e){
-
-        // var id =  $(this).attr("#data-value");
-
-       var id = $(this).closest('tr').find('.data').val();
-
-       var Msid = $(this).closest('tr').find("td:eq(5)").text();
-       var Msgid = parseInt(Msid);
-
-
-        console.log("Hello")
-         $.ajax({
-
-        'url' : '/Sender/Index',
-        'type' : 'Post',
-        'data' : { Msgid,id
-           
-        },
-        'success' : function() {       
-            
-          
-        },
-        'error' : function()
-        {
-           window.location.href = "https://localhost:44346/tblMessages"
-        }
-    });
-    })
-})
-
-</script>

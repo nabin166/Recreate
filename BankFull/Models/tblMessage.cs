@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankFull.Models
 {
@@ -16,6 +17,10 @@ namespace BankFull.Models
         public string? Date { get; set; }
         public string? DocumentPath { get; set; }
         public string? Messages { get; set; }
+       
+        [NotMapped]
+
+        public IFormFile Document { get; set; } 
 
 
         public virtual ICollection<Assign> Assigns { get; set; }

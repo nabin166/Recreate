@@ -14,10 +14,12 @@ namespace BankFull.Controllers
     public class tblMessagesController : Controller
     {
         private readonly TransferOffContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public tblMessagesController(TransferOffContext context)
+        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: tblMessages
@@ -27,8 +29,11 @@ namespace BankFull.Controllers
             {
                 if (User.IsInRole("Admin"))
                 {
+                    string email = User.Identity.Name;
+                    ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
+
                     return _context.tblMessages != null ?
-                          View(await _context.tblMessages.ToListAsync()) :
+                          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).ToListAsync()) :
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
                 else if(User.IsInRole("User"))
@@ -36,9 +41,20 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
                     return _context.tblMessages != null ?
-                          View(await _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.UserId == uid).Count()>0).ToListAsync() ) :
+                          View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x=>x.UserId == uid).ToListAsync()):
+                    
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
+                else if (User.IsInRole("Agent"))
+                {
+                    string email = User.Identity.Name;
+                    int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+                    return _context.tblMessages != null ?
+                          View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x => x.UserId == uid).ToListAsync()) :
+
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+                }
+
             }
               return _context.tblMessages != null ? 
                           View(await _context.tblMessages.ToListAsync()) :
@@ -74,26 +90,43 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Bank,Amount,Date,DocumentPath,Messages")] tblMessage tblMessage)
+        public async Task<IActionResult> Create([Bind("Id,Bank,Amount,Date,DocumentPath,Messages,Document")] tblMessage tblMessage)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(tblMessage);
-                await _context.SaveChangesAsync();
+                if (tblMessage.Document != null)
+                {
+                    string folder = "photo/";
+
+                    folder += Guid.NewGuid().ToString() + tblMessage.Document.FileName;
+
+                    tblMessage.DocumentPath = folder;
+
+                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+
+                    await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+
+                    _context.Add(tblMessage);
+                    await _context.SaveChangesAsync();
 
 
-                string email = User.Identity.Name;
-                int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-                int msgid = tblMessage.Id;
+                    string email = User.Identity.Name;
+                    int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+                    int msgid = tblMessage.Id;
 
-                UserMessage userMessage = new UserMessage();
-                userMessage.UserId = uid;
-                userMessage.MessageId = msgid;
-                _context.Add(userMessage);
-                _context.SaveChanges();
+                    UserMessage userMessage = new UserMessage();
+                    userMessage.UserId = uid;
+                    userMessage.MessageId = msgid;
+                    _context.Add(userMessage);
+                    _context.SaveChanges();
+
+                    return RedirectToAction(nameof(Index));
+
+                }
+              
 
 
-                return RedirectToAction(nameof(Index));
+               
             }
 
             

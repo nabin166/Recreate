@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Bank" class="control-label"></label>
@@ -27,15 +27,21 @@
                 <input type="date" asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
-            <div class="form-group">
+          @*  <div class="form-group">
                 <label asp-for="DocumentPath" class="control-label"></label>
                 <input asp-for="DocumentPath" class="form-control" />
                 <span asp-validation-for="DocumentPath" class="text-danger"></span>
-            </div>
+            </div>  *@
             <div class="form-group">
                 <label asp-for="Messages" class="control-label"></label>
                 <input asp-for="Messages" class="form-control" />
                 <span asp-validation-for="Messages" class="text-danger"></span>
+            </div>
+
+              <div class="form-group">
+                <label asp-for="Document" class="control-label"></label>
+                <input  asp-for="Document" class="form-control" />
+                <span asp-validation-for="Document" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

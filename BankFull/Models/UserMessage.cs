@@ -11,6 +11,8 @@ namespace BankFull.Models
         public int Id { get; set; } 
         public int? UserId { get; set; }
         public int? MessageId { get; set; }
+      //  public int? RecUserId { get; set; }
+
 
         public virtual tblMessage? tblMessage { get; set; }
         public virtual User? User { get; set; }

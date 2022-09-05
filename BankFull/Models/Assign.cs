@@ -7,19 +7,12 @@ namespace BankFull.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Display(Name ="Receiver Name :" )]
-        [StringLength(100)]
-        public string? Receiver_Name { get; set; }
-       
+        public int Receiver_Name { get; set; }
         public int Received_Amount { get; set; }
 
-       
         public int Messageid { get; set; }
         
         public virtual tblMessage TblMessage { get; set; } = null!;
-
-
 
 
 

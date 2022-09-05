@@ -27,7 +27,7 @@ namespace BankFull.Models
             if (!optionsBuilder.IsConfigured)
             {
 
-                optionsBuilder.UseSqlServer("Server= DESKTOP-7PMUJLG\\SQLEXPRESS;Database=Transferv;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Server= DESKTOP-SC4NGQA\\SQLEXPRESS;Database=Transferv;Integrated Security=True");
             }
         }
 
@@ -179,6 +179,12 @@ namespace BankFull.Models
                     .WithMany(p => p.UserMessages)
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_User_Message_User");
+
+                //Latest added
+               // entity.HasOne(d => d.User)
+               //    .WithMany(p => p.UserMessages)
+               //    .HasForeignKey(d => d.RecUserId)
+               //    .HasConstraintName("FK_RecUser__User");
 
             });
 

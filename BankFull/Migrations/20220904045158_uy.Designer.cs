@@ -4,6 +4,7 @@ using BankFull.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankFull.Migrations
 {
     [DbContext(typeof(TransferOffContext))]
-    partial class TransferOffContextModelSnapshot : ModelSnapshot
+    [Migration("20220904045158_uy")]
+    partial class uy
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +38,10 @@ namespace BankFull.Migrations
                     b.Property<int>("Received_Amount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Receiver_Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Receiver_Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("Id");
 
@@ -246,9 +250,6 @@ namespace BankFull.Migrations
                         .HasColumnType("int")
                         .HasColumnName("Message_Id");
 
-                    b.Property<int?>("RecUserId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("UserId")
                         .HasColumnType("int")
                         .HasColumnName("User_Id");
@@ -257,7 +258,7 @@ namespace BankFull.Migrations
 
                     b.HasIndex("MessageId");
 
-                    b.HasIndex("RecUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("User_Message", (string)null);
                 });
@@ -313,8 +314,8 @@ namespace BankFull.Migrations
 
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("UserMessages")
-                        .HasForeignKey("RecUserId")
-                        .HasConstraintName("FK_RecUser__User");
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_User_Message_User");
 
                     b.Navigation("User");
 

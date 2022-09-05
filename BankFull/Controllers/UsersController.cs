@@ -159,6 +159,20 @@ namespace BankFull.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> AssignAsync()
+        {
+
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+            return _context.tblMessages != null ?
+            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x => x.UserId == uid).ToListAsync()) :
+            Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+
+
+        }
+
+
         private bool UserExists(int id)
         {
           return (_context.user?.Any(e => e.Id == id)).GetValueOrDefault();
