@@ -24,6 +24,36 @@ namespace BankFull.Controllers
             return RedirectToAction("Index", "Account");
         }
 
+        [HttpPost]
+        public  IActionResult Complete(int Amid,int mid)
+        {
+     
+            
+            if(_context.Transactions.Where(x=>x.MessageId == mid).Count()>0)
+            {
+
+                Transaction transaction = new Transaction();
+
+
+                int query = _context.Transactions.Where(x => x.MessageId == mid).FirstOrDefault().Id;
+
+                if (query != null)
+                {
+                    transaction.DrAmount = Amid;
+
+
+                    _context.Update(transaction);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index", "Account");
+                }
+
+               
+
+            }
+            return RedirectToAction("Index", "Account");
+
+        }
+
 
 
     }

@@ -9,6 +9,8 @@ namespace BankFull.Models
         public tblMessage()
         {
             UserMessages = new HashSet<UserMessage>();
+
+            Transactions = new HashSet<Transaction>();
          
         }
         public int Id { get; set; }
@@ -26,6 +28,7 @@ namespace BankFull.Models
 
         public virtual BankDetail? BankDetail { get; set; }
     
+        public virtual ICollection<Transaction> Transactions { get; set; }
         
         public virtual ICollection<UserMessage> UserMessages { get; set; }
     }

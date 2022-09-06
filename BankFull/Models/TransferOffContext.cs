@@ -108,6 +108,10 @@ namespace BankFull.Models
             {
                 entity.ToTable("Transaction");
 
+                entity.Property(e => e.Id)
+                   
+                   .HasColumnType("int(11)");
+
                 entity.Property(e => e.CrAmount).HasColumnName("Cr Amount");
 
                 entity.Property(e => e.Date)
@@ -116,11 +120,11 @@ namespace BankFull.Models
 
                 entity.Property(e => e.DrAmount).HasColumnName("Dr Amount");
 
-                entity.Property(e => e.UserId).HasColumnName("User_id");
+                entity.Property(e => e.MessageId).HasColumnName("Message_Id");
 
-                entity.HasOne(d => d.User)
+                entity.HasOne(d => d.TblMessage)
                     .WithMany(p => p.Transactions)
-                    .HasForeignKey(d => d.UserId)
+                    .HasForeignKey(d => d.MessageId)
                     .HasConstraintName("FK_Transaction_User");
             });
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CH7qIYJq3ZKXC5mw2oOIujPCWhz/PGtQ8Px5DOmTjqI=",
+  "Hash": "ynxeXFGP0b6+go4krcB6z/VIgy3oaXSWl6aCeRYcw5E=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -1137,6 +1137,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Photo\\1d13c139-3c09-4f18-8e24-b2bf20a367b2301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\461e308c-8eb7-4829-9f83-3731b0d66239appends.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "Photo/461e308c-8eb7-4829-9f83-3731b0d66239appends.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photo\\461e308c-8eb7-4829-9f83-3731b0d66239appends.png"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "Photo/4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photo\\4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg"
     },
     {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\73efc7d3-e3f4-43cc-93af-e5d35eb83486img.jpg",

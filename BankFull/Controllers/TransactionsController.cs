@@ -21,7 +21,7 @@ namespace BankFull.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
-            var transferOffContext = _context.Transactions.Include(t => t.User);
+            var transferOffContext = _context.Transactions.Include(t => t.TblMessage);
             return View(await transferOffContext.ToListAsync());
         }
 
@@ -34,7 +34,7 @@ namespace BankFull.Controllers
             }
 
             var transaction = await _context.Transactions
-                .Include(t => t.User)
+                .Include(t => t.TblMessage)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transaction == null)
             {
@@ -64,7 +64,7 @@ namespace BankFull.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.UserId);
+            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.MessageId);
             return View(transaction);
         }
 
@@ -81,7 +81,7 @@ namespace BankFull.Controllers
             {
                 return NotFound();
             }
-            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.UserId);
+            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.MessageId);
             return View(transaction);
         }
 
@@ -108,16 +108,16 @@ namespace BankFull.Controllers
                 {
                     if (!TransactionExists(transaction.Id))
                     {
-                        return NotFound();
+                      return NotFound();
                     }
                     else
                     {
                         throw;
-                    }
+                   }
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.UserId);
+            ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.MessageId);
             return View(transaction);
         }
 
@@ -130,7 +130,7 @@ namespace BankFull.Controllers
             }
 
             var transaction = await _context.Transactions
-                .Include(t => t.User)
+                .Include(t => t.TblMessage)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transaction == null)
             {

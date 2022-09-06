@@ -120,7 +120,7 @@ namespace BankFull.Controllers
 
                     Transaction transaction = new Transaction();
                     transaction.CrAmount = tblMessage.Amount;
-                    transaction.UserId = uid;
+                    transaction.MessageId = msgid;
                     transaction.Date = DateTime.Now.ToString();
 
                     _context.Add(transaction);

@@ -41,8 +41,8 @@
     <tbody>
 @foreach (var item in Model) {
                <tr>
-                   <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Id)
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
@@ -94,17 +94,24 @@ $(document).ready(function() {
         // var id =  $(this).attr("#data-value");
 
     
+        
+       var msid = $(this).closest('tr').find("td:eq(0)").text();
+       var mid = parseInt(msid);
 
-       var Msid = $(this).closest('tr').find("td:eq(1)").text();
-       var Mid = parseInt(Msid);
+
+       var Asmid = $(this).closest('tr').find("td:eq(2)").text();
+       var Amid = parseInt(Asmid);
+
+       
+        console.log(Amid);
 
 
-        console.log("Hello")
-         $.ajax({
+     //   console.log("Hello")
+       $.ajax({
 
-        'url' : '',
+        'url' : 'https://localhost:44346/Sender/Complete',
         'type' : 'Post',
-        'data' : { Mid
+        'data' : { Amid,mid
            
         },
         'success' : function() {       
@@ -115,7 +122,7 @@ $(document).ready(function() {
         },
         'error' : function()
         {
-           window.location.href = "https://localhost:44346/tblMessages"
+           window.location.href = "https://localhost:44346/Users/Assign"
         }
     });
     })

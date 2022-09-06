@@ -9,7 +9,7 @@ namespace BankFull.Models
         public User()
         {
             BankDetails = new HashSet<BankDetail>();
-            Transactions = new HashSet<Transaction>();
+           
             UserMessages = new HashSet<UserMessage>();
         }
         
@@ -25,7 +25,7 @@ namespace BankFull.Models
 
         public virtual Role? Role { get; set; }
         public virtual ICollection<BankDetail> BankDetails { get; set; }
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        
         public virtual ICollection<UserMessage> UserMessages { get; set; }
     }
 }
