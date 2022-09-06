@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankFull.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BankFull.Controllers
 {
+    [Authorize(Roles = "Admin,User")]
+
     public class BankDetailsController : Controller
     {
         private readonly TransferOffContext _context;
@@ -21,6 +24,27 @@ namespace BankFull.Controllers
         // GET: BankDetails
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    return _context.BankDetails != null ?
+                        View(await _context.BankDetails.Include(x => x.User).ToListAsync()) :
+                        Problem("Entity set'TransferoffContext.BankDetails' is null.");
+                }
+                else if (User.IsInRole( "User"))
+                {
+                    string email = User.Identity.Name;
+                    int cid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+                    return _context.BankDetails != null ?
+                    View(await _context.BankDetails.Include(x => x.User).Where(x => x.UserId == cid).ToListAsync()) :
+                    Problem("Entity set 'TranasferoffContext.BankDetails' is null.");
+                }
+              
+
+            }
+
             var transferOffContext = _context.BankDetails.Include(b => b.User);
             return View(await transferOffContext.ToListAsync());
         }
@@ -56,10 +80,16 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,AccountNumber,AccountName,Address,AmountIn,AmountOut,TransactionLimit,UserId")] BankDetail bankDetail)
+        public async Task<IActionResult> Create([Bind("Id,Name,AccountNumber,AccountName,Address,TransactionLimit,UserId")] BankDetail bankDetail)
         {
             if (ModelState.IsValid)
             {
+
+                string email = User.Identity.Name;
+                int cid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+                bankDetail.UserId = cid;
+
                 _context.Add(bankDetail);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -90,7 +120,7 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,AccountNumber,AccountName,Address,AmountIn,AmountOut,TransactionLimit,UserId")] BankDetail bankDetail)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,AccountNumber,AccountName,Address,TransactionLimit,UserId")] BankDetail bankDetail)
         {
             if (id != bankDetail.Id)
             {

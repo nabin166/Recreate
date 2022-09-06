@@ -20,7 +20,7 @@ namespace BankFull.Models
         public virtual DbSet<Transaction> Transactions { get; set; } = null!;
         public virtual DbSet<User> user { get; set; } = null!;
         public virtual DbSet<UserMessage> UserMessages { get; set; } = null!;
-        public virtual DbSet<Assign> Assigns  { get; set; } = null!;
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,14 +51,7 @@ namespace BankFull.Models
                     .HasMaxLength(250)
                     .IsUnicode(false);
 
-                entity.Property(e => e.AmountIn)
-                    .HasMaxLength(100)
-                    .HasColumnName("AmountIN")
-                    .IsFixedLength();
-
-                entity.Property(e => e.AmountOut)
-                    .HasMaxLength(100)
-                    .IsFixedLength();
+               
 
                 entity.Property(e => e.Name)
                     .HasMaxLength(50)
@@ -80,9 +73,12 @@ namespace BankFull.Models
             {
                 entity.ToTable("tblMessage");
 
-                entity.Property(e => e.Bank)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
+                entity.HasOne(d => d.BankDetail)
+                 .WithMany(p => p.TblMessages)
+                .HasForeignKey(d => d.BankId)
+                .HasConstraintName("FK_Bank Details_User1");
+
+
 
                 entity.Property(e => e.Date)
                     .HasMaxLength(250)
@@ -188,15 +184,7 @@ namespace BankFull.Models
 
             });
 
-                  modelBuilder.Entity<Assign>(entity =>
-                  {
-                      entity.ToTable("Assign");
-
-                      entity.HasOne(d => d.TblMessage)
-                          .WithMany(p => p.Assigns  )
-                          .HasForeignKey(d => d.Messageid)
-                          .HasConstraintName("FK_Assign_Message");
-                  });
+                
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -1,17 +1,22 @@
 ﻿
-@model IEnumerable<BankFull.Models.UserMessage>
+@model IEnumerable<BankFull.Models.UserMessage?>
 
 @{
     ViewData["Title"] = "Index";
 }
-
+<div id="clk" style="display:none" class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
 <h1>Index</h1>
 
 <table class="table">
     <thead>
           <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Bank)
+            
+               
+               
+             <th>
+                @Html.DisplayNameFor(model => model.tblMessage.BankDetail.Name)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tblMessage.Amount)
@@ -20,24 +25,15 @@
                 @Html.DisplayNameFor(model => model.tblMessage.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.DocumentPath)
+                @Html.DisplayNameFor(model => model.tblMessage.Document)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Messages)
-            </th>
+            
              <th class="invisible">
                 
             </th>
 
-             @if (@User.IsInRole("Admin")){
-            <th>
-                sendby
-            </th>
+           
             
-            <th>
-                    sendTo
-            </th>
-            }
         </tr>
             
         
@@ -45,45 +41,37 @@
     <tbody>
 @foreach (var item in Model) {
                <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Bank)
+                   <td>
+                @Html.DisplayFor(modelItem => item.tblMessage.Id)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+            </td>
+            
             <td>
                 @Html.DisplayFor(modelItem => item.tblMessage.Amount)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tblMessage.Date)
             </td>
+             
+               
             <td>
 
-                <img src=" @Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+                <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
                
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Messages)
-            </td>
-             <td class="msgid invisible">
-                @Html.DisplayFor(modelItem => item.tblMessage.Id)
-            </td>
-             @if(@User.IsInRole("Admin")){
-             <td>
-                   @Html.DisplayFor(modelItem => item.User.Name)
+           
+          
                         
-            </td>             
-                    <td>
-
-                        <div class="form-group">                      
-                            <select  class ="form-control data" asp-for="@item.UserId"   asp-items="ViewBag.usr"></select>
-                        </div>
-
-                    </td>
-                    <td>
-
-                <input type="submit"  class="btn btn-success userid"  data-value="@item.tblMessage.Id"/>
-             
-            </td>
                 
-            }
+                
+            
+              <td>
+                   
+                        <button type="button" class="btn btn-secondary complete">Complete</button>
+            </td>   
+
                 
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -95,3 +83,42 @@
     </tbody>
 </table>
 
+
+
+<script>
+   
+$(document).ready(function() {
+   
+    $(".complete").click(function(e){
+
+        // var id =  $(this).attr("#data-value");
+
+    
+
+       var Msid = $(this).closest('tr').find("td:eq(1)").text();
+       var Mid = parseInt(Msid);
+
+
+        console.log("Hello")
+         $.ajax({
+
+        'url' : '',
+        'type' : 'Post',
+        'data' : { Mid
+           
+        },
+        'success' : function() {       
+            
+            $("#clk").css({
+                "display": "block",
+            });
+        },
+        'error' : function()
+        {
+           window.location.href = "https://localhost:44346/tblMessages"
+        }
+    });
+    })
+})
+
+</script>

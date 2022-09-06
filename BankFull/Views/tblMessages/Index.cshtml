@@ -6,6 +6,10 @@
     ViewData["Title"] = "Index";
 }
 
+<div id="clk" style="display:none" class="alert alert-success" role="alert">
+  This is a success alert—check it out!
+</div>
+
 <h1>Index</h1>
    
 <p>
@@ -14,8 +18,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Bank)
+            
+           
+             <th>
+                Bank
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tblMessage.Amount)
@@ -24,7 +30,7 @@
                 @Html.DisplayNameFor(model => model.tblMessage.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.DocumentPath)
+                @Html.DisplayNameFor(model => model.tblMessage.Document)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.tblMessage.Messages)
@@ -47,9 +53,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Bank)
+            
+           <td>
+                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
             </td>
+          
+             
             <td>
                 @Html.DisplayFor(modelItem => item.tblMessage.Amount)
             </td>
@@ -106,10 +115,10 @@ $(document).ready(function() {
 
         // var id =  $(this).attr("#data-value");
 
-       var id = $(this).closest('tr').find('.data').val();
+       var cid = $(this).closest('tr').find('.data').val();
 
        var Msid = $(this).closest('tr').find("td:eq(5)").text();
-       var Msgid = parseInt(Msid);
+       var Mssgid = parseInt(Msid);
 
 
         console.log("Hello")
@@ -117,12 +126,14 @@ $(document).ready(function() {
 
         'url' : '/Sender/Index',
         'type' : 'Post',
-        'data' : { Msgid,id
+        'data' : { Mssgid,cid
            
         },
         'success' : function() {       
             
-          
+            $("#clk").css({
+                "display": "block",
+            });
         },
         'error' : function()
         {

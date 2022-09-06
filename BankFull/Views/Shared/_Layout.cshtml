@@ -31,15 +31,41 @@
                       *@
                         @if (@User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item">
+                           
+
+                            if (User.IsInRole("Admin"))
+                            {
+                             
+                                <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="BankDetails" asp-action="Index">BankDetail</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="tblMessages" asp-action="Index">Message</a>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="tblMessages" asp-action="Index">Message</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
+                                   </li>
+                            }
+
+                            if (User.IsInRole("User"))
+                            {
+
+                                 <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="BankDetails" asp-action="Index">BankDetail</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="tblMessages" asp-action="Index">Message</a>
+                                </li>
+
+                               
+                            
+                              @*  <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
+                                   </li>
+                                   *@
+                            }
                         }
                         @if (@User.Identity.IsAuthenticated)
                         {
@@ -47,12 +73,12 @@
                              if (User.IsInRole("Agent"))
                             {
                                   <li class="nav-item float-end">
-                            <a class="nav-link text-success" asp-area="" asp-controller="Users" asp-action="Assign">Assign</a>
+                            <a class="nav-link text-info" asp-area="" asp-controller="Users" asp-action="Assign">Assign</a>
                         </li>
                             }
 
                              <li class="nav-item float-end">
-                            <a class="nav-link text-success" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+                            <a class="nav-link text-danger" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
                         </li>
                            
                         }

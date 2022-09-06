@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BankFull.Controllers
 {
-    [Authorize]
+    [Authorize (Roles = "Admin,User")]
     public class tblMessagesController : Controller
     {
         private readonly TransferOffContext _context;
@@ -33,14 +33,14 @@ namespace BankFull.Controllers
                     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
                     return _context.tblMessages != null ?
-                          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).ToListAsync()) :
+                          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
                 else if(User.IsInRole("User"))
                 {
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-                    return _context.tblMessages != null ?
+                    return _context.UserMessages != null ?
                           View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x=>x.UserId == uid).ToListAsync()):
                     
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
@@ -82,6 +82,9 @@ namespace BankFull.Controllers
         // GET: tblMessages/Create
         public IActionResult Create()
         {
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+            ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id", "Name");
             return View();
         }
 
@@ -90,7 +93,7 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Bank,Amount,Date,DocumentPath,Messages,Document")] tblMessage tblMessage)
+        public async Task<IActionResult> Create([Bind("Id,BankId,Amount,Date,DocumentPath,Messages,Document")] tblMessage tblMessage)
         {
             if (ModelState.IsValid)
             {
@@ -113,6 +116,14 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
                     int msgid = tblMessage.Id;
+
+
+                    Transaction transaction = new Transaction();
+                    transaction.CrAmount = tblMessage.Amount;
+                    transaction.UserId = uid;
+                    transaction.Date = DateTime.Now.ToString();
+
+                    _context.Add(transaction);
 
                     UserMessage userMessage = new UserMessage();
                     userMessage.UserId = uid;

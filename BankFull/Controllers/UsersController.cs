@@ -161,12 +161,14 @@ namespace BankFull.Controllers
 
         public async Task<IActionResult> AssignAsync()
         {
+           
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+           
 
             return _context.tblMessages != null ?
-            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x => x.UserId == uid).ToListAsync()) :
+            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.UserId == uid).ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
 
 

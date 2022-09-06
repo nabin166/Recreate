@@ -13,11 +13,11 @@ namespace BankFull.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int id ,int msgid)
+        public IActionResult Index(int Mssgid ,int cid)
         {
             UserMessage userMessage = new UserMessage();
-            userMessage.UserId = id;
-            userMessage.MessageId = msgid;
+            userMessage.UserId = cid;
+            userMessage.MessageId = Mssgid;
             _context.Add(userMessage);
             _context.SaveChanges();
 
