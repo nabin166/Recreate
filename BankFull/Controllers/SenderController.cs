@@ -25,25 +25,31 @@ namespace BankFull.Controllers
         }
 
         [HttpPost]
-        public  IActionResult Complete(int Amid,int mid)
+      //  [ValidateAntiForgeryToken]
+        public async  Task<IActionResult> Complete(int Asmid,int msid)
         {
-     
+        
             
-            if(_context.Transactions.Where(x=>x.MessageId == mid).Count()>0)
+            if(_context.Transactions.Where(x=>x.MessageId == msid).Count()>0)
             {
 
-                Transaction transaction = new Transaction();
+             //   Transaction transaction = new Transaction();
 
 
-                int query = _context.Transactions.Where(x => x.MessageId == mid).FirstOrDefault().Id;
+                var query = _context.Transactions.Where(x => x.MessageId == msid).FirstOrDefault().Id;
+
+                var c = _context.Transactions.Find(query);
+               
+
 
                 if (query != null)
                 {
-                    transaction.DrAmount = Amid;
+                    c.DrAmount = Asmid;
 
 
-                    _context.Update(transaction);
-                    _context.SaveChanges();
+                    _context.Update(c);
+                    await _context.SaveChangesAsync();
+
                     return RedirectToAction("Index", "Account");
                 }
 

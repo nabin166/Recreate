@@ -108,9 +108,7 @@ namespace BankFull.Models
             {
                 entity.ToTable("Transaction");
 
-                entity.Property(e => e.Id)
-                   
-                   .HasColumnType("int(11)");
+               
 
                 entity.Property(e => e.CrAmount).HasColumnName("Cr Amount");
 

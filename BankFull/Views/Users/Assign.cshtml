@@ -96,14 +96,14 @@ $(document).ready(function() {
     
         
        var msid = $(this).closest('tr').find("td:eq(0)").text();
-       var mid = parseInt(msid);
+    //   var mid = parseInt(msid);
 
 
        var Asmid = $(this).closest('tr').find("td:eq(2)").text();
-       var Amid = parseInt(Asmid);
+    //   var Amid = parseInt(Asmid);
 
        
-        console.log(Amid);
+        console.log(Asmid);
 
 
      //   console.log("Hello")
@@ -111,7 +111,7 @@ $(document).ready(function() {
 
         'url' : 'https://localhost:44346/Sender/Complete',
         'type' : 'Post',
-        'data' : { Amid,mid
+        'data' : { Asmid,msid
            
         },
         'success' : function() {       
