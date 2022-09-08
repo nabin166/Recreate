@@ -4,13 +4,13 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<h1 class="text-dark">Transactions</h1>
+<hr/>
+   
+
+<table class="table tablecolor">
+    <thead class="bg-info">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Date)
@@ -43,9 +43,15 @@
                 @Html.DisplayFor(modelItem => item.MessageId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+               @if(User.Identity.IsAuthenticated){
+               @if(@User.IsInRole("never")){
+                    
+                  <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> 
+               
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
+                    }
+                }
+           
             </td>
         </tr>
 }

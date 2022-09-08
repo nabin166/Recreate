@@ -4,13 +4,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
+<h1 class="text-dark">Role</h1>
+<hr />
+   
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Add Role" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create Role</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table tablecolor ">
+    <thead class="bg-info">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Role1)
@@ -25,9 +27,9 @@
                 @Html.DisplayFor(modelItem => item.Role1)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                   <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> 
+               
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
 }

@@ -7,14 +7,15 @@
 <div id="clk" style="display:none" class="alert alert-success" role="alert">
   This is a success alert—check it out!
 </div>
-<h1>Index</h1>
 
-<table class="table">
-    <thead>
+<h1 class="text-dark">Assigned</h1>
+<hr />
+
+<table class="table tablecolor">
+    <thead class="bg-info">
           <tr>
-            
-               
-               
+              <th></th>
+              
              <th>
                 @Html.DisplayNameFor(model => model.tblMessage.BankDetail.Name)
             </th>
@@ -28,7 +29,15 @@
                 @Html.DisplayNameFor(model => model.tblMessage.Document)
             </th>
             
-             <th class="invisible">
+             <th>
+                
+            </th>
+            
+             <th>
+                
+            </th>
+            
+             <th>
                 
             </th>
 
@@ -63,20 +72,14 @@
             </td>
            
           
-                        
-                
-                
+                             
             
               <td>
                    
                         <button type="button" class="btn btn-secondary complete">Complete</button>
-            </td>   
-
-                
+            </td>     
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                  <a asp-action="Delete" asp-route-id="@item.Id" class="text-danger anc"><i class="fa-lg anc text-danger fa-solid fa-trash-can"> </i> Reject</a>
             </td>
         </tr>
 }

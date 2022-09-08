@@ -6,97 +6,90 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BankFull.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace BankFull.Controllers
 {
-    [Authorize(Roles = "Admin")]
-    public class UsersController : Controller
+    public class TransactionRatesController : Controller
     {
         private readonly TransferOffContext _context;
 
-        public UsersController(TransferOffContext context)
+        public TransactionRatesController(TransferOffContext context)
         {
             _context = context;
         }
 
-        // GET: Users
+        // GET: TransactionRates
         public async Task<IActionResult> Index()
         {
-            var transferOffContext = _context.user.Include(u => u.Role);
-            return View(await transferOffContext.ToListAsync());
+              return _context.TransactionRates != null ? 
+                          View(await _context.TransactionRates.ToListAsync()) :
+                          Problem("Entity set 'TransferOffContext.TransactionRates'  is null.");
         }
 
-
-        
-        // GET: Users/Details/5
+        // GET: TransactionRates/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.user == null)
+            if (id == null || _context.TransactionRates == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user
-                .Include(u => u.Role)
+            var transactionRate = await _context.TransactionRates
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (transactionRate == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(transactionRate);
         }
 
-        // GET: Users/Create
+        // GET: TransactionRates/Create
         public IActionResult Create()
         {
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Role1");
             return View();
         }
 
-        // POST: Users/Create
+        // POST: TransactionRates/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Address,Email,Phone,Status,RoleId,Password")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Rate,Date")] TransactionRate transactionRate)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(transactionRate);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
-            return View(user);
+            return View(transactionRate);
         }
 
-        // GET: Users/Edit/5
+        // GET: TransactionRates/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.user == null)
+            if (id == null || _context.TransactionRates == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user.FindAsync(id);
-            if (user == null)
+            var transactionRate = await _context.TransactionRates.FindAsync(id);
+            if (transactionRate == null)
             {
                 return NotFound();
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
-            return View(user);
+            return View(transactionRate);
         }
 
-        // POST: Users/Edit/5
+        // POST: TransactionRates/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Address,Email,Phone,Status,RoleId,Password")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Rate,Date")] TransactionRate transactionRate)
         {
-            if (id != user.Id)
+            if (id != transactionRate.Id)
             {
                 return NotFound();
             }
@@ -105,12 +98,12 @@ namespace BankFull.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(transactionRate);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.Id))
+                    if (!TransactionRateExists(transactionRate.Id))
                     {
                         return NotFound();
                     }
@@ -121,67 +114,49 @@ namespace BankFull.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
-            return View(user);
+            return View(transactionRate);
         }
 
-        // GET: Users/Delete/5
+        // GET: TransactionRates/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.user == null)
+            if (id == null || _context.TransactionRates == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.user
-                .Include(u => u.Role)
+            var transactionRate = await _context.TransactionRates
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (user == null)
+            if (transactionRate == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(transactionRate);
         }
 
-        // POST: Users/Delete/5
+        // POST: TransactionRates/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.user == null)
+            if (_context.TransactionRates == null)
             {
-                return Problem("Entity set 'TransferOffContext.user'  is null.");
+                return Problem("Entity set 'TransferOffContext.TransactionRates'  is null.");
             }
-            var user = await _context.user.FindAsync(id);
-            if (user != null)
+            var transactionRate = await _context.TransactionRates.FindAsync(id);
+            if (transactionRate != null)
             {
-                _context.user.Remove(user);
+                _context.TransactionRates.Remove(transactionRate);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        [AllowAnonymous]
-        public async Task<IActionResult> AssignAsync()
+
+        private bool TransactionRateExists(int id)
         {
-           
-
-            string email = User.Identity.Name;
-            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-           
-
-            return _context.tblMessages != null ?
-            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.UserId == uid).ToListAsync()) :
-            Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
-
-
-        }
-
-
-        private bool UserExists(int id)
-        {
-          return (_context.user?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.TransactionRates?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

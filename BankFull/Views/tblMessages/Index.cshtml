@@ -10,13 +10,14 @@
   This is a success alert—check it out!
 </div>
 
-<h1>Index</h1>
+<h1 class="text-dark">Message</h1>
+<hr />
    
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create Message</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table tablecolor">
+    <thead class="bg-info">
         <tr>
             
            
@@ -35,9 +36,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.tblMessage.Messages)
             </th>
-             <th class="invisible">
-                
-            </th>
+               
+           <th > 
+             </th>
 
              @if (@User.IsInRole("Admin")){
             <th>
@@ -48,6 +49,11 @@
                     sendTo
             </th>
             }
+            
+             <th >   
+            </th>
+             <th >   
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -97,9 +103,9 @@
             }
                 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> *@
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
 }

@@ -74,5 +74,11 @@ namespace BankFull.Controllers
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Account");
         }
+
+        public async Task<IActionResult> Register()
+        {
+
+            return View();
+        }
     }
 }

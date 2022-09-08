@@ -21,7 +21,7 @@ namespace BankFull.Models
         public virtual DbSet<User> user { get; set; } = null!;
         public virtual DbSet<UserMessage> UserMessages { get; set; } = null!;
        
-
+        public virtual DbSet<TransactionRate> TransactionRates { get; set; } = null!;   
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)

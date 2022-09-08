@@ -19,96 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-   @* <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index"><img height="25px" src="~/public/logo.png" /> Record </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                       
-                      @*
-                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Role</a>
-                        </li>
-                    ???
-                        @if (@User.Identity.IsAuthenticated)
-                        {
-                           
-
-                            if (User.IsInRole("Admin"))
-                            {
-                             
-                                <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="BankDetails" asp-action="Index">BankDetail</a>
-                            </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="tblMessages" asp-action="Index">Message</a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
-                                   </li>
-                            }
-
-                            if (User.IsInRole("User"))
-                            {
-
-                                 <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="BankDetails" asp-action="Index">BankDetail</a>
-                            </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="tblMessages" asp-action="Index">Message</a>
-                                </li>
-
-                               
-                            
-                              @*  <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
-                                   </li>
-                             ???
-                            }
-                        }
-                        @if (@User.Identity.IsAuthenticated)
-                        {
-
-                             if (User.IsInRole("Agent"))
-                            {
-                                  <li class="nav-item float-end">
-                            <a class="nav-link text-info" asp-area="" asp-controller="Users" asp-action="Assign">Assign</a>
-                        </li>
-                            }
-
-                             <li class="nav-item float-end">
-                            <a class="nav-link text-danger" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
-                        </li>
-                           
-                        }
-                        else
-                        {
-                         <li class="nav-item float-end">
-                            <a class="nav-link text-success" asp-area="" asp-controller="Users" asp-action="Index">Register</a>
-                        </li>
-                           <li class="nav-item float-end">
-                            <a class="nav-link text-success" asp-area="" asp-controller="Account" asp-action="Index">Signin</a>
-                        </li>
-                        }
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>  
-
-    *@
-
 
 
   <div class="w-100">
@@ -176,17 +86,17 @@
                    }
 
           
-           
+           @*
             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Roles" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Role</p>
             </a>
-
+            *@
 
             @if (!@User.Identity.IsAuthenticated)
                         {
-                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Users" asp-action="Index"
+                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Account" asp-action="Register"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Register</p>
@@ -269,9 +179,11 @@
 
                             
                         }
-              @*ROlE*@     
+              @*ROlE    
              <a class="row py-2 a p-0 text-white text-center border-sm pl-4 " asp-controller="Roles" asp-action="Index" style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " style="margin-top: 13px;"></i> <p class="ml-2 mt-2"></p></a> 
-          </div>
+        Register*@
+          <a class="row py-2 a p-0 text-white text-center border-sm pl-4 " asp-controller="Users" asp-action="Index" style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " style="margin-top: 13px;"></i> <p class="ml-2 mt-2"></p></a> 
+         </div>
 
           
            @if (@User.Identity.IsAuthenticated)
@@ -301,14 +213,14 @@
         <div class="col-lg-9 col-md-8 m-0 p-0 container-fluid position-absolute " style="right:0px;">
 
           <!-- Content field -->
-
+          <div id="padding" >
          
         <main role="main"  >
             @RenderBody()
         </main>
       
 
-
+        </div>
 
         </div>
 

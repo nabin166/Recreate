@@ -119,6 +119,16 @@ namespace BankFull.Controllers
 
 
                     Transaction transaction = new Transaction();
+
+                    //yeha bata transaction rate nikalne .
+
+                  //  int abc = _context.TransactionRates.OrderByDescending(x => x.Id).FirstOrDefault().Id;
+                  //  int amoun2 = (int)_context.TransactionRates.Where(p => p.Id == abc).FirstOrDefault().Rate;
+                  //  int? bcd = tblMessage.Amount * amoun2;
+                  //  transaction.CrAmount = bcd;
+                    //yeha samma lekhe ko 
+
+
                     transaction.CrAmount = tblMessage.Amount;
                     transaction.MessageId = msgid;
                     transaction.Date = DateTime.Now.ToString();
