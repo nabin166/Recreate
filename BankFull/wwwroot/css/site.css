@@ -2,17 +2,34 @@ html {
   font-size: 14px;
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
+::-webkit-scrollbar {
+   scroll-behavior:smooth;
+   display:none;
+   overflow-x:hidden;
+}
+
+
+.a{
+    text-decoration: none !important;
+    color: white !important;
+    
+  
+
+}
+.a:hover{
+    background-color: rgba(105, 119, 119, 0.266);
+}
+
+#medwid {
+       
+      
+    /* left: 20px; */
+}
+
+@media (max-width:768px ) {
+    #medwid{
+        margin-left: 50px;
+        /* left: 20px; */
+    }
+    
   }
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
-}

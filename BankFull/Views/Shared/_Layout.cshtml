@@ -4,13 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BankFull</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel=" stylesheet" href="~/css/style.css" />
+   @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/BankFull.styles.css" asp-append-version="true" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
-    <header>
+   @* <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand " asp-area="" asp-controller="Home" asp-action="Index"><img height="25px" src="~/public/logo.png" /> Record </a>
@@ -28,7 +37,7 @@
                          <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Roles" asp-action="Index">Role</a>
                         </li>
-                      *@
+                    ???
                         @if (@User.Identity.IsAuthenticated)
                         {
                            
@@ -64,7 +73,7 @@
                               @*  <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">Transaction</a>
                                    </li>
-                                   *@
+                             ???
                             }
                         }
                         @if (@User.Identity.IsAuthenticated)
@@ -96,18 +105,219 @@
                 </div>
             </div>
         </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    </header>  
+
+    *@
+
+
+
+  <div class="w-100">
+    <div class="row d-flex ">
+
+
+      <!-- For lg md Screen  -->
+      <div class=" d-none d-lg-block d-md-block col-md-4 col-lg-3 p-0  bg-info position-fixed" style="height:100vh;">
+        <div class=" d-flex flex-column justify-content-between " style="height: 100vh;">
+
+          <div class="text-center my-4"><a  class="text-white "><strong>Welcome ! Niraj Baral</strong></a></div>
+
+
+          <div class="col d-flex flex-column border-info mt-4 ">
+            <a class="a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Home" asp-action="Index"
+              style=" background-color: rgb(105, 119, 119); border-bottom: 0.3px solid burlywood;  " ><i
+                class="fa-solid fa-home" style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Home</p>
+            </a>
+             @if (@User.Identity.IsAuthenticated)
+                        {
+                            if (@User.IsInRole("Admin"))
+                            {
+                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Bank Details</p>
+            </a>
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Message</p>
+              </a>
+                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Transactions" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Transaction</p>
+                                </a>
+                            }
+
+                            else if (@User.IsInRole("User"))
+                            {
+                                                
+                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Bank Details</p>
+            </a>
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Message</p>
+                                </a>
+                            }
+                            else if (@User.IsInRole("Agent"))
+                            {
+                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Users" asp-action="Assign"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Assign</p>
+            </a>
+                            }
+
+
+                   }
+
+          
+           
+            <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Roles" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Role</p>
+            </a>
+
+
+            @if (!@User.Identity.IsAuthenticated)
+                        {
+                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Users" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Register</p>
+            </a>
+                            
+                        }
+
+     
+            
+          </div>
+
+                    @if (@User.Identity.IsAuthenticated)
+                    {
+                         <div class="text-center mb-4"><a  class="a text-white" asp-controller="Account" asp-action="Logout"><i
+                class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
+                    }
+                    else
+                    {
+                        
+           <div class="text-center mb-4"><a  class="a text-white"  asp-controller="Account" asp-action="Index"><i
+                class="fa-solid fa-right-from-bracket"></i>Login</a></div>
+                    }
+
+
+
+         
+
+        </div>
+
+
+
+      </div>
+
+      <!-- For sm Screen -->
+      <div class="d-block d-lg-none d-md-none p-0  bg-info position-fixed  " style="height:100vh;">
+        <div class=" d-flex flex-column justify-content-between " style="height: 100vh;">
+
+          <div class="text-center my-4"><a href="" class="text-white "><strong></strong></a></div>
+
+
+          <div class="col d-flex flex-column border-info mt-4  ">
+
+            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "asp-controller="Home" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  background-color: rgb(105, 119, 119); " ><i
+                class="fa-solid fa-home" style="margin-top: 13px;"></i> </a>
+
+                 @if (@User.Identity.IsAuthenticated)
+                        {
+                            if (@User.IsInRole("Admin"))
+                            {
+                                     <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                style="margin-top: 13px;"></i> </a>
+            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "  asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i></a>
+            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="Transactions" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " 
+                style="margin-top: 13px;"></i></a>
+                            }
+
+                            if (@User.IsInRole("User"))
+                            {
+                                <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "  asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                style="margin-top: 13px;"></i> </a>
+                                <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i></a>
+
+                            }
+                            else if (@User.IsInRole("Agent"))
+                            {
+                                  <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="Users" asp-action="Assign"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i></a>
+                            }
+
+
+
+                            
+                        }
+              @*ROlE*@     
+             <a class="row py-2 a p-0 text-white text-center border-sm pl-4 " asp-controller="Roles" asp-action="Index" style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " style="margin-top: 13px;"></i> <p class="ml-2 mt-2"></p></a> 
+          </div>
+
+          
+           @if (@User.Identity.IsAuthenticated)
+                    {
+                         <div class="text-center mb-4"><a  class="a text-white" asp-controller="Account" asp-action="Logout"><i
+                class="fa-solid fa-right-from-bracket"></i>out</a></div>
+                    }
+                    else
+                    {
+                        
+           <div class="text-center mb-4"><a  class="a text-white"  asp-controller="Account" asp-action="Index"><i
+                class="fa-solid fa-right-from-bracket"></i>in</a></div>
+                    }
+
+        </div>
+
+
+
+      </div>
+
+     
+
+
+      <div class=" col d-flex  " id="medwid">
+
+          @* <div class="col-lg-3 col-md-4 m-0 p-0 " style="display:none;">  </div> *@
+        <div class="col-lg-9 col-md-8 m-0 p-0 container-fluid position-absolute " style="right:0px;">
+
+          <!-- Content field -->
+
+         
+        <main role="main"  >
             @RenderBody()
         </main>
-    </div>
+      
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - BankFull - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+
         </div>
-    </footer>
+
+
+      </div>
+
+    </div>
+  </div>
+
 
    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
