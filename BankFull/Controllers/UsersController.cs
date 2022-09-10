@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using BankFull.Models;
 using Microsoft.AspNetCore.Authorization;
 
+using BCryptNet = BCrypt.Net.BCrypt;
+
 namespace BankFull.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class UsersController : Controller
     {
         private readonly TransferOffContext _context;
@@ -64,6 +66,13 @@ namespace BankFull.Controllers
         {
             if (ModelState.IsValid)
             {
+
+               // User usr = new User();
+
+                string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                user.Password = passwordHash;
+                
+
                 _context.Add(user);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

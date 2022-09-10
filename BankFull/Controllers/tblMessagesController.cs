@@ -22,28 +22,99 @@ namespace BankFull.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
+
+
+      
+
+
+
         // GET: tblMessages
         public async Task<IActionResult> Index()
         {
+            
+
+                    ///Testing
+                    /////////
+                    
+                    List<tblMessage> tbllist = _context.tblMessages.ToList();
+                    List<TransactionRate> ratelist = _context.TransactionRates.ToList();
+                    List<UserMessage> usermess = _context.UserMessages.ToList();
+                    List<BankDetail> bankdet = _context.BankDetails.ToList();
+                    List<User> usr = _context.user.ToList();
+                    List<Role> rol = _context.Roles.ToList();
+
+                  
+
+            /////////
+            /// 
+            //   ViewData["data"] = data;
             if (User.Identity.IsAuthenticated)
             {
                 if (User.IsInRole("Admin"))
                 {
+
+                    List<MessagerateViewModel> data = (from r in ratelist
+                                                       join t in tbllist on r.Date equals t.Date
+                                                       join u in usermess on t.Id equals u.MessageId
+                                                       join b in bankdet on t.BankId equals b.Id
+                                                       join e in usr on u.UserId equals e.Id
+                                                       join o in rol on e.RoleId equals o.Id
+
+
+                                                       select new MessagerateViewModel()
+                                                       {
+                                                           ratelist = r,
+                                                           tbllist = t,
+                                                           usermess = u,
+                                                           bankdet = b,
+                                                           usr = e,
+                                                           rol = o
+
+
+                                                       }).Where(x => x.rol.Role1 != "Agent").ToList();
+
+                    var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
+                    ViewData["rate"] = Latestrateid;
+                  
+
+
                     string email = User.Identity.Name;
                     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
-                    return _context.tblMessages != null ?
-                          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+                    return View(data);
+
+                 //   return _context.tblMessages != null ?
+                //          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
+                //          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
                 else if(User.IsInRole("User"))
                 {
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-                    return _context.UserMessages != null ?
-                          View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x=>x.UserId == uid).ToListAsync()):
-                    
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+
+                    List<MessagerateViewModel> data = (from r in ratelist
+                                                       join t in tbllist on r.Date equals t.Date
+                                                       join u in usermess on t.Id equals u.MessageId
+                                                       join b in bankdet on t.BankId equals b.Id
+                                                       join e in usr on u.UserId equals e.Id
+                                                       join o in rol on e.RoleId equals o.Id
+
+
+                                                       select new MessagerateViewModel()
+                                                       {
+                                                           ratelist = r,
+                                                           tbllist = t,
+                                                           usermess = u,
+                                                           bankdet = b,
+                                                           usr = e,
+                                                           rol = o
+
+
+                                                       }).Where(x => x.usermess.UserId == uid).ToList();
+
+
+                  
+                    return View(data);
                 }
                 else if (User.IsInRole("Agent"))
                 {
@@ -122,12 +193,13 @@ namespace BankFull.Controllers
 
                     //yeha bata transaction rate nikalne .
 
-                  //  int abc = _context.TransactionRates.OrderByDescending(x => x.Id).FirstOrDefault().Id;
-                  //  int amoun2 = (int)_context.TransactionRates.Where(p => p.Id == abc).FirstOrDefault().Rate;
-                  //  int? bcd = tblMessage.Amount * amoun2;
-                  //  transaction.CrAmount = bcd;
+                    //  int abc = _context.TransactionRates.OrderByDescending(x => x.Id).FirstOrDefault().Id;
+                    //  int amoun2 = (int)_context.TransactionRates.Where(p => p.Id == abc).FirstOrDefault().Rate;
+                    //  int? bcd = tblMessage.Amount * amoun2;
+                    //  transaction.CrAmount = bcd;
                     //yeha samma lekhe ko 
 
+                    
 
                     transaction.CrAmount = tblMessage.Amount;
                     transaction.MessageId = msgid;
@@ -248,4 +320,20 @@ namespace BankFull.Controllers
           return (_context.tblMessages?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
+
+    /// <summary>
+    /// //
+    /// </summary>
+
+    internal class MessagerateViewModel
+    {
+        public tblMessage tbllist { get; set; }
+        public TransactionRate ratelist { get; set; }
+
+        public UserMessage usermess { get; set; }
+        public BankDetail bankdet { get; set; }
+        public User usr { get; set; }
+        public Role rol { get; set; }
+    }
+
 }

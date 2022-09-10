@@ -1,10 +1,16 @@
-﻿@model IEnumerable<BankFull.Models.UserMessage>
+﻿@*model IEnumerable<BankFull.Models.UserMessage> *@
+
+@using BankFull.Controllers;
+@model IEnumerable<MessagerateViewModel>
 
 
 
-@{
-    ViewData["Title"] = "Index";
-}
+
+
+
+
+
+
 
 <div id="clk" style="display:none" class="alert alert-success" role="alert">
   This is a success alert—check it out!
@@ -22,90 +28,93 @@
             
            
              <th>
-                Bank
+                bank
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Amount)
+                Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Date)
+                date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Document)
+                document
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Messages)
+                message
             </th>
                
            <th > 
              </th>
 
-             @if (@User.IsInRole("Admin")){
-            <th>
-                sendby
-            </th>
             
-            <th>
-                    sendTo
+            @if(@User.IsInRole("Admin")){
+             <th > Sent by
             </th>
+
+              
+             <th >   sent to
+            </th>
+            <th > 
+             </th>
             }
-            
-             <th >   
-            </th>
-             <th >   
-            </th>
+             <th > 
+             </th>
+              
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (MessagerateViewModel item in Model){
         <tr>
-            
+           
            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                @Html.DisplayFor(modelItem => item.bankdet.Name) 
             </td>
           
              
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+            <td class="cas">
+                
+                @Html.DisplayFor(modelItem => item.tbllist.Amount) ( @Html.DisplayFor(modelItem => item.ratelist.Rate) )
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                @Html.DisplayFor(modelItem => item.tbllist.Date)
             </td>
             <td>
 
-                <img src=" @Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+                <img src=" @Html.DisplayFor(modelItem => item.tbllist.DocumentPath)" width="50px"/>
                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Messages)
+                @Html.DisplayFor(modelItem => item.tbllist.Messages)
             </td>
              <td class="msgid invisible">
-                @Html.DisplayFor(modelItem => item.tblMessage.Id)
+                @Html.DisplayFor(modelItem => item.tbllist.Id)
             </td>
              @if(@User.IsInRole("Admin")){
              <td>
-                   @Html.DisplayFor(modelItem => item.User.Name)
+                  @Html.DisplayFor(modelItem => item.usr.Name)
                         
-            </td>             
+            </td>   
+            
+           
                     <td>
 
                         <div class="form-group">                      
-                            <select  class ="form-control data" asp-for="@item.UserId"   asp-items="ViewBag.usr"></select>
+                           <select  class ="form-control data" asp-for=" @item.usr.Id"   asp-items="ViewBag.usr"></select> 
                         </div>
 
                     </td>
                     <td>
 
-                <input type="submit"  class="btn btn-success userid"  data-value="@item.tblMessage.Id"/>
+                <input type="submit"  class="btn btn-success userid"  data-value="@item.tbllist.Id"/> 
              
             </td>
                 
             }
                 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+                <a asp-action="Edit" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
                @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> *@
-                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
+               <a asp-action="Delete" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
 }
@@ -115,7 +124,20 @@
 
 <script>
    
+
 $(document).ready(function() {
+
+
+      
+
+   
+    
+    var c = @ViewBag.rate;
+
+    
+
+     $(".ad").append("("+c+")")
+
    
     $(".userid").click(function(e){
 

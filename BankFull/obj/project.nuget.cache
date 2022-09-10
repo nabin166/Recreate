@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "INaf5aEyf7F7uL9exJDAgSPMvT4+rAmRZ9QL/BnN6FAJHemHVKq+G3HXJjFSuotm7LDLvfjRNKL/eJEt9GotBQ==",
+  "dgSpecHash": "6QOcyjyXSNqW80BUS9AQXsbNXNG4X5owuYErKCiaYUwlBiiiwaYt//6ZtBh217O+F/Dv+Dkp9DSov0whMDt08g==",
   "success": true,
   "projectFilePath": "D:\\Recreate\\BankFull\\BankFull.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

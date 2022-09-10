@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
+
+using BCryptNet = BCrypt.Net.BCrypt;
+
 namespace BankFull.Controllers
 {
     public class AccountController : Controller
@@ -33,7 +36,7 @@ namespace BankFull.Controllers
 
             if (user != null)
             {
-                if(user.Password == Password)
+                if(BCrypt.Net.BCrypt.Verify(Password,user.Password))
                 {
                     string roless = _context.Roles.Where(x => x.Users.Where(x => x.Email == Email).Count() > 0).FirstOrDefault().Role1;
                     identity = new ClaimsIdentity(new[]

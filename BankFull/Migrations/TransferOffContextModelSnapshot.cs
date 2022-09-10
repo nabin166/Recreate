@@ -125,7 +125,7 @@ namespace BankFull.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int(11)");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
@@ -151,6 +151,26 @@ namespace BankFull.Migrations
                     b.HasIndex("MessageId");
 
                     b.ToTable("Transaction", (string)null);
+                });
+
+            modelBuilder.Entity("BankFull.Models.TransactionRate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float>("Rate")
+                        .HasColumnType("real");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransactionRates");
                 });
 
             modelBuilder.Entity("BankFull.Models.User", b =>
