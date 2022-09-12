@@ -1,7 +1,9 @@
 ﻿@*model IEnumerable<BankFull.Models.UserMessage> *@
 
 @using BankFull.Controllers;
-@model IEnumerable<MessagerateViewModel>
+@*@model IEnumerable<MessagerateViewModel>*@
+
+@model dynamic
 
 
 
@@ -63,7 +65,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (MessagerateViewModel item in Model){
+@foreach (MessagerateViewModel item in Model.data){
         <tr>
            
            <td>
@@ -120,7 +122,101 @@
 }
     </tbody>
 </table>
+@*Submitted_data*@
 
+<h4>Assigned </h4>
+<table class="table tablecolor">
+    <thead class="bg-danger">
+        <tr>
+            
+           
+             <th>
+                bank
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                date
+            </th>
+            <th>
+                document
+            </th>
+            <th>
+                message
+            </th>
+               
+           <th > 
+             </th>
+
+            
+            @if(@User.IsInRole("Admin")){
+             <th > Assigned to
+            </th>
+
+              
+             <th >   
+            </th>
+            <th > 
+             </th>
+            }
+             <th > 
+             </th>
+              
+        </tr>
+    </thead>
+    <tbody>
+@foreach (MessagerateViewModel item in Model.Assigned){
+        <tr>
+           
+           <td>
+                @Html.DisplayFor(modelItem => item.bankdet.Name) 
+            </td>
+          
+             
+            <td class="cas">
+                
+                @Html.DisplayFor(modelItem => item.tbllist.Amount) ( @Html.DisplayFor(modelItem => item.ratelist.Rate) )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbllist.Date)
+            </td>
+            <td>
+
+                <img src=" @Html.DisplayFor(modelItem => item.tbllist.DocumentPath)" width="50px"/>
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbllist.Messages)
+            </td>
+             <td class="msgid invisible">
+                @Html.DisplayFor(modelItem => item.tbllist.Id)
+            </td>
+             @if(@User.IsInRole("Admin")){
+             <td>
+                  @Html.DisplayFor(modelItem => item.usr.Name)
+                        
+            </td>   
+            
+           
+                    <td>
+
+
+                    </td>
+                    <td>
+
+              
+             
+            </td>
+                
+            }
+                
+            <td>
+                           </td>
+        </tr>
+}
+    </tbody>
+</table>
 
 <script>
    

@@ -176,6 +176,8 @@ namespace BankFull.Controllers
         {
            
 
+           
+
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
            
