@@ -23,11 +23,6 @@ namespace BankFull.Controllers
         }
 
 
-
-      
-
-
-
         // GET: tblMessages
         public async Task<IActionResult> Index()
         {

@@ -58,3 +58,8 @@ html {
         padding:10px;
     }
   }
+
+.active {
+    background-color: rgb(105, 119, 119);
+}
+

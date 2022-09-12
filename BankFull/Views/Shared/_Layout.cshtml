@@ -29,30 +29,39 @@
       <div class=" d-none d-lg-block d-md-block col-md-4 col-lg-3 p-0  bg-info position-fixed" style="height:100vh;">
         <div class=" d-flex flex-column justify-content-between " style="height: 100vh;">
 
-          <div class="text-center my-4"><a  class="text-white "><strong>Welcome ! Niraj Baral</strong></a></div>
+                    <div class="text-center my-4"><a  class="text-white "><strong> @if (@User.Identity.IsAuthenticated)
+                                {
+                                    <p> Welcome !</p> @User.Identity.Name
+                                }
+                                else
+                                {
+                                    <p>Sign up ! </p>
+                                }
+                            </strong></a></div>
 
 
-          <div class="col d-flex flex-column border-info mt-4 ">
-            <a class="a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Home" asp-action="Index"
-              style=" background-color: rgb(105, 119, 119); border-bottom: 0.3px solid burlywood;  " ><i
-                class="fa-solid fa-home" style="margin-top: 13px;"></i>
+          <div class="col d-flex flex-column border-info mt-4 " >
+            <a class="a row py-2 p-0 text-white text-center border-sm pl-4 act home " id="Test1" style=" border-bottom: 0.3px solid burlywood; "
+            asp-controller="Home" asp-action="Index"
+              style=" active border-bottom: 0.3px solid burlywood;  " ><i
+                class="fa-solid fa-home" style="margin-top: 13px;   "></i>
               <p class="ml-2 mt-2">Home</p>
             </a>
              @if (@User.Identity.IsAuthenticated)
                         {
                             if (@User.IsInRole("Admin"))
                             {
-                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="BankDetails" asp-action="Index"
+                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 Bank act" asp-controller="BankDetails" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Bank Details</p>
             </a>
-             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="tblMessages" asp-action="Index"
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 tblmessage act" asp-controller="tblMessages" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Message</p>
               </a>
-                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Transactions" asp-action="Index"
+                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transaction " asp-controller="Transactions" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Transaction</p>
@@ -62,12 +71,12 @@
                             else if (@User.IsInRole("User"))
                             {
                                                 
-                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="BankDetails" asp-action="Index"
+                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 act Bank " asp-controller="BankDetails" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Bank Details</p>
             </a>
-             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="tblMessages" asp-action="Index"
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act tblmessage" asp-controller="tblMessages" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Message</p>
@@ -75,7 +84,7 @@
                             }
                             else if (@User.IsInRole("Agent"))
                             {
-                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Users" asp-action="Assign"
+                                 <a class="row a py-2 p-0 text-white text-center Assign border-sm pl-4 act " asp-controller="Users" asp-action="Assign"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Assign</p>
@@ -87,7 +96,7 @@
 
           
            @*
-            <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Roles" asp-action="Index"
+            <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act role " asp-controller="Roles" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Role</p>
@@ -96,7 +105,7 @@
 
             @if (!@User.Identity.IsAuthenticated)
                         {
-                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4  " asp-controller="Account" asp-action="Register"
+                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Register" asp-controller="Account" asp-action="Register"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Register</p>
@@ -119,10 +128,6 @@
            <div class="text-center mb-4"><a  class="a text-white"  asp-controller="Account" asp-action="Index"><i
                 class="fa-solid fa-right-from-bracket"></i>Login</a></div>
                     }
-
-
-
-         
 
         </div>
 
@@ -238,3 +243,34 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+
+   
+@{
+    var currentActionName = ViewContext.RouteData.Values["Controller"].ToString();
+}
+<script>
+  $(document).ready(function() {
+    //remove the active class in each pages
+    $('.act').each(function() {
+        $(this).removeClass('active');
+    });
+    //assign the active class to active page only
+    if ('@currentActionName' === 'Home') {
+        $('.home').addClass('active');
+    } else if ('@currentActionName' === "tblMessages") {
+        $('.tblmessage').addClass('active');
+    } else if ('@currentActionName' === "BankDetails") {
+        $('.Bank').addClass('active');
+    }else if ('@currentActionName' === "Transactions") {
+        $('.Transaction').addClass('active');
+    }else if ('@currentActionName' === "Users") {
+        $('.Assign').addClass('active');
+    }else if ('@currentActionName' === "Account") {
+        $('.Register').addClass('active');
+    }else if ('@currentActionName' === "Roles") {
+        $('.role').addClass('active');
+    }
+});
+</script>
