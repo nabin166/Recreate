@@ -71,6 +71,9 @@ namespace BankFull.Controllers
 
 
                                                        }).Where(x => x.rol.Role1 != "Agent").ToList();
+
+                 //   data.Where(x => x.usermess.User.Role.Role1 == "Agent").FirstOrDefault().tbllist.Id.Equals(data.Where(x => x.usermess.User.Role.Role1 == "Admin").FirstOrDefault().tbllist.Id);
+                    
                     
                     List<MessagerateViewModel> Assigned = (from r in ratelist
                                                        join t in tbllist on r.Date equals t.Date

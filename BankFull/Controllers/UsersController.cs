@@ -180,7 +180,8 @@ namespace BankFull.Controllers
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-           
+
+
 
             return _context.tblMessages != null ?
             View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.UserId == uid).ToListAsync()) :
