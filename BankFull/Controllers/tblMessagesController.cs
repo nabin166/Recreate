@@ -26,20 +26,28 @@ namespace BankFull.Controllers
 
         // GET: tblMessages
         public async Task<IActionResult> viewforadmin()
-        { 
+        {
 
-            return View(_context.tblMessages.Where(x=>x.UserMessages.Count()>2).ToList());  
+            //   return View(_context.UserMessages.Include(x=>x.User).Include(x=>x.User.Role).Include(x=>x.tblMessage).Include(x=>x.tblMessage.BankDetail).ToList());  
+            return View(_context.tblMessages.Include(x=>x.UserMessages).Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).Include(x=>x.BankDetail.User.Role).ToList());
         }
+
+
+
+
+
+
+
             public async Task<IActionResult> Index()
         {
                     
                   //  List<tblMessage> tbllist = _context.tblMessages.Where(x => x.UserMessages.Count() <= 1).ToList();
-                    List<tblMessage> tbllist = _context.tblMessages.ToList();
+                  /*  List<tblMessage> tbllist = _context.tblMessages.ToList();
                     List<TransactionRate> ratelist = _context.TransactionRates.ToList();
                     List<UserMessage> usermess = _context.UserMessages.ToList();
                     List<BankDetail> bankdet = _context.BankDetails.ToList();
                     List<User> usr = _context.user.ToList();
-                    List<Role> rol = _context.Roles.ToList();
+                    List<Role> rol = _context.Roles.ToList(); */
 
                   
 
@@ -52,7 +60,7 @@ namespace BankFull.Controllers
                 {
 
 
-
+                    /*
 
                        List<MessagerateViewModel> data = (from r in ratelist
                                                             join t in tbllist on r.Date equals t.Date
@@ -72,43 +80,55 @@ namespace BankFull.Controllers
                                                                 rol = o
 
 
-                                                            }).Where(x => x.usermess.User.Role.Role1 != "Agent").ToList();
+                                                            }).Where(x => x.usermess.User.Role.Role1 != "Agent").ToList(); */
 
 
-                    var tst = _context.UserMessages.Include(x=>x.UserId).Include(x=>x.MessageId).ToList();
-                            
+                    // var data = _context.UserMessages.Where(x => x.User.Role.Role1 == "Agent").ToList();
+                    // var atst = _context.UserMessages.Where(x => x.User.Role.Role1 == "User").ToList();
 
-                  
-
-              
-               
-                    
-                    
-                    List<MessagerateViewModel> Assigned = (from r in ratelist
-                                                       join t in tbllist on r.Date equals t.Date
-                                                       join u in usermess on t.Id equals u.MessageId
-                                                       join b in bankdet on t.BankId equals b.Id
-                                                       join e in usr on u.UserId equals e.Id
-                                                       join o in rol on e.RoleId equals o.Id
+                    // atst.FindAll(x => x.MessageId).ToList();
 
 
-                                                       select new MessagerateViewModel()
-                                                       {
-                                                           ratelist = r,
-                                                           tbllist = t,
-                                                           usermess = u,
-                                                           bankdet = b,
-                                                           usr = e,
-                                                           rol = o
+                    //    var data = _context.tblMessages.Where(x => x.Id != ).ToList();
 
 
-                                                       }).Where(x=>x.usermess.User.Role.Role1 == "Agent").ToList();
 
 
-                    dynamic model = new System.Dynamic.ExpandoObject();
+
+
+
+
+
+
+
+
+                    /*               
+                         List<MessagerateViewModel> Assigned = (from r in ratelist
+                                                            join t in tbllist on r.Date equals t.Date
+                                                            join u in usermess on t.Id equals u.MessageId
+                                                            join b in bankdet on t.BankId equals b.Id
+                                                            join e in usr on u.UserId equals e.Id
+                                                            join o in rol on e.RoleId equals o.Id
+
+
+                                                            select new MessagerateViewModel()
+                                                            {
+                                                                ratelist = r,
+                                                                tbllist = t,
+                                                                usermess = u,
+                                                                bankdet = b,
+                                                                usr = e,
+                                                                rol = o
+
+
+                                                            }).Where(x=>x.usermess.User.Role.Role1 == "Agent").ToList();
+                    */
+
+                    var data =  _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x=>x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList();
+                 /*   dynamic model = new System.Dynamic.ExpandoObject();
                     model.data = data;
-                    model.Assigned = Assigned;
-                    
+                   // model.Assigned = Assigned;
+                    */
 
                     var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
                     ViewData["rate"] = Latestrateid;
@@ -118,7 +138,7 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
-                    return View(model);
+                    return View(data);
 
                  //   return _context.tblMessages != null ?
                 //          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
@@ -129,7 +149,7 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
-                    List<MessagerateViewModel> data = (from r in ratelist
+                /*    List<MessagerateViewModel> data = (from r in ratelist
                                                        join t in tbllist on r.Date equals t.Date
                                                        join u in usermess on t.Id equals u.MessageId
                                                        join b in bankdet on t.BankId equals b.Id
@@ -150,8 +170,8 @@ namespace BankFull.Controllers
                                                        }).Where(x => x.usermess.UserId == uid).ToList();
 
 
-                  
-                    return View(data);
+                  */
+                    return View();
                 }
                 else if (User.IsInRole("Agent"))
                 {

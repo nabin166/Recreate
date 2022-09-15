@@ -1,9 +1,9 @@
-﻿@*model IEnumerable<BankFull.Models.UserMessage> *@
+﻿@model IEnumerable<BankFull.Models.tblMessage> 
 
-@using BankFull.Controllers;
+@*using BankFull.Controllers;  *@
 @*@model IEnumerable<MessagerateViewModel>*@
 
-@model dynamic
+@*model dynamic*@
 
 
 
@@ -24,8 +24,10 @@
 <p>
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create Message</a>
 </p>
+@*Submit*@
+
 <table class="table tablecolor">
-    <thead class="bg-info">
+    <thead class="bg-success">
         <tr>
             
            
@@ -64,36 +66,43 @@
               
         </tr>
     </thead>
+
+    @*Message model looping*@
     <tbody>
-@foreach (MessagerateViewModel item in Model.data){
-        <tr>
+
+
+@foreach (var item in Model){
+
+            if (item.UserMessages.Count() < 2)
+            {
+                  <tr class="">
            
            <td>
-                @Html.DisplayFor(modelItem => item.bankdet.Name) 
+                @Html.DisplayFor(modelItem => item.BankDetail.Name)   
             </td>
           
              
             <td class="cas">
                 
-                @Html.DisplayFor(modelItem => item.tbllist.Amount) ( @Html.DisplayFor(modelItem => item.ratelist.Rate) )
+                @Html.DisplayFor(modelItem => item.Amount) 
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tbllist.Date)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
 
-                <img src=" @Html.DisplayFor(modelItem => item.tbllist.DocumentPath)" width="50px"/>
+                <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>
                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tbllist.Messages)
+                @Html.DisplayFor(modelItem => item.Messages)
             </td>
              <td class="msgid invisible">
-                @Html.DisplayFor(modelItem => item.tbllist.Id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
              @if(@User.IsInRole("Admin")){
              <td>
-                  @Html.DisplayFor(modelItem => item.usr.Name)
+                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
                         
             </td>   
             
@@ -101,30 +110,34 @@
                     <td>
 
                         <div class="form-group">                      
-                           <select  class ="form-control data" asp-for=" @item.usr.Id"   asp-items="ViewBag.usr"></select> 
+                           <select  class ="form-control data"  asp-for="@item.BankDetail.User.Id"  asp-items="ViewBag.usr"></select> 
                         </div>
 
                     </td>
                     <td>
 
-                <input type="submit"  class="btn btn-success userid"  data-value="@item.tbllist.Id"/> 
+                <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/> 
              
             </td>
                 
             }
                 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
-               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> *@
-               <a asp-action="Delete" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
+               <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  
             </td>
         </tr>
-}
+            }
+           }
     </tbody>
+
+
+    @*Data fetch*@
+
 </table>
 @*Submitted_data*@
 
-<h4>Assigned </h4>
 <table class="table tablecolor">
     <thead class="bg-danger">
         <tr>
@@ -151,11 +164,11 @@
 
             
             @if(@User.IsInRole("Admin")){
-             <th > Assigned to
+             <th >  Sent by  
             </th>
 
               
-             <th >   
+             <th >   sent to  
             </th>
             <th > 
              </th>
@@ -165,58 +178,81 @@
               
         </tr>
     </thead>
+
+    @*Message model looping*@
     <tbody>
-@foreach (MessagerateViewModel item in Model.Assigned){
-        <tr>
+
+
+@foreach (var item in Model){
+ //   if(item.UserMessages.FirstOrDefault().User.Role.Role1 == "Agent"){
+            if (item.UserMessages.Count() < 2){}else
+            {
+                  <tr class="">
            
            <td>
-                @Html.DisplayFor(modelItem => item.bankdet.Name) 
+               @Html.DisplayFor(modelItem => item.BankDetail.Name)   
             </td>
           
              
             <td class="cas">
                 
-                @Html.DisplayFor(modelItem => item.tbllist.Amount) ( @Html.DisplayFor(modelItem => item.ratelist.Rate) )
+               @Html.DisplayFor(modelItem => item.Amount)     @* ( @Html.DisplayFor(modelItem => item.ratelist.Rate) ) *@
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tbllist.Date)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
 
-                <img src=" @Html.DisplayFor(modelItem => item.tbllist.DocumentPath)" width="50px"/>
+                <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>
                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.tbllist.Messages)
+                @Html.DisplayFor(modelItem => item.Messages)
             </td>
-             <td class="msgid invisible">
-                @Html.DisplayFor(modelItem => item.tbllist.Id)
+            <td class="msgid invisible">
+             @*   @Html.DisplayFor(modelItem => item.Id)  *@
             </td>
              @if(@User.IsInRole("Admin")){
              <td>
-                  @Html.DisplayFor(modelItem => item.usr.Name)
+                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
                         
             </td>   
             
            
                     <td>
 
+                       @Html.DisplayFor(modelItem => item.UserMessages.Where(x=>x.User.Role.Role1 == "Agent").FirstOrDefault().User.Name)   
 
                     </td>
                     <td>
 
-              
+              @*  <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/>  *@
              
             </td>
                 
             }
                 
             <td>
-                           </td>
+               @* <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+               <a asp-action="Delete" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  *@
+            </td>
         </tr>
+            }
+          
 }
+ 
     </tbody>
+
+
+    @*Data fetch*@
+
 </table>
+
+
+
+
+
 
 <script>
    
