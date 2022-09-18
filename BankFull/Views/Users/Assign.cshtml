@@ -5,16 +5,18 @@
     ViewData["Title"] = "Index";
 }
 <div id="clk" style="display:none" class="alert alert-success" role="alert">
-  This is a success alert—check it out!
+  This is a success alert—check it out! 
 </div>
 
 <h1 class="text-dark">Assigned</h1>
 <hr />
 
-<table class="table tablecolor">
+
+
+<table id="example"  class="table tablecolor wid" style="width:75vw;">
     <thead class="bg-info">
           <tr>
-              <th></th>
+              <th>Mid</th>
               
              <th>
                 @Html.DisplayNameFor(model => model.tblMessage.BankDetail.Name)
@@ -33,15 +35,8 @@
                 
             </th>
             
-             <th>
-                
-            </th>
-            
-             <th>
-                
-            </th>
-
-           
+          
+         
             
         </tr>
             
@@ -49,7 +44,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-               <tr>
+        <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MessageId)
             </td>
@@ -78,13 +73,12 @@
                    
                         <button type="button" class="btn btn-secondary complete">Complete</button>
             </td>     
-            <td>
-            @*      <a asp-action="Deletes" asp-route-id="@item.Id" class="text-danger anc"><i class="fa-lg anc text-danger fa-solid fa-trash-can"> </i> Reject</a> *@
-            </td>
+           
         </tr>
 }
     </tbody>
 </table>
+
 
 
 <h4 class="text-dark">Completed_Message</h4>
@@ -94,45 +88,78 @@
 
 <script>
    
+
 $(document).ready(function() {
-   
-    $(".complete").click(function(e){
+
+
+
+
+    $(".complete").click(function(e) {
 
         // var id =  $(this).attr("#data-value");
 
-    
-        
-       var msid = $(this).closest('tr').find("td:eq(0)").text();
-    //   var mid = parseInt(msid);
 
 
-       var Asmid = $(this).closest('tr').find("td:eq(2)").text();
-    //   var Amid = parseInt(Asmid);
+        var msid = $(this).closest('tr').find("td:eq(0)").text();
+        //   var mid = parseInt(msid);
 
-       
+
+        var Asmid = $(this).closest('tr').find("td:eq(2)").text();
+        //   var Amid = parseInt(Asmid);
+
+
         console.log(Asmid);
 
 
-     //   console.log("Hello")
-       $.ajax({
+        //   console.log("Hello")
+        $.ajax({
 
-        'url' : 'https://localhost:44346/Sender/Complete',
-        'type' : 'Post',
-        'data' : { Asmid,msid
-           
-        },
-        'success' : function() {       
-            
-            $("#clk").css({
-                "display": "block",
-            });
-        },
-        'error' : function()
-        {
-           window.location.href = "https://localhost:44346/Users/Assign"
-        }
+            'url': 'https://localhost:44346/Sender/Complete',
+            'type': 'Post',
+            'data': {
+                Asmid, msid
+
+            },
+            'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+            },
+            'error': function() {
+                window.location.href = "https://localhost:44346/Users/Assign"
+            }
+        });
     });
-    })
-})
+
+
+});
+
+   
+
+ $(document).ready(function () {
+    $('#example').DataTable();
+});
+
 
 </script>
+    @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }
+
+
+
+
+
+
+
+
+
+  

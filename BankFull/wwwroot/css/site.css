@@ -1,5 +1,5 @@
 html {
-  font-size: 14px;
+  
 }
 
 ::-webkit-scrollbar {
@@ -50,6 +50,10 @@ html {
         margin-left: 50px;
         padding-left:15px;
         /* left: 20px; */
+
+    }
+    .wid{
+        width:90vw;
     }
     #padding {
         padding-right: 0px;
@@ -62,4 +66,6 @@ html {
 .active {
     background-color: rgb(105, 119, 119);
 }
+
+
 

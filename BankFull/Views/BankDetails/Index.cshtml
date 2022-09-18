@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Add Bank</a>
 </p>
-<table class="table tablecolor">
+<table id="example" class="table tablecolor" style="width:75vw;">
     <thead class="bg-info">
         <tr>
             <th>
@@ -62,3 +62,25 @@
 }
     </tbody>
 </table>
+
+
+
+<script>
+   $(document).ready(function () {
+    $('#example').DataTable();
+});
+
+
+
+</script>
+
+                 @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }

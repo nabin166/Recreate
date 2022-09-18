@@ -24,9 +24,25 @@
 <p>
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create Message</a>
 </p>
-@*Submit*@
 
-<table class="table tablecolor">
+
+<div>
+ 
+  <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
+    <li class="active"><a data-toggle="tab" href="#home">Assign Now</a></li>
+    <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
+  @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
+   
+  </ul>
+
+  <div class="tab-content">
+
+      @*SubmitNow*@
+    <div id="home" class="tab-pane fade active in bg-white ">
+
+        @*Submit*@
+
+<table id="exam" class="table tablecolor" style="width:75vw;">
     <thead class="bg-success">
         <tr>
             
@@ -68,7 +84,7 @@
     </thead>
 
     @*Message model looping*@
-    <tbody>
+    <tbody class="">
 
 
 @foreach (var item in Model){
@@ -136,9 +152,16 @@
     @*Data fetch*@
 
 </table>
-@*Submitted_data*@
+     
+    </div>
+      @*Submitted*@
 
-<table class="table tablecolor">
+    <div id="menu1" class="tab-pane fade bg-white">
+    @*Submitted_data*@
+
+   
+
+<table id="example" class="table tablecolor" style="width:75vw;">
     <thead class="bg-danger">
         <tr>
             
@@ -249,6 +272,20 @@
 
 </table>
 
+    </div>
+
+
+@*
+    <div id="menu2" class="tab-pane fade">
+      
+    </div>
+    *@
+  </div>
+</div>
+
+
+
+
 
 
 
@@ -259,6 +296,9 @@
 
 $(document).ready(function() {
 
+  
+    $('#example').DataTable();
+    $('#exam').DataTable();
 
       
 
@@ -303,4 +343,17 @@ $(document).ready(function() {
     })
 })
 
+
+
+
 </script>
+            @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }
