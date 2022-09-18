@@ -29,9 +29,15 @@
 <div>
  
   <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
-    <li class="active"><a data-toggle="tab" href="#home">Assign Now</a></li>
-    <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
-  @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
+      @if(!@User.IsInRole("Admin")){
+    <li class="active"><a data-toggle="tab" href="#home">Messages</a></li>
+      }
+        @if (!User.IsInRole("User"))
+        {
+             <li class="active"><a data-toggle="tab" href="#home">Assign Now</a></li>
+            <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
+        }
+        @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
    
   </ul>
 

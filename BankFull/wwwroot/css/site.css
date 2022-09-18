@@ -67,5 +67,10 @@ html {
     background-color: rgb(105, 119, 119);
 }
 
+.centering{
+    position:absolute;
+    left:50%;
+    transform:translate(-50%);
+}
 
 

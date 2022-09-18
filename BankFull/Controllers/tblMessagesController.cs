@@ -149,29 +149,32 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
-                /*    List<MessagerateViewModel> data = (from r in ratelist
-                                                       join t in tbllist on r.Date equals t.Date
-                                                       join u in usermess on t.Id equals u.MessageId
-                                                       join b in bankdet on t.BankId equals b.Id
-                                                       join e in usr on u.UserId equals e.Id
-                                                       join o in rol on e.RoleId equals o.Id
+                    /*    List<MessagerateViewModel> data = (from r in ratelist
+                                                           join t in tbllist on r.Date equals t.Date
+                                                           join u in usermess on t.Id equals u.MessageId
+                                                           join b in bankdet on t.BankId equals b.Id
+                                                           join e in usr on u.UserId equals e.Id
+                                                           join o in rol on e.RoleId equals o.Id
 
 
-                                                       select new MessagerateViewModel()
-                                                       {
-                                                           ratelist = r,
-                                                           tbllist = t,
-                                                           usermess = u,
-                                                           bankdet = b,
-                                                           usr = e,
-                                                           rol = o
+                                                           select new MessagerateViewModel()
+                                                           {
+                                                               ratelist = r,
+                                                               tbllist = t,
+                                                               usermess = u,
+                                                               bankdet = b,
+                                                               usr = e,
+                                                               rol = o
 
 
-                                                       }).Where(x => x.usermess.UserId == uid).ToList();
+                                                           }).Where(x => x.usermess.UserId == uid).ToList();
 
 
-                  */
-                    return View();
+                      */
+                    return  _context.tblMessages != null ?
+                          View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x=>x.BankDetail.UserId == uid).ToListAsync()) :
+
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); ;
                 }
                 else if (User.IsInRole("Agent"))
                 {
