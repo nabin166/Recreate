@@ -73,13 +73,24 @@ namespace BankFull.Controllers
 
                // User usr = new User();
 
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
-                user.Password = passwordHash;
-                
+                if(_context.user.Where(x=>x.Email == user.Email).Count() != 1) {
 
-                _context.Add(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                    user.Password = passwordHash;
+
+
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    ViewData["error"] = "Username already exist";
+                    return RedirectToAction(nameof(Index));
+                }
+
+
             }
             ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
             return View(user);
@@ -188,7 +199,7 @@ namespace BankFull.Controllers
 
 
             return _context.tblMessages != null ?
-            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.UserId == uid).ToListAsync()) :
+            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x=>x.DrAmount == null).Count()>=1).Where(x => x.UserId == uid).ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
 
 

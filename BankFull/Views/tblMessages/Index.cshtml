@@ -95,8 +95,12 @@
 
 @foreach (var item in Model){
 
+    @if(User.IsInRole("Admin")){
+
             if (item.UserMessages.Count() < 2)
-            {
+            { 
+
+            
                   <tr class="">
            
            <td>
@@ -152,6 +156,67 @@
         </tr>
             }
            }
+           
+
+           @if(User.IsInRole("User")){
+
+               
+                  <tr class="">
+           
+           <td>
+                @Html.DisplayFor(modelItem => item.BankDetail.Name)   
+            </td>
+          
+             
+            <td class="cas">
+                
+                @Html.DisplayFor(modelItem => item.Amount) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+
+                <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>
+               
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Messages)
+            </td>
+             <td class="msgid invisible">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+             @if(@User.IsInRole("Admin")){
+             <td>
+                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
+                        
+            </td>   
+            
+           
+                    <td>
+
+                        <div class="form-group">                      
+                           <select  class ="form-control data"  asp-for="@item.BankDetail.User.Id"  asp-items="ViewBag.usr"></select> 
+                        </div>
+
+                    </td>
+                    <td>
+
+                <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/> 
+             
+            </td>
+                
+            }
+                
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
+               <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  
+            </td>
+        </tr>
+
+
+           }}
     </tbody>
 
 
@@ -306,16 +371,17 @@ $(document).ready(function() {
   
 
     
-    var c = @ViewBag.rate;
+ 
 
     
 
-     $(".ad").append("("+c+")")
+   
 
    
     $(".userid").click(function(e){
 
         // var id =  $(this).attr("#data-value");
+
 
        var cid = $(this).closest('tr').find('.data').val();
 
@@ -323,7 +389,7 @@ $(document).ready(function() {
        var Mssgid = parseInt(Msid);
 
 
-        console.log("Hello")
+        console.log("Hello");
          $.ajax({
 
         'url' : '/Sender/Index',
@@ -339,7 +405,7 @@ $(document).ready(function() {
         },
         'error' : function()
         {
-           window.location.href = "https://localhost:44346/tblMessages"
+            window.location.href = "https://localhost:44346/tblMessages";
         }
     });
     })

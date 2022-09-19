@@ -44,38 +44,42 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MessageId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tblMessage.Date)
-            </td>
-             
-               
-            <td>
 
-                <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
-               
-            </td>
-           
-          
-                             
+         
             
-              <td>
-                   
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MessageId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+
+
+                    <td>
+
+                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+
+                    </td>
+
+
+
+
+                    <td>
+
                         <button type="button" class="btn btn-secondary complete">Complete</button>
-            </td>     
-           
-        </tr>
-}
+                    </td>     
+
+                </tr>
+            
+        }
     </tbody>
 </table>
 

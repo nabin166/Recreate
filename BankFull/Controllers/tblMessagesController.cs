@@ -180,7 +180,7 @@ namespace BankFull.Controllers
                     return  _context.tblMessages != null ?
                           View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x=>x.BankDetail.UserId == uid).ToListAsync()) :
 
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); ;
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); 
                 }
                 else if (User.IsInRole("Agent"))
                 {
