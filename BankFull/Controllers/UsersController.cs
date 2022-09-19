@@ -26,7 +26,11 @@ namespace BankFull.Controllers
         public async Task<IActionResult> Index()
         {
             var transferOffContext = _context.user.Include(u => u.Role);
-            return View(await transferOffContext.ToListAsync());
+
+
+            return transferOffContext != null ?
+            View(await transferOffContext.ToListAsync()) :
+            Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
 
 

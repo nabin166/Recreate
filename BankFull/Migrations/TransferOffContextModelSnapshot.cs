@@ -232,6 +232,7 @@ namespace BankFull.Migrations
                         .HasColumnName("Message_Id");
 
                     b.Property<int?>("UserId")
+                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("User_Id");
 
@@ -294,6 +295,8 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("UserMessages")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK_User_Message_User");
 
                     b.Navigation("User");

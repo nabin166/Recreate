@@ -130,19 +130,25 @@ namespace BankFull.Controllers
                    // model.Assigned = Assigned;
                     */
 
-                    var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
-                    ViewData["rate"] = Latestrateid;
+                   // var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
+                  //  ViewData["rate"] = Latestrateid;
                   
 
 
                     string email = User.Identity.Name;
                     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
-                    return View(data);
+                    
 
-                 //   return _context.tblMessages != null ?
-                //          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
-                //          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+
+                    return data != null ?
+                          View(data) :
+
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); 
+
+                    //   return _context.tblMessages != null ?
+                    //          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
+                    //          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
                 else if(User.IsInRole("User"))
                 {

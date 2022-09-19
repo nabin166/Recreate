@@ -48,7 +48,7 @@
 
         @*Submit*@
 
-<table id="exam" class="table tablecolor" style="width:75vw;">
+<table id="example" class=" table tablecolor" style="width:75vw;">
     <thead class="bg-success">
         <tr>
             
@@ -167,7 +167,7 @@
 
    
 
-<table id="example" class="table tablecolor" style="width:75vw;">
+<table id="exam" class=" table tablecolor" style="width:75vw;">
     <thead class="bg-danger">
         <tr>
             
@@ -303,12 +303,8 @@
 $(document).ready(function() {
 
   
-    $('#example').DataTable();
-    $('#exam').DataTable();
+  
 
-      
-
-   
     
     var c = @ViewBag.rate;
 
@@ -353,7 +349,21 @@ $(document).ready(function() {
 
 
 </script>
-            @section scripts{
+
+
+
+
+ <script>
+   $(document).ready(function () {
+    $('#example').DataTable();
+        $('#exam').DataTable();
+});
+
+
+
+</script>
+
+                 @section scripts{
              @*DataTable*@
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>

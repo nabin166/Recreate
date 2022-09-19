@@ -124,6 +124,7 @@ namespace BankFull.Controllers
             ViewData["UserId"] = new SelectList(_context.user, "Id", "Id", transaction.MessageId);
             return View(transaction);
         }
+
         [Authorize(Roles = "never")]
         // GET: Transactions/Delete/5
         public async Task<IActionResult> Delete(int? id)
