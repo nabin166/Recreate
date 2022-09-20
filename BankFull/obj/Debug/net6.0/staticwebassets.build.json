@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "07vefYwF1qyDgQiL7ihTJrIKrabO1bLKCmpik1Mfd/s=",
+  "Hash": "3qRJVy+Nm0npQPXdwVTpJYncORtx+p4p3Hg1Pem7nRA=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -1409,6 +1409,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Photo\\b0fed308-855a-4824-a1ed-05304dd0f9d1img.jpg"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "Photo/bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Photo\\bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png"
     },
     {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\bd7b119f-07aa-4b0b-b26c-b8c8603161d1color palette.jpg",

@@ -1,5 +1,9 @@
 ﻿
-@model IEnumerable<BankFull.Models.UserMessage?>
+@*model IEnumerable<BankFull.Models.UserMessage?> *@
+    @using BankFull.Controllers;  
+
+
+   @model dynamic
 
 @{
     ViewData["Title"] = "Index";
@@ -13,22 +17,39 @@
 
 
 
-<table id="example"  class="mb-4 table tablecolor wid " style="width:75vw;">
-    <thead class="bg-info ">
+ <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
+      
+        @if (!User.IsInRole("User"))
+        {
+             <li class="active"><a data-toggle="tab" href="#home">Assigned</a></li>
+            <li><a data-toggle="tab" href="#menu1">Assign Complete</a></li>
+        }
+        @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
+   
+  </ul>
+
+  <div class="tab-content">
+
+      @*SubmitNow*@
+    <div id="home" class="tab-pane fade active in bg-white ">
+
+        @*Submit*@
+        <table id="example" class="mb-4 table tablecolor wid " style="width:75vw;">
+    <thead class="bg-success">
           <tr>
               <th>Mid</th>
               
              <th>
-                @Html.DisplayNameFor(model => model.tblMessage.BankDetail.Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Amount)
+                Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Date)
+                Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.tblMessage.Document)
+                Document
             </th>
             
              <th>
@@ -43,13 +64,13 @@
         
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (UserMessage item in Model.Assign) {
 
          
             
-                <tr>
+                <tr>  
                     <td>
-                        @Html.DisplayFor(modelItem => item.MessageId)
+                        @Html.DisplayFor(modelItem => item.MessageId) 
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
@@ -84,8 +105,97 @@
 </table>
 
 
+     
+    </div>
+      @*Submitted*@
 
-<h4 class="text-dark">Completed_Message</h4>
+    <div id="menu1" class="tab-pane fade bg-white">
+    @*Submitted_data*@
+
+     <table id="exam"  class="mb-4 table tablecolor wid " style="width:75vw;">
+    <thead class="bg-danger ">
+          <tr>
+              <th>Mid</th>
+              
+             <th>
+               Bankname
+            </th>
+            <th>
+               Amount
+            </th>
+            <th>
+               Date
+            </th>
+            <th>
+               Document
+            </th>
+            
+             <th>
+                
+            </th>
+            
+          
+         
+            
+        </tr>
+            
+        
+    </thead>
+    <tbody>
+@foreach (UserMessage item in Model.AssignComplete) {
+
+         
+            
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MessageId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+
+
+                    <td>
+
+                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+
+                    </td>
+
+
+
+
+                    <td>
+
+                       
+                    </td>     
+
+                </tr>
+            
+        }
+    </tbody>
+</table>
+
+
+
+    </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -143,6 +253,7 @@ $(document).ready(function() {
 
  $(document).ready(function () {
     $('#example').DataTable();
+    $('#exam').DataTable();
 });
 
 

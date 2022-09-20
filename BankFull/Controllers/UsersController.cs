@@ -189,17 +189,26 @@ namespace BankFull.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> AssignAsync()
         {
-           
 
-           
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
+            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
+            List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
+
+
+            dynamic model = new System.Dynamic.ExpandoObject();
+
+            model.Assign = Assign ;
+            model.AssignComplete = AssignComplete ;
+           
+             
+            
 
 
             return _context.tblMessages != null ?
-            View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x=>x.DrAmount == null).Count()>=1).Where(x => x.UserId == uid).ToListAsync()) :
+            View( model) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
 
 
