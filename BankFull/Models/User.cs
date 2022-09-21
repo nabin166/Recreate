@@ -14,13 +14,24 @@ namespace BankFull.Models
         }
         
         public int Id { get; set; }
+        [MinLength(4)]
+        [MaxLength(30)]
+        [Required]
         public string? Name { get; set; }
+        [MaxLength(30)]
+        [Required]
         public string? Address { get; set; }
         //[DataType()]
+
+        [MaxLength(30)]
+        [Required]
+        [EmailAddress]
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public Boolean? Status { get; set; }
         public int? RoleId { get; set; }
+        
+        [Required]
         public string? Password { get; set; }
 
         public virtual Role? Role { get; set; }

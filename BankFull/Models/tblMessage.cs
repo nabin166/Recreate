@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankFull.Models
@@ -15,11 +16,16 @@ namespace BankFull.Models
         }
         public int Id { get; set; }
         //  public string? Bank { get; set; }
-
+       
+        [Required]
         public int? BankId { get; set; }
+        [Required]
         public int? Amount { get; set; }
+        [Required]
         public string? Date { get; set; }
+        
         public string? DocumentPath { get; set; }
+        [Required]
         public string? Messages { get; set; }
        
         [NotMapped]

@@ -43,21 +43,24 @@
           <div class="col-md-12  mt-3 p-0">
             <div class="d-flex flex-col">
              @* <label for="Name" class="form-label mx-2 mt-1 ">Name:</label> *@
-              <input asp-for="Name" type="text" class="form-control  " id="Name" name="Name" placeholder=" Name">
+              <input required asp-for="Name" type="text" class="form-control  " id="Name" name="Name" placeholder=" Name">
+               <span asp-validation-for="Name" class="text-danger"></span>
             </div>
           </div>
 
           <div class="col-md-12  mt-3 p-0">
             <div class="d-flex flex-col">
             @*  <label for="Address" class="form-label mx-2 mt-1 ">Address:</label>*@
-              <input type="text" asp-for="Address" class="form-control " id="Address" name="Address" placeholder="Address" />
+              <input required type="text" asp-for="Address" class="form-control " id="Address" name="Address" placeholder="Address" />
+               <span asp-validation-for="Address" class="text-danger"></span>
             </div>
           </div>
 
           <div class="col-md-12  mt-3 p-0">
             <div class="d-flex flex-col">
             @*  <label for="Address" class="form-label mx-2 mt-1 ">Address:</label>*@
-              <input asp-for="Email" class="form-control" name="Email" placeholder="Email" />
+              <input required asp-for="Email" class="form-control" name="Email" placeholder="Email" />
+               <span asp-validation-for="Email" class="text-danger"></span>
               
             </div>
           </div>
@@ -67,7 +70,8 @@
           <div class="col-md-12  mt-3 p-0">
             <div class="d-flex flex-col">
              @* <label for="Phone" class="form-label mx-2 mt-1 ">Phone:</label> *@
-              <input asp-for="Phone" type="text" class="form-control " id="Phone" name="Phone" placeholder="Phone">
+              <input required asp-for="Phone" type="text" class="form-control " id="Phone" name="Phone" placeholder="Phone">
+               <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
           </div>
 
@@ -95,14 +99,16 @@
         <div class="col-md-12 mt-3 p-0">
              <div class="d-flex flex-col ">
           @*  <label for="Password" class="mx-2 mt-1 ">Password:</label>*@
-            <input asp-for="Password" type="password" class="form-control" id="password" name="Password" placeholder="Password">
+            <input required asp-for="Password" type="password" class="form-control" id="password" name="Password" placeholder="Password">
+             <span asp-validation-for="Password" class="text-danger"></span>
           </div>       
           </div> 
 
           <div class="col-md-12 mt-3 p-0">
             <div class="d-flex flex-col ">
           @* <label for="Password" class="mx-2 mt-1 ">Repeat_Password:</label>*@
-           <input type="password" class="form-control" id="password" name="Re-Password" placeholder="Repeat_Password">
+           <input required type="password" class="form-control" id="password" name="Re-Password" placeholder="Repeat_Password">
+            <span asp-validation-for="Password" class="text-danger"></span>
          </div>       
          </div>
 

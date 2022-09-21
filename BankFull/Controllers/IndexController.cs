@@ -1,9 +1,11 @@
 ﻿using BankFull.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace BankFull.Controllers
 {
+    
     public class IndexController : Controller
     {
         private readonly TransferOffContext _context;
@@ -12,6 +14,7 @@ namespace BankFull.Controllers
         {
             _context = transferOffContext;
         }
+       
 
         //Not_Complete_View
         public async Task<IActionResult> Index()
