@@ -1,0 +1,92 @@
+﻿@model IEnumerable<BankFull.Models.UserMessage?> 
+
+   <table id="data" class="mb-4 table tablecolor wid " style="width:75vw;">
+    <thead class="bg-danger">
+          <tr>
+              <th>Mid</th>
+              
+             <th>
+                Name
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Document
+            </th>
+            
+             <th>
+                
+            </th>
+            
+          
+         
+            
+        </tr>
+            
+        
+    </thead>
+    <tbody>
+@foreach (UserMessage item in Model) {
+
+         
+            
+                <tr>  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MessageId) 
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+
+
+                    <td>
+
+                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+
+                    </td>
+
+
+
+
+                    <td>
+
+                        
+                    </td>     
+
+                </tr>
+            
+        }
+    </tbody>
+</table>
+
+ <script>
+   $(document).ready(function () {
+    $('#data').DataTable();
+       
+});
+
+
+
+</script>
+
+                 @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }

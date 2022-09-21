@@ -34,6 +34,9 @@ namespace BankFull
             });
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
             services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
+
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +64,8 @@ namespace BankFull
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }

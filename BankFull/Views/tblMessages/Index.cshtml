@@ -7,13 +7,6 @@
 
 
 
-
-
-
-
-
-
-
 <div id="clk" style="display:none" class="alert alert-success" role="alert">
   This is a success alert—check it out!
 </div>
@@ -231,119 +224,16 @@
 
     <div id="menu1" class="tab-pane fade bg-white">
     @*Submitted_data*@
+    
+    
+  @* <partial name="~/Views/Index/Index.cshtml"> *@
 
-   
-
-<table id="exam" class=" table tablecolor" style="width:75vw;">
-    <thead class="bg-danger">
-        <tr>
-            
-           
-             <th>
-                bank
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                date
-            </th>
-            <th>
-                document
-            </th>
-            <th>
-                message
-            </th>
-               
-           <th > 
-             </th>
+      
+    <div id="Content"></div>
+    
 
             
-            @if(@User.IsInRole("Admin")){
-             <th >  Sent by  
-            </th>
 
-              
-             <th >   sent to  
-            </th>
-            <th > 
-             </th>
-            }
-             <th > 
-             </th>
-              
-        </tr>
-    </thead>
-
-    @*Message model looping*@
-    <tbody>
-
-
-@foreach (var item in Model){
- //   if(item.UserMessages.FirstOrDefault().User.Role.Role1 == "Agent"){
-            if (item.UserMessages.Count() < 2){}else
-            {
-                  <tr class="">
-           
-           <td>
-               @Html.DisplayFor(modelItem => item.BankDetail.Name)   
-            </td>
-          
-             
-            <td class="cas">
-                
-               @Html.DisplayFor(modelItem => item.Amount)     @* ( @Html.DisplayFor(modelItem => item.ratelist.Rate) ) *@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-
-                <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>
-               
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Messages)
-            </td>
-            <td class="msgid invisible">
-             @*   @Html.DisplayFor(modelItem => item.Id)  *@
-            </td>
-             @if(@User.IsInRole("Admin")){
-             <td>
-                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
-                        
-            </td>   
-            
-           
-                    <td>
-
-                       @Html.DisplayFor(modelItem => item.UserMessages.Where(x=>x.User.Role.Role1 == "Agent").FirstOrDefault().User.Name)   
-
-                    </td>
-                    <td>
-
-              @*  <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/>  *@
-             
-            </td>
-                
-            }
-                
-            <td>
-               @* <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-               <a asp-action="Delete" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  *@
-            </td>
-        </tr>
-            }
-          
-}
- 
-    </tbody>
-
-
-    @*Data fetch*@
-
-</table>
 
     </div>
 
@@ -353,121 +243,8 @@
     @*Submitted_data*@
 
    
+    <div id="Complete"></div>
 
-<table id="examp" class=" table tablecolor" style="width:75vw;">
-    <thead class="bg-danger">
-        <tr>
-            
-           
-             <th>
-                bank
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                date
-            </th>
-            <th>
-                document
-            </th>
-            <th>
-                message
-            </th>
-               
-           <th > 
-             </th>
-
-            
-            @if(@User.IsInRole("Admin")){
-             <th >  Sent by  
-            </th>
-
-              
-             <th >   sent to  
-            </th>
-            <th > 
-             </th>
-            }
-             <th > 
-             </th>
-              
-        </tr>
-    </thead>
-
-    @*Message model looping*@
-    <tbody>
-
-
-@foreach (var item in Model){
- //   if(item.UserMessages.FirstOrDefault().User.Role.Role1 == "Agent"){
-            if (item.Transactions.Where(x => x.DrAmount == null).Count() == 0){
-                       <tr class="">
-           
-           <td>
-               @Html.DisplayFor(modelItem => item.BankDetail.Name)   
-            </td>
-          
-             
-            <td class="cas">
-                
-               @Html.DisplayFor(modelItem => item.Amount)     @* ( @Html.DisplayFor(modelItem => item.ratelist.Rate) ) *@
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-
-                <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>
-               
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Messages)
-            </td>
-            <td class="msgid invisible">
-             @*   @Html.DisplayFor(modelItem => item.Id)  *@
-            </td>
-             @if(@User.IsInRole("Admin")){
-             <td>
-                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
-                        
-            </td>   
-            
-           
-                    <td>
-
-                       @Html.DisplayFor(modelItem => item.UserMessages.Where(x=>x.User.Role.Role1 == "Agent").FirstOrDefault().User.Name)   
-
-                    </td>
-                    <td>
-
-              @*  <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/>  *@
-             
-            </td>
-                
-            }
-                
-            <td>
-               @* <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
-               <a asp-action="Delete" asp-route-id="@item.tbllist.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  *@
-            </td>
-        </tr>
-            
-            
-            }else
-            {
-       
-            }
-          
-}
- 
-    </tbody>
-
-
-    @*Data fetch*@
-
-</table>
 
     </div>
 
@@ -494,7 +271,8 @@ $(document).ready(function() {
 
   
   
-
+     $("#Content").load("Index/Index");
+     $("#Complete").load("Index/Complete");
     
  
 
@@ -549,6 +327,8 @@ $(document).ready(function() {
     $('#example').DataTable();
         $('#exam').DataTable();
          $('#examp').DataTable();
+
+      
 });
 
 

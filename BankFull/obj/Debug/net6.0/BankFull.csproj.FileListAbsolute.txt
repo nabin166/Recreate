@@ -544,7 +544,6 @@ D:\Recreate\BankFull\bin\Debug\net6.0\MessagePack.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\MessagePack.Annotations.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.Build.Locator.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.CodeAnalysis.AnalyzerUtilities.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.CodeAnalysis.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -782,3 +781,6 @@ D:\Recreate\BankFull\obj\Debug\net6.0\BankFull.csproj.CopyComplete
 D:\Recreate\BankFull\obj\Debug\net6.0\BankFull.genruntimeconfig.cache
 D:\Recreate\BankFull\obj\Debug\net6.0\ref\BankFull.dll
 D:\Recreate\BankFull\bin\Debug\net6.0\BCrypt.Net-Next.dll
+D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.Build.dll
+D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.Build.Framework.dll
+D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.NET.StringTools.dll
