@@ -31,21 +31,25 @@ namespace BankFull.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AccountName")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
                     b.Property<string>("AccountNumber")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nchar(250)")
                         .IsFixedLength();
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -56,6 +60,7 @@ namespace BankFull.Migrations
                         .IsFixedLength();
 
                     b.Property<int?>("UserId")
+                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("User_Id");
 
@@ -64,6 +69,26 @@ namespace BankFull.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Bank Details", (string)null);
+                });
+
+            modelBuilder.Entity("BankFull.Models.PhotoSend", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("MessageId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PhotoSends");
                 });
 
             modelBuilder.Entity("BankFull.Models.Role", b =>
@@ -94,12 +119,15 @@ namespace BankFull.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int?>("Amount")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<int?>("BankId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Date")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
@@ -110,6 +138,7 @@ namespace BankFull.Migrations
                         .HasColumnType("varchar(250)");
 
                     b.Property<string>("Messages")
+                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
@@ -182,19 +211,24 @@ namespace BankFull.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
@@ -250,6 +284,8 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("BankDetails")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK_Bank Details_User");
 
                     b.Navigation("User");
@@ -260,6 +296,8 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.BankDetail", "BankDetail")
                         .WithMany("TblMessages")
                         .HasForeignKey("BankId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
                         .HasConstraintName("FK_Bank Details_User1");
 
                     b.Navigation("BankDetail");

@@ -187,8 +187,10 @@ namespace BankFull.Controllers
             return RedirectToAction(nameof(Index));
         }
         [AllowAnonymous]
-        public async Task<IActionResult> AssignAsync()
+        public async Task<IActionResult> AssignAsync( )
         {
+            
+            
 
 
             string email = User.Identity.Name;
@@ -202,9 +204,10 @@ namespace BankFull.Controllers
 
             model.Assign = Assign ;
             model.AssignComplete = AssignComplete ;
-           
-             
-            
+
+
+
+
 
 
             return _context.tblMessages != null ?

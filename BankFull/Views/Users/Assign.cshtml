@@ -55,6 +55,7 @@
              <th>
                 
             </th>
+            <th></th>
             
           
          
@@ -88,6 +89,13 @@
 
                         <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
 
+                    </td>
+
+                    <td>
+                            <input type="file" required class="form-control p-0 pt-1" id="PhotoSend" />
+                                  
+
+            
                     </td>
 
 
@@ -193,22 +201,17 @@
 
 
 
-
-
-
-
-
-
-
 <script>
    
 
 $(document).ready(function() {
 
-
+    $('#example').DataTable();
+    $('#exam').DataTable();
 
 
     $(".complete").click(function(e) {
+        
 
         // var id =  $(this).attr("#data-value");
 
@@ -221,29 +224,51 @@ $(document).ready(function() {
         var Asmid = $(this).closest('tr').find("td:eq(2)").text();
         //   var Amid = parseInt(Asmid);
 
+        // var Completeimg = $(this).closest('tr').find("td:eq(5)").val();
+       // var files = $('#PhotoSend').get(0).files;
+       
 
+        var fileUpload = $("#PhotoSend").get(0).files;  
+           
+              
+            // Create FormData object  
+            var fileData = new FormData();  
+  
+        
+
+             fileData.append('PhotoPath', fileUpload[0]);  
+             fileData.append('Asmid', Asmid);  
+             fileData.append('msid', msid);  
+	
+
+        
+        
+        console.log(fileUpload[0]);
         console.log(Asmid);
+        console.log(msid);
 
 
         //   console.log("Hello")
-        $.ajax({
+      $.ajax({
 
-            'url': 'https://localhost:44346/Sender/Complete',
+            'url': '@Url.Action("Complete","Sender")',
             'type': 'Post',
-            'data': {
-                Asmid, msid
-
-            },
+            'processData': false,
+            'contentType': false,
+            'cache': false,
+            'data': fileData,
+            'enctype': 'multipart/form-data',
             'success': function() {
 
                 $("#clk").css({
                     "display": "block",
                 });
+            
             },
             'error': function() {
                 window.location.href = "https://localhost:44346/Users/Assign"
             }
-        });
+        }); 
     });
 
 
@@ -251,10 +276,7 @@ $(document).ready(function() {
 
    
 
- $(document).ready(function () {
-    $('#example').DataTable();
-    $('#exam').DataTable();
-});
+
 
 
 </script>
