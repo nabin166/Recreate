@@ -40,5 +40,36 @@ namespace BankFull.Controllers
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
+
+        public async Task<IActionResult> FinalMessageAsync()
+        {
+
+            
+            List<tblMessage> tbl = _context.tblMessages.ToList();
+            List<PhotoSend> photosen = _context.PhotoSends.ToList();
+
+            List<PhotoSendModel> joins = (from t in tbl
+                            join p in photosen on t.Id equals p.MessageId
+
+                            select new PhotoSendModel()
+                            {
+                                tbl = t,
+                                photosen = p,
+                            }).ToList();
+
+
+            return _context.tblMessages != null ?
+
+                PartialView(joins):
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+        }
     }
+
+    internal class PhotoSendModel
+    {
+        public tblMessage tbl;
+        public PhotoSend photosen;
+    }
+
 }

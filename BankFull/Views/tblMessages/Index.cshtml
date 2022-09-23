@@ -31,6 +31,7 @@
              <li class="active"><a data-toggle="tab" href="#home">Assign Now</a></li>
             <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
              <li><a data-toggle="tab" href="#menu2">Complete</a></li>
+              <li><a data-toggle="tab" href="#menu3">MessageComplete</a></li>
         }
         @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
    
@@ -248,6 +249,18 @@
 
     </div>
 
+
+     @*MessageComplete*@
+
+    <div id="menu3" class="tab-pane fade bg-white">
+    @*Submitted_data*@
+
+   
+    <div id="MessageComplete"></div>
+
+
+    </div>
+
 @*
     <div id="menu2" class="tab-pane fade">
       
@@ -273,6 +286,7 @@ $(document).ready(function() {
   
      $("#Content").load("Index/Index");
      $("#Complete").load("Index/Complete");
+    $("#MessageComplete").load("Index/FinalMessage");
     
  
 
