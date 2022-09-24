@@ -24,7 +24,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>
-                <input required type="date" asp-for="Date" class="form-control" />
+                <input type="date" asp-for="Date" class="form-control" />
                 <span asp-validation-for="Date" class="text-danger"></span>
             </div>
           @*  <div class="form-group">
@@ -38,11 +38,11 @@
                 <span asp-validation-for="Messages" class="text-danger"></span>
             </div>
 
-              <div class="form-group border-0 " >
+            @*  <div class="form-group border-0 " >
                 <label asp-for="Document" class="control-label"></label>
                 <input  asp-for="Document" class="form-control p-0 pt-1" />
                 <span asp-validation-for="Document" class="text-danger"></span>
-            </div>
+            </div>  *@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-info" />
             </div>

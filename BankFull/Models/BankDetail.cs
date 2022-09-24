@@ -26,7 +26,7 @@ namespace BankFull.Models
        // public string? AmountIn { get; set; }
        // public string? AmountOut { get; set; }
         public string? TransactionLimit { get; set; }
-        [Required]
+        
         public int? UserId { get; set; }
 
 

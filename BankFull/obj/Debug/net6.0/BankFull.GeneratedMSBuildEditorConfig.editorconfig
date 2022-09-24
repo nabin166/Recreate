@@ -63,6 +63,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Recreate/BankFull/Views/Index/ProcessComplete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcUHJvY2Vzc0NvbXBsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Recreate/BankFull/Views/Index/Processing.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcUHJvY2Vzc2luZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Recreate/BankFull/Views/joindate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncam9pbmRhdGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

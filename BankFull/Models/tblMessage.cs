@@ -17,7 +17,7 @@ namespace BankFull.Models
         public int Id { get; set; }
         //  public string? Bank { get; set; }
        
-        [Required]
+        
         public int? BankId { get; set; }
         [Required]
         public int? Amount { get; set; }
@@ -28,9 +28,9 @@ namespace BankFull.Models
         [Required]
         public string? Messages { get; set; }
        
-        [NotMapped]
+     //   [NotMapped]
 
-        public IFormFile Document { get; set; }
+    //    public IFormFile Document { get; set; }
 
         public virtual BankDetail? BankDetail { get; set; }
     

@@ -1,5 +1,33 @@
 ﻿@model IEnumerable<BankFull.Models.UserMessage?> 
 
+
+     
+    <!--Bootstrap modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                      <i class="fa-solid fa-images"></i>
+                    </h5>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                    <img src="gfg.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
    <table id="data" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-danger">
           <tr>
@@ -15,7 +43,7 @@
                 Date
             </th>
             <th>
-                Document
+               
             </th>
             
              <th>
@@ -52,7 +80,7 @@
 
                     <td>
 
-                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+                   @*     <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" style="cursor:pointer;"  data-toggle="modal" data-target="#exampleModal" width="50px"/> *@
 
                     </td>
 

@@ -1,6 +1,7 @@
 ﻿using BankFull.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
+using BankFull.Controllers;
 
 namespace BankFull.Controllers
 {
@@ -88,6 +89,33 @@ namespace BankFull.Controllers
             }
             return RedirectToAction("Index", "Account");
 
+        }
+
+
+        [HttpPost]
+        public async Task<JsonResult>  PreviewAsync(int cid)
+        {
+            if (cid != null)
+            {
+
+
+            //    var image = _context.tblMessages.Where(x => x.Id == cid).FirstOrDefault().DocumentPath;
+
+              var image =  _context.PhotoSends.Where(x =>x.MessageId == cid).FirstOrDefault().Photo;
+
+
+               
+                return  Json( image);
+
+
+            }
+            else
+            {
+                return Json(null);
+            }
+           
+            return Json(null) ;
+           
         }
 
 

@@ -11,7 +11,7 @@ using System.Dynamic;
 
 namespace BankFull.Controllers
 {
-    [Authorize (Roles = "Admin,User")]
+    [Authorize (Roles = "User,Admin")]
     public class tblMessagesController : Controller
     {
         private readonly TransferOffContext _context;
@@ -230,13 +230,12 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,BankId,Amount,Date,DocumentPath,Messages,Document")] tblMessage tblMessage)
+        public async Task<IActionResult> Create([Bind("Id,BankId,Amount,Date,Messages")] tblMessage tblMessage)
         {
             if (ModelState.IsValid)
             {
-                if (tblMessage.Document != null)
-                {
-                    string folder = "photo/";
+             
+             /*       string folder = "photo/";
 
                     folder += Guid.NewGuid().ToString() + tblMessage.Document.FileName;
 
@@ -244,7 +243,7 @@ namespace BankFull.Controllers
 
                     string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
-                    await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));
+                    await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
 
                     _context.Add(tblMessage);
                     await _context.SaveChangesAsync();
@@ -281,7 +280,7 @@ namespace BankFull.Controllers
 
                     return RedirectToAction(nameof(Index));
 
-                }
+                
               
 
 

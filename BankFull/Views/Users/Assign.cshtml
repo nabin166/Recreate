@@ -8,6 +8,35 @@
 @{
     ViewData["Title"] = "Index";
 }
+ 
+    <!--Bootstrap modal -->
+    <div class="modal fade" id="exampleMod" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        <i class="fa-solid fa-images"></i>
+                    </h5>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                    <img src="gfg.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 <div id="clk" style="display:none" class="alert alert-success" role="alert">
   This is a success alert—check it out! 
 </div>
@@ -49,7 +78,7 @@
                 Date
             </th>
             <th>
-                Document
+             @*   Document  *@
             </th>
             
              <th>
@@ -87,7 +116,7 @@
 
                     <td>
 
-                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+                    @*    <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" data-toggle="modal" data-target="#exampleMod" width="50px"/> *@
 
                     </td>
 
@@ -135,7 +164,7 @@
                Date
             </th>
             <th>
-               Document
+          @*     Document  *@
             </th>
             
              <th>
@@ -172,7 +201,7 @@
 
                     <td>
 
-                        <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>
+                     @*   <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
 
                     </td>
 
@@ -266,7 +295,8 @@ $(document).ready(function() {
             
             },
             'error': function() {
-                window.location.href = "https://localhost:44346/Users/Assign"
+             
+                window.location.href = '@Url.Action("Assign","Users")';
             }
         }); 
     });

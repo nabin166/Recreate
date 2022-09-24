@@ -6,10 +6,11 @@
 
 <h1 class="text-dark">Bank</h1>
 <hr />
-   
+   @if(@User.IsInRole("User")){
 <p>
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Add Bank</a>
 </p>
+   }
 <table id="example" class="table tablecolor" style="width:75vw;">
     <thead class="bg-info">
         <tr>
