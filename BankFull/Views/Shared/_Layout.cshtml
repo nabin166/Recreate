@@ -149,72 +149,108 @@
 
       </div>
 
-      <!-- For sm Screen -->
-      <div class="d-block d-lg-none d-md-none p-0  bg-info position-fixed  " style="height:100vh;">
+        <!-- For sm Screen  -->
+      <div class="d-block d-lg-none d-md-none p-0  bg-info position-fixed" style="height:100vh;">
         <div class=" d-flex flex-column justify-content-between " style="height: 100vh;">
 
-          <div class="text-center my-4"><a href="" class="text-white "><strong></strong></a></div>
+                    <div class="text-center my-4"><a  class="text-white "><strong> @if (@User.Identity.IsAuthenticated)
+                                {
+                                    <p> Welcome !</p>
+                                }
+                                else
+                                {
+                                    <p>Sign up ! </p>
+                                }
+                            </strong></a></div>
 
 
-          <div class="col d-flex flex-column border-info mt-4  ">
-
-            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "asp-controller="Home" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  background-color: rgb(105, 119, 119); " ><i
-                class="fa-solid fa-home" style="margin-top: 13px;"></i> </a>
-
-                 @if (@User.Identity.IsAuthenticated)
+          <div class="col d-flex flex-column border-info mt-4 " >
+            <a class="a row py-2 p-0 text-white text-center border-sm pl-4 act home " id="Test1" style=" border-bottom: 0.3px solid burlywood; "
+            asp-controller="Home" asp-action="Index"
+              style=" active border-bottom: 0.3px solid burlywood;  " ><i
+                class="fa-solid fa-home" style="margin-top: 13px;   "></i>
+              <p class="ml-2 mt-2">Home</p>
+            </a>
+             @if (@User.Identity.IsAuthenticated)
                         {
                             if (@User.IsInRole("Admin"))
                             {
-                                     <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="BankDetails" asp-action="Index"
+                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 Bank act" asp-controller="BankDetails" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
-                style="margin-top: 13px;"></i> </a>
-            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "  asp-controller="tblMessages" asp-action="Index"
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Bank Details</p>
+            </a>
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 tblmessage act" asp-controller="tblMessages" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
-                style="margin-top: 13px;"></i></a>
-            <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="Transactions" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " 
-                style="margin-top: 13px;"></i></a>
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Message</p>
+              </a>
+                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transaction " asp-controller="Transactions" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Transaction</p>
+                                </a>
                             }
 
-                            if (@User.IsInRole("User"))
+                            else if (@User.IsInRole("User"))
                             {
-                                <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 "  asp-controller="BankDetails" asp-action="Index"
+                                                
+                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 act Bank " asp-controller="BankDetails" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
-                style="margin-top: 13px;"></i> </a>
-                                <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="tblMessages" asp-action="Index"
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Bank Details</p>
+            </a>
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act tblmessage" asp-controller="tblMessages" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
-                style="margin-top: 13px;"></i></a>
-
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Message</p>
+                                </a>
                             }
                             else if (@User.IsInRole("Agent"))
                             {
-                                  <a class="row a py-2  mb-0 pl-4 text-white text-center border-sm  pr-3 " asp-controller="Users" asp-action="Assign"
+                                 <a class="row a py-2 p-0 text-white text-center Assign border-sm pl-4 act " asp-controller="Users" asp-action="Assign"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
-                style="margin-top: 13px;"></i></a>
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Assign</p>
+            </a>
                             }
 
 
-
-                            
-                        }
-              @*ROlE    
-             <a class="row py-2 a p-0 text-white text-center border-sm pl-4 " asp-controller="Roles" asp-action="Index" style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " style="margin-top: 13px;"></i> <p class="ml-2 mt-2"></p></a> 
-        Register*@
-          <a class="row py-2 a p-0 text-white text-center border-sm pl-4 " asp-controller="Users" asp-action="Index" style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar " style="margin-top: 13px;"></i> <p class="ml-2 mt-2"></p></a> 
-         </div>
+                   }
 
           
-           @if (@User.Identity.IsAuthenticated)
+           @*
+            <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act role " asp-controller="Roles" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Role</p>
+            </a>
+            *@
+
+            @if (!@User.Identity.IsAuthenticated)
+                        {
+                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Register" asp-controller="Account" asp-action="Register"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Register</p>
+            </a>
+                            
+                        }
+
+     
+            
+          </div>
+
+                    @if (@User.Identity.IsAuthenticated)
                     {
                          <div class="text-center mb-4"><a  class="a text-white" asp-controller="Account" asp-action="Logout"><i
-                class="fa-solid fa-right-from-bracket"></i>out</a></div>
+                class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
                     }
                     else
                     {
                         
            <div class="text-center mb-4"><a  class="a text-white"  asp-controller="Account" asp-action="Index"><i
-                class="fa-solid fa-right-from-bracket"></i>in</a></div>
+                class="fa-solid fa-right-from-bracket"></i>Login</a></div>
                     }
 
         </div>
@@ -223,6 +259,7 @@
 
       </div>
 
+    
 
       
      
