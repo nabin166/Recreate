@@ -30,6 +30,8 @@
             <th>
                 @Html.DisplayNameFor(model => model.TransactionLimit)
             </th>
+
+            <th>Sent by</th>
            
             <th></th>
         </tr>
@@ -52,6 +54,10 @@
           
             <td>
                 @Html.DisplayFor(modelItem => item.TransactionLimit)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem=> item.User.Name)
             </td>
            
             <td>

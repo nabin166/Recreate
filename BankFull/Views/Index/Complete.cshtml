@@ -31,10 +31,16 @@
    <table id="data" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-danger">
           <tr>
-              <th>Mid</th>
-              
+            @if (@User.IsInRole("Admin"))
+            {
+                <th>Assigned To</th>
+            }
+            <th>
+                Account No
+            </th>
+
              <th>
-                Name
+               Bank Name
             </th>
             <th>
                 Amount
@@ -62,9 +68,14 @@
 
          
             
-                <tr>  
+                <tr>   @if (@User.IsInRole("Admin"))
+            {
                     <td>
-                        @Html.DisplayFor(modelItem => item.MessageId) 
+                        @Html.DisplayFor(modelItem => item.User.Name) 
+                    </td>
+            }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber) 
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
