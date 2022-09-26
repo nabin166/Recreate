@@ -32,7 +32,7 @@ namespace BankFull.Models
 
         public int? UserId { get; set; }
 
-      //  public virtual string accName { get => accName1 = Name +  AccountNumber; set => accName1 = value = Name+AccountNumber; }
+        public  virtual string CheckName { get => Name +"("+ AccountNumber+")";  } 
         public virtual ICollection<tblMessage> TblMessages { get; set; }
         public virtual User? User { get; set; }
     }

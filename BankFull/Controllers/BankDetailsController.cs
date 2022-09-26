@@ -36,7 +36,7 @@ namespace BankFull.Controllers
                 {
                     string email = User.Identity.Name;
                     int cid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-
+                    // !null 5:15 pm 26
                     return _context.BankDetails != null ?
                     View(await _context.BankDetails.Include(x => x.User).Where(x => x.UserId == cid).ToListAsync()) :
                     Problem("Entity set 'TranasferoffContext.BankDetails' is null.");

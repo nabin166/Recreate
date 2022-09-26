@@ -259,7 +259,7 @@ namespace BankFull.Controllers
 
 
 
-             //   ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id" , " accName");
+                ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id" , "CheckName");
 
 
             return View();
