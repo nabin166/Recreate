@@ -9,6 +9,7 @@ using BankFull.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.Dynamic;
 
+
 namespace BankFull.Controllers
 {
     [Authorize (Roles = "User,Admin")]
@@ -16,11 +17,13 @@ namespace BankFull.Controllers
     {
         private readonly TransferOffContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
+    
 
-        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment)
+        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment )
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
+        
         }
 
 
@@ -216,14 +219,66 @@ namespace BankFull.Controllers
             return View(tblMessage);
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         // GET: tblMessages/Create
         public IActionResult Create()
         {
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-            ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id", "Name");
+
+            //   List<BankViewModel> list = new SelectList(_context.BankDetails.)
+
+            //BankViewModel vm = new BankViewModel();
+            //vm.Bankid = uid;
+          //  vm.Name_Account = _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().Name + _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().AccountName;
+          //  ViewData["BankViewModel"] = new SelectList(vm, "Bankid", "Name_Account");
+
+         //   ViewData["BankId"] = new SelectList(), "Bankid", "Name");
+
+
+
+
+
+            //    string name = _context.BankDetails.Where(x => x.UserId == uid).FirstOrDefault().Name;
+            //    string bank = _context.BankDetails.Where(x => x.UserId == uid).FirstOrDefault().AccountNumber;
+            //    string b = name  + bank;
+
+
+
+
+
+             //   ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id" , " accName");
+
+
             return View();
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // POST: tblMessages/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
@@ -400,5 +455,8 @@ namespace BankFull.Controllers
         public User usr { get; set; }
         public Role rol { get; set; }
     }
+
+
+
 
 }

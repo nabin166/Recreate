@@ -288,10 +288,14 @@ $(document).ready(function() {
             'data': fileData,
             'enctype': 'multipart/form-data',
             'success': function() {
-
+                
                 $("#clk").css({
                     "display": "block",
                 });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+             
+                //window.location.href = '@Url.Action("Assign","Users")';
             
             },
             'error': function() {

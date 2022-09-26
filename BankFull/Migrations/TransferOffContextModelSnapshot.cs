@@ -60,7 +60,6 @@ namespace BankFull.Migrations
                         .IsFixedLength();
 
                     b.Property<int?>("UserId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("User_Id");
 
@@ -108,6 +107,23 @@ namespace BankFull.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Role", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Role1 = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Role1 = "User"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Role1 = "Agent"
+                        });
                 });
 
             modelBuilder.Entity("BankFull.Models.tblMessage", b =>
@@ -123,7 +139,6 @@ namespace BankFull.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("BankId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Date")
@@ -251,6 +266,41 @@ namespace BankFull.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("User", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Bharatpur",
+                            Email = "niraj@gmail.com",
+                            Name = "Niraj Baral",
+                            Password = "$2a$11$1kQahuownAnKSQ0mteMNGuT4Wy1rfhJOR.d4.atb161IVfoVruPqW",
+                            Phone = "9855075102",
+                            RoleId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Bharatpur",
+                            Email = "nabin@gmail.com",
+                            Name = "Nabin Aryal",
+                            Password = "$2a$11$vgn4bjCVrkbySvt9zT3Uue1StG/zP5TAr1r2K/mXlrsfM9YuNylZG",
+                            Phone = "9855075102",
+                            RoleId = 2,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Bharatpur",
+                            Email = "sandip@gmail.com",
+                            Name = "Sandip Adhikari",
+                            Password = "$2a$11$TflEZlG77q0lCSDLo7ZNluXI3MLJlS1FQpb/kLB19VGVCbcRYieam",
+                            Phone = "9855075102",
+                            RoleId = 1,
+                            Status = true
+                        });
                 });
 
             modelBuilder.Entity("BankFull.Models.UserMessage", b =>
@@ -284,8 +334,6 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("BankDetails")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Bank Details_User");
 
                     b.Navigation("User");
@@ -296,8 +344,6 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.BankDetail", "BankDetail")
                         .WithMany("TblMessages")
                         .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Bank Details_User1");
 
                     b.Navigation("BankDetail");

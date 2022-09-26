@@ -22,8 +22,14 @@
                 @Html.DisplayNameFor(model => model.CrAmount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MessageId)
+                @Html.DisplayNameFor(model => model.TblMessage.BankDetail.AccountNumber)
             </th>
+             <th>
+                @Html.DisplayNameFor(model => model.TblMessage.BankDetail.Name)
+            </th>
+             <td>
+                Sender
+            </td>
             <th></th>
         </tr>
     </thead>
@@ -40,7 +46,13 @@
                 @Html.DisplayFor(modelItem => item.CrAmount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MessageId)
+                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.AccountNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.Name)
+            </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.User.Name)
             </td>
             <td>
                @if(User.Identity.IsAuthenticated){

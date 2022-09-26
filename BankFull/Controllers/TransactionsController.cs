@@ -22,7 +22,7 @@ namespace BankFull.Controllers
         // GET: Transactions
         public async Task<IActionResult> Index()
         {
-            var transferOffContext = _context.Transactions.Include(t => t.TblMessage);
+            var transferOffContext = _context.Transactions.Include(t => t.TblMessage).Include(t=>t.TblMessage.BankDetail.User);
             return View(await transferOffContext.OrderByDescending(x=>x.Id).ToListAsync());
         }
 

@@ -187,6 +187,45 @@ namespace BankFull.Models
                //    .HasConstraintName("FK_RecUser__User");
 
             });
+      /*      modelBuilder.Entity<Role>().HasData(
+                new { Id = 1, Role1 = "Admin" },
+                new { Id = 2, Role1 = "User" },
+                new { Id = 3, Role1 = "Agent" });
+            modelBuilder.Entity<User>().HasData(
+                new
+                {
+                    Id = 1,
+                    Name = "Niraj Baral",
+                    Address="Bharatpur",
+                    Email="niraj@gmail.com",
+                    Phone="9855075102",
+                    Status=true,
+                    Password = BCrypt.Net.BCrypt.HashPassword("12345"),
+                    RoleId = 1
+                },
+                                new
+                                {
+                                    Id = 2,
+                                    Name = "Nabin Aryal",
+                                    Address = "Bharatpur",
+                                    Email = "nabin@gmail.com",
+                                    Phone = "9855075102",
+                                    Status = true,
+                                    Password = BCrypt.Net.BCrypt.HashPassword("12345"),
+                                    RoleId = 2
+                                },
+                                                new
+                                                {
+                                                    Id = 3,
+                                                    Name = "Sandip Adhikari",
+                                                    Address = "Bharatpur",
+                                                    Email = "sandip@gmail.com",
+                                                    Phone = "9855075102",
+                                                    Status = true,
+                                                    Password = BCrypt.Net.BCrypt.HashPassword("12345"),
+                                                    RoleId = 1
+                                                });    */
+
 
                 
 

@@ -339,9 +339,7 @@ $(document).ready(function() {
         },
         'success' : function() {       
             
-            $("#clk").css({
-                "display": "block",
-            });
+          window.location.href = '@Url.Action("Index","tblMessages")';
         },
         'error' : function()
         {
