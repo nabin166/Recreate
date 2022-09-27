@@ -34,6 +34,7 @@
             @if (@User.IsInRole("Admin"))
             {
                 <th>Assigned To</th>
+                <th>Sent by</th>
             }
             <th>
                 Account No
@@ -72,6 +73,9 @@
             {
                     <td>
                         @Html.DisplayFor(modelItem => item.User.Name) 
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name) 
                     </td>
             }
                     <td>

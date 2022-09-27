@@ -66,10 +66,16 @@
         <table id="example" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-success">
           <tr>
-              <th>Mid</th>
-              
+              <th></th>
+              <th>Account Holder</th>
+
+              <th>Address</th>
+
              <th>
-                Name
+                Bank Name
+            </th>
+             <th>
+                Account_No
             </th>
             <th>
                 Amount
@@ -99,11 +105,17 @@
          
             
                 <tr>  
-                    <td>
+                    <td style="visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.MessageId) 
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
                     </td>
 
                     <td>
@@ -152,8 +164,9 @@
      <table id="exam"  class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-danger ">
           <tr>
-              <th>Mid</th>
-              
+              <th></th>
+              <th>Account_No</th>
+              <th>Send_by</th>
              <th>
                Bankname
             </th>
@@ -184,8 +197,14 @@
          
             
                 <tr>
-                    <td>
+                    <td style="visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.MessageId)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
@@ -250,7 +269,7 @@ $(document).ready(function() {
         //   var mid = parseInt(msid);
 
 
-        var Asmid = $(this).closest('tr').find("td:eq(2)").text();
+        var Asmid = $(this).closest('tr').find("td:eq(4)").text();
         //   var Amid = parseInt(Asmid);
 
         // var Completeimg = $(this).closest('tr').find("td:eq(5)").val();

@@ -8,9 +8,18 @@
     <thead class="bg-success">
           <tr>
               <th>Assigned To</th>
+               <th>
+                Sent_by
+            </th>
+            <th>
+                Address
+            </th>
               
              <th>
-                Name
+                Bank_Name
+            </th>
+             <th>
+                Account_No
             </th>
             <th>
                 Amount
@@ -42,8 +51,17 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.User.Name) 
                     </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
                     </td>
 
                     <td>

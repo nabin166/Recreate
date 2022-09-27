@@ -7,16 +7,19 @@
    <table id="exampl" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-success">
           <tr>
-              <th>Mid</th>
+              <th>Account_No</th>
               
              <th>
-                Name
+                Bank_Name
             </th>
             <th>
                 Amount
             </th>
             <th>
                 Date
+            </th>
+             <th>
+                Address
             </th>
             <th>
              @*   Document *@
@@ -40,7 +43,7 @@
             
                 <tr>  
                     <td>
-                        @Html.DisplayFor(modelItem => item.MessageId) 
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber) 
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
@@ -52,7 +55,9 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Date)
                     </td>
-
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address) 
+                    </td>
 
                     <td>
 

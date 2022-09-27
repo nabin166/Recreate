@@ -35,7 +35,7 @@
    <table id="datass" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-danger">
           <tr>
-              <th>Mid</th>
+              <th></th>
               
              <th>
                 Bank Name
@@ -70,7 +70,7 @@
          
             
                 <tr>  
-                    <td class="id">
+                    <td class="id" style=" visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
                     <td>
@@ -110,6 +110,8 @@
 
 <script>
 $(document).ready(function(e) {
+
+     $('#datass').DataTable();
 
     $(".imgprev").click(function(e) {
         var cid = $(this).closest('tr').find("td:eq(0)").text();

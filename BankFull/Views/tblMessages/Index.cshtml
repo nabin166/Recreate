@@ -33,44 +33,48 @@
              <li class="active"><a data-toggle="tab" href="#home">Assign Now</a></li>
             <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
              <li><a data-toggle="tab" href="#menu2">Complete</a></li>
-              <li><a data-toggle="tab" href="#menu3">MessageComplete</a></li>
+            <li><a data-toggle="tab" href="#menu3">MessageComplete</a></li>
         }
         @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
-   
-  </ul>
 
-  <div class="tab-content">
+    </ul>
 
-      @*SubmitNow*@
-    <div id="home" class="tab-pane fade active in bg-white ">
+    <div class="tab-content">
 
-        @*Submit*@
+        @*SubmitNow*@
+        <div id="home" class="tab-pane fade active in bg-white ">
 
-<table id="example" class=" table tablecolor" style="width:75vw;">
-    <thead class="bg-success">
-        <tr>
-            
-           
-             <th>
-                bank
-            </th>
-            <th>
-                Amount
-            </th>
-            <th>
-                date
-            </th>
-            <th>
-          @*      document *@
-            </th>
-            <th>
-                message
-            </th>
-               
-           <th > 
-             </th>
+            @*Submit*@
 
-            
+            <table id="example" class=" table tablecolor" style="width:75vw;">
+                <thead class="bg-success">
+                    <tr>
+
+
+                        <th>
+                            bank
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            date
+                        </th>
+                        <th>
+                            @*      document *@
+                        </th>
+                        <th>
+                            message
+                        </th>
+
+                        <th > 
+                        </th>
+                        @if (@User.IsInRole("User"))
+                        {
+                            <th>Account_No</th>
+
+                        }
+
             @if(@User.IsInRole("Admin")){
              <th > Sent by
             </th>
@@ -185,6 +189,14 @@
                                     <td class="msgid invisible">
                                         @Html.DisplayFor(modelItem => item.Id)
                                     </td>
+
+                                      <td>
+                                        @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber)
+                                    </td>
+                                      <td>
+                                        @Html.DisplayFor(modelItem => item.Messages)
+                                    </td>
+
                                     @if (@User.IsInRole("Admin"))
                                     {
                                         <td>

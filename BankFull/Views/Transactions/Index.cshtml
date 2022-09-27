@@ -54,6 +54,8 @@
               <td>
                 @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.User.Name)
             </td>
+             
+           
             <td>
                @if(User.Identity.IsAuthenticated){
                @if(@User.IsInRole("never")){
