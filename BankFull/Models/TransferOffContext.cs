@@ -180,26 +180,22 @@ namespace BankFull.Models
                     .HasForeignKey(d => d.UserId)
                     .HasConstraintName("FK_User_Message_User");
 
-                //Latest added
-               // entity.HasOne(d => d.User)
-               //    .WithMany(p => p.UserMessages)
-               //    .HasForeignKey(d => d.RecUserId)
-               //    .HasConstraintName("FK_RecUser__User");
+
 
             });
-      /*      modelBuilder.Entity<Role>().HasData(
-                new { Id = 1, Role1 = "Admin" },
-                new { Id = 2, Role1 = "User" },
-                new { Id = 3, Role1 = "Agent" });
+            modelBuilder.Entity<Role>().HasData(
+               new { Id = 1, Role1 = "Admin" },
+               new { Id = 2, Role1 = "User" },
+               new { Id = 3, Role1 = "Agent" });
             modelBuilder.Entity<User>().HasData(
                 new
                 {
                     Id = 1,
                     Name = "Niraj Baral",
-                    Address="Bharatpur",
-                    Email="niraj@gmail.com",
-                    Phone="9855075102",
-                    Status=true,
+                    Address = "Bharatpur",
+                    Email = "niraj@gmail.com",
+                    Phone = "9855075102",
+                    Status = true,
                     Password = BCrypt.Net.BCrypt.HashPassword("12345"),
                     RoleId = 1
                 },
@@ -224,10 +220,33 @@ namespace BankFull.Models
                                                     Status = true,
                                                     Password = BCrypt.Net.BCrypt.HashPassword("12345"),
                                                     RoleId = 1
-                                                });    */
+                                                },
+                                    new
+                                    {
+                                        Id = 4,
+                                        Name = "Prakash Adhikari",
+                                        Address = "Bharatpur",
+                                        Email = "parkash@gmail.com",
+                                        Phone = "9855075102",
+                                        Status = true,
+                                        Password = BCrypt.Net.BCrypt.HashPassword("12345"),
+                                        RoleId = 3
+                                    },
+                                    new
+                                    {
+                                        Id = 5,
+                                        Name = "pradip Adhikari",
+                                        Address = "Bharatpur",
+                                        Email = "pradip@gmail.com",
+                                        Phone = "9855075102",
+                                        Status = true,
+                                        Password = BCrypt.Net.BCrypt.HashPassword("12345"),
+                                        RoleId = 3
+                                    });
 
 
-                
+
+
 
             OnModelCreatingPartial(modelBuilder);
         }

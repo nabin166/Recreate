@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fOKN2lb+jsZU0LSWKAgycWYJLylDOkcJ/94tX8U3clXfb+diD53uu2Eu2QDyodkeh+jqsOVfgOUg2jceW5eGZQ==",
+  "dgSpecHash": "azJQzbPuTbgSLEy3IW+Y8HdoMslo0G8QYBUCIFqUPWML19/r0o8F8B9d9seALwlsqBcr1Sn8FTUZK/O035Q/kg==",
   "success": true,
-  "projectFilePath": "D:\\Recreate\\BankFull\\BankFull.csproj",
+  "projectFilePath": "E:\\barali\\lastVersion1.1\\BankFull\\BankFull.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

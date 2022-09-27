@@ -37,23 +37,30 @@ namespace BankFull.Controllers
 
             if (user != null)
             {
-                if(BCrypt.Net.BCrypt.Verify(Password,user.Password))
+                if (user.Status == true)
                 {
-                    string roless = _context.Roles.Where(x => x.Users.Where(x => x.Email == Email).Count() > 0).FirstOrDefault().Role1;
-                    identity = new ClaimsIdentity(new[]
+                    if (BCrypt.Net.BCrypt.Verify(Password, user.Password))
                     {
+                        string roless = _context.Roles.Where(x => x.Users.Where(x => x.Email == Email).Count() > 0).FirstOrDefault().Role1;
+                        identity = new ClaimsIdentity(new[]
+                        {
                         new Claim(ClaimTypes.Name, Email),
                         new Claim(ClaimTypes.Role, roless),
-                        
-                    },CookieAuthenticationDefaults.AuthenticationScheme );
 
-                    isAuthenticate = true;
+                    }, CookieAuthenticationDefaults.AuthenticationScheme);
 
-                    if (isAuthenticate)
+                        isAuthenticate = true;
+
+                        if (isAuthenticate)
+                        {
+                            ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+                            HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                    else
                     {
-                        ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                        HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,principal);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Account", new { issuccess = true });
                     }
                 }
                 else

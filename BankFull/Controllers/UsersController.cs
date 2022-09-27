@@ -32,9 +32,87 @@ namespace BankFull.Controllers
             View(await transferOffContext.ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
+        //thapeko 
+        public async Task<IActionResult> StatusAssign(string emails)
+        {
+            if (emails == null)
+            {
+
+            }
+            else
+            {
+                var c = emails.Replace( '\n', ' ').Replace(" ", String.Empty); 
+                
+                int u2 = _context.user.Where(x => x.Email == c).FirstOrDefault().Id;
+                
+
+                if (u2 == null)
+                {
+                    //Something
+
+                }
+                else
+                {
+                    var user = await _context.user.FindAsync(u2);
+
+                    if(user.Status == false)
+                    {
+                        user.Status = true;
+                    }
+                    else {
+                        user.Status = false;
+                    }
+                   
+                    _context.Update(user);
+                    _context.SaveChanges();
+
+                }
+
+            }
 
 
-        
+
+            return View();
+        }
+
+        //Thapeko 
+
+
+        public async Task<IActionResult> Reutrn(int msid)
+        {
+            string abc = User.Identity.Name;
+            var c = msid;
+           
+
+            int a = _context.user.Where(x => x.Email == abc).FirstOrDefault().Id;
+
+            var m = a;
+            if (a == 0)
+            {
+
+            }
+            else
+            {
+                int b = _context.UserMessages.Where(x => x.UserId == a).Where(x => x.MessageId == msid).FirstOrDefault().Id;
+
+
+                var user = await _context.UserMessages.FindAsync(b);
+                if (user != null)
+                {
+                    _context.Remove(user);
+                    _context.SaveChanges();
+                }
+
+
+
+            }
+            //  int a= _context.UserMessages.Where(x=>x.Id == Asmid).Count();
+
+            return View();
+        }
+
+
+
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -78,6 +156,7 @@ namespace BankFull.Controllers
 
                     string passwordHash = BCrypt.Net.BCrypt.HashPassword(user.Password);
                     user.Password = passwordHash;
+                    user.Status = false;
 
 
                     _context.Add(user);
@@ -196,7 +275,7 @@ namespace BankFull.Controllers
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
-            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
+            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
             List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
 
 

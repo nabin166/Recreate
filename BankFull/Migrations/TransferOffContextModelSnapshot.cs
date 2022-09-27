@@ -55,6 +55,7 @@ namespace BankFull.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("TransactionLimit")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nchar(100)")
                         .IsFixedLength();
@@ -274,7 +275,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$1kQahuownAnKSQ0mteMNGuT4Wy1rfhJOR.d4.atb161IVfoVruPqW",
+                            Password = "$2a$11$P0xdZqDv.1zNblZLmnzELe71u.bMBrmMI1SBCGmFPaDHLpKsF3Ale",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true
@@ -285,7 +286,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "nabin@gmail.com",
                             Name = "Nabin Aryal",
-                            Password = "$2a$11$vgn4bjCVrkbySvt9zT3Uue1StG/zP5TAr1r2K/mXlrsfM9YuNylZG",
+                            Password = "$2a$11$mYBy8srh1K5rJRDO8tY94OmCqMYzfTFS1qQn5eMaNhkjXx0/GLrby",
                             Phone = "9855075102",
                             RoleId = 2,
                             Status = true
@@ -296,9 +297,31 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "sandip@gmail.com",
                             Name = "Sandip Adhikari",
-                            Password = "$2a$11$TflEZlG77q0lCSDLo7ZNluXI3MLJlS1FQpb/kLB19VGVCbcRYieam",
+                            Password = "$2a$11$Vb.DF31hSN9eGyhwsC036eDxEVaYZRBV4rDakfAxHiJVJvX2Lvw8C",
                             Phone = "9855075102",
                             RoleId = 1,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Bharatpur",
+                            Email = "parkash@gmail.com",
+                            Name = "Prakash Adhikari",
+                            Password = "$2a$11$ZePVNImPAij1mJLumliSUOR./1IpwkzxSYAcKSV2hAI6c99YSV3RO",
+                            Phone = "9855075102",
+                            RoleId = 3,
+                            Status = true
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Bharatpur",
+                            Email = "pradip@gmail.com",
+                            Name = "pradip Adhikari",
+                            Password = "$2a$11$QMb34ASTtCJr8sIMAg25pOwX1fltW3TiS5kcb3O3r1QcrjQRAFwJy",
+                            Phone = "9855075102",
+                            RoleId = 3,
                             Status = true
                         });
                 });
