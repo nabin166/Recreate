@@ -63,10 +63,12 @@
     <div id="home" class="tab-pane fade active in bg-white ">
 
         @*Submit*@
-        <table id="example" class="mb-4 table tablecolor wid " style="width:75vw;">
-    <thead class="bg-success">
+
+
+       <table id="exx" class="mb-4 table tablecolor wid " style="width:75vw;">
+        <thead class="bg-success">
           <tr>
-              <th></th>
+              <th ></th>
               <th>Account Holder</th>
 
               <th>Address</th>
@@ -75,7 +77,7 @@
                 Bank Name
             </th>
              <th>
-                Account_No
+                Account No
             </th>
             <th>
                 Amount
@@ -90,11 +92,7 @@
              <th>
                 
             </th>
-            <th></th>
-            
-          
-         
-            
+                  
         </tr>
             
         
@@ -102,11 +100,9 @@
     <tbody>
 @foreach (UserMessage item in Model.Assign) {
 
-         
-            
                 <tr>  
-                    <td style="visibility:hidden;">
-                        @Html.DisplayFor(modelItem => item.MessageId) 
+                    <td >
+                      
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
@@ -140,8 +136,6 @@
                     </td>
 
 
-
-
                     <td>
 
                         <button type="button" class="btn btn-secondary complete">Complete</button>
@@ -151,6 +145,17 @@
             
         }
     </tbody>
+     <tfoot>
+            <tr>
+             
+                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
+                <th></th><th></th><th></th><th></th>
+                
+           
+            </tr>
+        </tfoot>
+
+
 </table>
 
 
@@ -158,17 +163,17 @@
     </div>
       @*Submitted*@
 
-    <div id="menu1" class="tab-pane fade bg-white">
+        <div id="menu1" class="tab-pane fade bg-white">
     @*Submitted_data*@
 
      <table id="exam"  class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-danger ">
           <tr>
               <th></th>
-              <th>Account_No</th>
-              <th>Send_by</th>
+              <th>Account No</th>
+              <th>Send by</th>
              <th>
-               Bankname
+               Bank Name
             </th>
             <th>
                Amount
@@ -236,6 +241,14 @@
             
         }
     </tbody>
+     <tfoot>
+            <tr>
+             
+                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
+                <th></th><th></th><th></th><th></th><th></th><th></th>
+               
+            </tr>
+        </tfoot>
 </table>
 
 
@@ -247,15 +260,79 @@
 
 
 
-
+    @section scripts{
 
 <script>
-   
+
 
 $(document).ready(function() {
+    $('#exam').DataTable(
 
-    $('#example').DataTable();
-    $('#exam').DataTable();
+        {
+            footerCallback: function(row, data, start, end, display) {
+                var api = this.api();
+
+                // Remove the formatting to get integer data for summation
+                var intVal = function(i) {
+                    return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+                };
+
+                // Total over all pages
+                total = api
+                    .column(4)
+                    .data()
+                    .reduce(function(a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                // Total over this page
+                pageTotal = api
+                    .column(4, { page: 'current' })
+                    .data()
+                    .reduce(function(a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                // Update footer
+                $(api.column(4).footer()).html(pageTotal + ' <br/>' + total);
+            },
+        });
+
+    $('#exx').DataTable(
+    
+           {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(4)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(4, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(4).footer()).html( pageTotal  + ' <br/>' + total  );
+        },
+       }
+
+);
+   
+   
 
 
     $(".complete").click(function(e) {
@@ -329,21 +406,21 @@ $(document).ready(function() {
 
    
 
-
-
-
 </script>
-    @section scripts{
+
+
+  
              @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+  
 
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
 
-       }
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
 
+       }
 
 
 

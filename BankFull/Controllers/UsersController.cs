@@ -217,6 +217,11 @@ namespace BankFull.Controllers
 
         }
 
+        public IActionResult Setting()
+        {
+            return View();
+        }
+
 
         private bool UserExists(int id)
         {

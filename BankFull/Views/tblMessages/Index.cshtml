@@ -72,7 +72,7 @@
                         @if (@User.IsInRole("User"))
                         {
                             <th>Account_No</th>
-
+                            <th></th>
                         }
 
             @if(@User.IsInRole("Admin")){
@@ -85,7 +85,7 @@
             <th > 
              </th>
             }
-             <th > 
+            <th > 
              </th>
               
         </tr>
@@ -217,6 +217,7 @@
                                             <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/> 
 
                                         </td>
+                                        
                                     }
 
                                     <td>
@@ -230,6 +231,13 @@
                         }
                     }
     </tbody>
+
+     <tfoot>
+            <tr>
+                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th><th></th>
+               
+            </tr>
+        </tfoot>
 
 
     @*Data fetch*@
@@ -315,17 +323,13 @@ $(document).ready(function() {
 
   
   
-     $("#Content").load("Index/Index");
-     $("#Complete").load("Index/Complete");
-      $("#Process").load("Index/Processing");
-       $("#Completeprocess").load("Index/ProcessComplete");
+    $("#Content").load("Index/Index");
+    $("#Complete").load("Index/Complete");
+    $("#Process").load("Index/Processing");
+    $("#Completeprocess").load("Index/ProcessComplete");
     $("#MessageComplete").load("Index/FinalMessage");
     
- 
 
-    
-
-   
 
    
     $(".userid").click(function(e){
@@ -372,9 +376,53 @@ $(document).ready(function() {
 
  <script>
    $(document).ready(function () {
-    $('#example').DataTable();
-        $('#exam').DataTable();
-         $('#examp').DataTable();
+    $('#example').DataTable(
+
+
+        {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(1)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(1, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(1).footer()).html( pageTotal  + ' <br/>' + total  );
+        },
+    }
+    
+    
+    );
+     $('#exam').DataTable(
+     
+     
+     
+     
+     );
+     $('#examp').DataTable(
+     
+     
+     
+     );
+
 
       
 });

@@ -4,7 +4,7 @@
     Layout = null;
 }
     
-   <table id="exampl" class="mb-4 table tablecolor wid " style="width:75vw;">
+   <table id="exxa" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-success">
           <tr>
               <th>Assigned To</th>
@@ -34,6 +34,7 @@
              <th>
                 
             </th>
+           
             
           
          
@@ -90,13 +91,60 @@
             
         }
     </tbody>
+
+
+     <tfoot>
+            <tr>
+             
+                <th colspan="1" style="text-align:right">Total: <br />Sub Total:</th>
+                <th></th> <th></th> <th></th> <th></th> <th></th>
+               
+            </tr>
+        </tfoot>
 </table>
 
 
-
+    
  <script>
    $(document).ready(function () {
-    $('#exampl').DataTable();
+   $('#exxa').DataTable(
+    
+    
+    {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(5)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(5, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(5).footer()).html( pageTotal  + ' <br/>' + total  );
+        },
+    }
+    
+    
+    
+    
+    
+    );
        
 });
 
@@ -104,7 +152,7 @@
 
 </script>
 
-                 @section scripts{
+             @section scripts{
              @*DataTable*@
    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
