@@ -5,7 +5,7 @@
 }
 
 
-<h1 class="text-dark">User</h1>
+<h1 class="text-dark">User Setting</h1>
 <hr />
    
 <p>
@@ -79,6 +79,9 @@
     </tbody>
 </table>
 
+<h1 class="text-dark">Privacy</h1>
+
+<hr />
 <script>
 
 $(document).ready(function () {
@@ -87,15 +90,15 @@ $(document).ready(function () {
      
         
 
-           var emails = $(this).closest('tr').find("td:eq(2)").text();
+            var emails = $(this).closest('tr').find("td:eq(2)").text();
            
             console.log(emails);
                $.ajax({
            'url': '@Url.Action("StatusAssign","Users")',
-            'type': 'post',
-            'data': { emails },
+           'type': 'post',
+           'data': { emails },
 
-            'success': function() {
+           'success': function() {
 
                 $("#clk").css({
                     "display": "block",
@@ -103,12 +106,12 @@ $(document).ready(function () {
 
                 //Error Occur But why ????? So i comment out the Redirect location
 
-                window.location.href = '@Url.Action("Assign","Users")';
+                window.location.href = '@Url.Action("Index","Users")';
 
             },
             'error': function() {
 
-                window.location.href = '@Url.Action("Assign","Users")';
+                window.location.href = '@Url.Action("Index","Users")';
             }
 
 

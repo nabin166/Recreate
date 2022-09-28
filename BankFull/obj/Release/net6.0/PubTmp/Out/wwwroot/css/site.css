@@ -1,0 +1,76 @@
+html {
+  
+}
+
+::-webkit-scrollbar {
+   scroll-behavior:smooth;
+   display:none;
+   overflow-x:hidden;
+}
+
+
+.a{
+    text-decoration: none !important;
+    color: white !important;
+    
+  
+
+}
+.a:hover{
+    background-color: rgba(105, 119, 119, 0.266);
+}
+
+.anc {
+    text-decoration: none !important;
+   
+}
+
+    .anc:hover {
+        
+       opacity:60%;
+    }
+
+#medwid {
+       
+      
+    /* left: 20px; */
+}
+
+#padding {
+    padding-right:24px;
+}
+
+
+.tablecolor {
+    background-color: rgba(105, 119, 119, 0.266);
+}
+
+@media (max-width:768px ) {
+    #medwid{
+        margin-left: 25%;
+        padding-left:15px;
+        /* left: 20px; */
+
+    }
+    .wid{
+        width:90vw;
+    }
+    #padding {
+        padding-right: 0px;
+    }
+    .crea{
+        padding:10px;
+    }
+  }
+
+.active {
+    background-color: rgb(105, 119, 119);
+}
+
+.centering{
+    position:absolute;
+    left:50%;
+    transform:translate(-50%);
+}
+
+

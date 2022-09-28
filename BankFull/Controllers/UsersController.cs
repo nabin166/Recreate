@@ -29,7 +29,7 @@ namespace BankFull.Controllers
 
 
             return transferOffContext != null ?
-            View(await transferOffContext.ToListAsync()) :
+            View(await transferOffContext.Where(x=>x.Role.Role1 != "Admin").ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
         //thapeko 
@@ -135,7 +135,7 @@ namespace BankFull.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Role1");
+            ViewData["RoleId"] = new SelectList(_context.Roles.Where(x => x.Role1 != "Admin"), "Id", "Role1");
             return View();
         }
 
