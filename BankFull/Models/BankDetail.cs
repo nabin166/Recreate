@@ -7,7 +7,7 @@ namespace BankFull.Models
     public partial class BankDetail
     {
         private string? accountNumber;
-        private string accName1;
+        
 
         public BankDetail()
         {

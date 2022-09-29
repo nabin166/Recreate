@@ -50,7 +50,7 @@
                 Date
             </th>
             <th>
-                
+                Message
             </th>
             
              <th>
@@ -91,7 +91,7 @@
                     <td>
 
                     @*    <img src="~/@Html.DisplayFor(modelItem => item.tbl.DocumentPath)" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModals"  width="50px"/> *@
-
+                    @Html.DisplayFor(modelItem => item.tbl.Messages)
                     </td>
 
 
@@ -107,7 +107,7 @@
         }
     </tbody>
 
-       <tfoot>
+       <tfoot class="table-danger">
             <tr>
                 <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
                   <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> 
@@ -179,7 +179,7 @@ $(document).ready(function(e) {
 
       
 
-
+         
     });
 });
 

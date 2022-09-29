@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QekQYtd7/8mAy4CcdsmAoPVsc62YDAMU5Kko/MUPEyQ=",
+  "Hash": "ib6QTRFJc1H21zJRwNaVqzozDT0LYP2r9V/47zHanTU=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -1547,6 +1547,23 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\2a6258ef-30a4-4cbe-8253-0ad6af9a44f3appends.png"
     },
     {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\3d452dc3-f514-4653-bfbc-c7dbca80363a301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
@@ -1581,6 +1598,40 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\7a702612-056a-47ba-8760-ad403e2122ce1658737478300.jpg"
     },
     {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg"
+    },
+    {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\b285fd05-e444-4fb6-9513-933324a4e613img.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
@@ -1613,6 +1664,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\PhotoSend\\bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\d5f105c8-7a26-48b6-8511-4d383db190fcappends.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/d5f105c8-7a26-48b6-8511-4d383db190fcappends.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\d5f105c8-7a26-48b6-8511-4d383db190fcappends.png"
     },
     {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\dae05fcd-a80c-42d3-b819-b1b59a8f15a01658737478300.jpg",

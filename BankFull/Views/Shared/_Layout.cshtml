@@ -81,6 +81,12 @@
               <p class="ml-2 mt-2">Transaction</p>
                                 </a>
 
+                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transactionrate " asp-controller="TransactionRates" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Transaction Rate</p>
+                                </a>
+
                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting" asp-controller="Users" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
                 style="margin-top: 13px;"></i>
@@ -190,6 +196,12 @@
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Message</p>
+
+              <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transactionrate " asp-controller="TransactionRates" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Transaction Rate</p>
+                                </a>
               </a>
                  <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transaction " asp-controller="Transactions" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
@@ -332,7 +344,11 @@
         $('.tblmessage').addClass('active');
     } else if ('@currentActionName' === "BankDetails") {
         $('.Bank').addClass('active');
-    }else if ('@currentActionName' === "Transactions") {
+    }
+     else if ('@currentActionName' === "TransactionRates") {
+        $('.Transactionrate').addClass('active');
+    }
+    else if ('@currentActionName' === "Transactions") {
         $('.Transaction').addClass('active');
     }else if ('@currentActionName' === "Users") {
         $('.Assign').addClass('active');

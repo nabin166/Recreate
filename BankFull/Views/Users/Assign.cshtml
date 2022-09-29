@@ -71,10 +71,10 @@
               <th ></th>
               <th>Account Holder</th>
 
-              <th>Address</th>
+              <th>Bank Name</th>
 
              <th>
-                Bank Name
+                Address
             </th>
              <th>
                 Account No
@@ -87,11 +87,13 @@
             </th>
             <th>
              @*   Document  *@
+             Message
             </th>
             
              <th>
                 
             </th>
+            <th></th>
             <th></th>
                   
         </tr>
@@ -102,11 +104,14 @@
 @foreach (UserMessage item in Model.Assign) {
 
                 <tr>  
-                    <td >
+                    <td style="visibility:hidden;">
                        @Html.DisplayFor(modelItem => item.tblMessage.Id)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
                     </td>
                      <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
@@ -126,7 +131,7 @@
                     <td>
 
                     @*    <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" data-toggle="modal" data-target="#exampleMod" width="50px"/> *@
-
+                    @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                     </td>
 
                     <td>
@@ -139,22 +144,22 @@
 
                     <td>
 
-                        <button type="button" class="btn btn-secondary complete">Complete</button>
+                        <button type="button" class="btn btn-secondary btn-success complete">Complete</button>
                     </td> 
                     <td>
 
-                        <button type="button" class="btn btn-secondary return">Return</button>
+                        <button type="button" class="btn btn-secondary btn-danger return">Return</button>
                     </td>  
 
                 </tr>
             
         }
     </tbody>
-     <tfoot>
+     <tfoot class="table-success ">
             <tr>
              
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                 
            
             </tr>
@@ -188,6 +193,7 @@
             </th>
             <th>
           @*     Document  *@
+          Message
             </th>
             
              <th>
@@ -231,7 +237,7 @@
                     <td>
 
                      @*   <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-
+                      @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                     </td>
 
 
@@ -240,17 +246,19 @@
                     <td>
 
                        
+
+                       
                     </td>     
 
                 </tr>
             
         }
     </tbody>
-     <tfoot>
+     <tfoot class="table-danger">
             <tr>
              
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                
             </tr>
         </tfoot>
@@ -265,7 +273,7 @@
 
 
 
-    @section scripts{
+
 
 <script>
 
@@ -316,7 +324,7 @@ $(document).ready(function() {
  
             // Total over all pages
             total = api
-                .column(4)
+                .column(5)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -324,14 +332,14 @@ $(document).ready(function() {
  
             // Total over this page
             pageTotal = api
-                .column(4, { page: 'current' })
+                .column(5, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(4).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(5).footer()).html( pageTotal  + ' <br/>' + total  );
         },
        }
 
@@ -384,7 +392,7 @@ $(document).ready(function() {
         //   var mid = parseInt(msid);
 
 
-        var Asmid = $(this).closest('tr').find("td:eq(4)").text();
+        var Asmid = $(this).closest('tr').find("td:eq(5)").text();
         //   var Amid = parseInt(Asmid);
 
         // var Completeimg = $(this).closest('tr').find("td:eq(5)").val();
@@ -429,7 +437,7 @@ $(document).ready(function() {
 
                 //Error Occur But why ????? So i comment out the Redirect location
              
-                //window.location.href = '@Url.Action("Assign","Users")';
+                window.location.href = '@Url.Action("Assign","Users")';
             
             },
             'error': function() {
@@ -446,7 +454,7 @@ $(document).ready(function() {
 
 </script>
 
-
+    @section scripts{
   
              @*DataTable*@
   

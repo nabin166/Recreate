@@ -15,6 +15,7 @@ namespace BankFull.Models
 
         
 
+
         public virtual tblMessage TblMessage { get; set; }
     }
 }

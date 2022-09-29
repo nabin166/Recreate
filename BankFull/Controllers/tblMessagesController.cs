@@ -19,7 +19,7 @@ namespace BankFull.Controllers
         private readonly IWebHostEnvironment _webHostEnvironment;
     
 
-        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment )
+        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
@@ -43,16 +43,19 @@ namespace BankFull.Controllers
 
             public async Task<IActionResult> Index()
         {
-                    
-                  //  List<tblMessage> tbllist = _context.tblMessages.Where(x => x.UserMessages.Count() <= 1).ToList();
-                  /*  List<tblMessage> tbllist = _context.tblMessages.ToList();
-                    List<TransactionRate> ratelist = _context.TransactionRates.ToList();
-                    List<UserMessage> usermess = _context.UserMessages.ToList();
-                    List<BankDetail> bankdet = _context.BankDetails.ToList();
-                    List<User> usr = _context.user.ToList();
-                    List<Role> rol = _context.Roles.ToList(); */
 
-                  
+
+           
+
+            //  List<tblMessage> tbllist = _context.tblMessages.Where(x => x.UserMessages.Count() <= 1).ToList();
+            /*  List<tblMessage> tbllist = _context.tblMessages.ToList();
+              List<TransactionRate> ratelist = _context.TransactionRates.ToList();
+              List<UserMessage> usermess = _context.UserMessages.ToList();
+              List<BankDetail> bankdet = _context.BankDetails.ToList();
+              List<User> usr = _context.user.ToList();
+              List<Role> rol = _context.Roles.ToList(); */
+
+
 
             /////////
             /// 
@@ -323,9 +326,11 @@ namespace BankFull.Controllers
 
                     transaction.CrAmount = tblMessage.Amount;
                     transaction.MessageId = msgid;
-                    transaction.Date = DateTime.Now.ToString();
+                    transaction.Date = DateTime.Now.ToString("yyyy-MM-dd");
 
-                    _context.Add(transaction);
+
+
+                _context.Add(transaction);
 
                     UserMessage userMessage = new UserMessage();
                     userMessage.UserId = uid;
