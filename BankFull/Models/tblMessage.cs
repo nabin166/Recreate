@@ -20,7 +20,7 @@ namespace BankFull.Models
         
         public int? BankId { get; set; }
         [Required]
-        public decimal? Amount { get; set; }
+        public int? Amount { get; set; }
         [Required]
         public string? Date { get; set; }
         

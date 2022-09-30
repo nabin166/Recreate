@@ -7,7 +7,7 @@ namespace BankFull.Models
         [Key]
         public int Id { get; set; }
       
-        public decimal Payment { get; set; }
+        public int Payment { get; set; }
         public int? UserId { get; set; }
         public string Date { get; set; } = DateTime.Now.ToString("yyyy-MM-dd");
         public string Datetime { get; set; } = DateTime.Now.ToString();
