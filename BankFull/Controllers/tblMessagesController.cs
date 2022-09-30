@@ -142,7 +142,12 @@ namespace BankFull.Controllers
 
 
                     string email = User.Identity.Name;
-                    ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
+
+
+                    //2022---------------------------9/30-------------------------
+
+
+               //     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
                     
 

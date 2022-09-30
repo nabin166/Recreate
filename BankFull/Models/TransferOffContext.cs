@@ -23,7 +23,7 @@ namespace BankFull.Models
        
         public virtual DbSet<TransactionRate> TransactionRates { get; set; } = null!; 
         public virtual DbSet<PhotoSend> PhotoSends { get; set; } = null!;
-        
+        public virtual DbSet<Payments> Paymentss { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -37,6 +37,20 @@ namespace BankFull.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+
+            modelBuilder.Entity<Payments>(entity =>
+            {
+                entity.ToTable("payments");
+
+                entity.HasOne(e => e.User)
+                .WithMany(p => p.Paymentss)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_Bank Details_User1111");
+
+
+            });
+
             modelBuilder.Entity<BankDetail>(entity =>
             {
                 entity.ToTable("Bank Details");
@@ -184,9 +198,9 @@ namespace BankFull.Models
 
             });
             modelBuilder.Entity<Role>().HasData(
-               new { Id = 1, Role1 = "Admin" },
-               new { Id = 2, Role1 = "User" },
-               new { Id = 3, Role1 = "Agent" });
+                new { Id = 1, Role1 = "Admin" },
+                new { Id = 2, Role1 = "User" },
+                new { Id = 3, Role1 = "Agent" });
             modelBuilder.Entity<User>().HasData(
                 new
                 {
@@ -198,51 +212,7 @@ namespace BankFull.Models
                     Status = true,
                     Password = BCrypt.Net.BCrypt.HashPassword("12345"),
                     RoleId = 1
-                },
-                                new
-                                {
-                                    Id = 2,
-                                    Name = "Nabin Aryal",
-                                    Address = "Bharatpur",
-                                    Email = "nabin@gmail.com",
-                                    Phone = "9855075102",
-                                    Status = true,
-                                    Password = BCrypt.Net.BCrypt.HashPassword("12345"),
-                                    RoleId = 2
-                                },
-                                                new
-                                                {
-                                                    Id = 3,
-                                                    Name = "Sandip Adhikari",
-                                                    Address = "Bharatpur",
-                                                    Email = "sandip@gmail.com",
-                                                    Phone = "9855075102",
-                                                    Status = true,
-                                                    Password = BCrypt.Net.BCrypt.HashPassword("12345"),
-                                                    RoleId = 1
-                                                },
-                                    new
-                                    {
-                                        Id = 4,
-                                        Name = "Prakash Adhikari",
-                                        Address = "Bharatpur",
-                                        Email = "parkash@gmail.com",
-                                        Phone = "9855075102",
-                                        Status = true,
-                                        Password = BCrypt.Net.BCrypt.HashPassword("12345"),
-                                        RoleId = 3
-                                    },
-                                    new
-                                    {
-                                        Id = 5,
-                                        Name = "pradip Adhikari",
-                                        Address = "Bharatpur",
-                                        Email = "pradip@gmail.com",
-                                        Phone = "9855075102",
-                                        Status = true,
-                                        Password = BCrypt.Net.BCrypt.HashPassword("12345"),
-                                        RoleId = 3
-                                    });
+                });
 
 
 

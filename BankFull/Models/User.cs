@@ -11,6 +11,7 @@ namespace BankFull.Models
             BankDetails = new HashSet<BankDetail>();
            
             UserMessages = new HashSet<UserMessage>();
+            Paymentss = new HashSet<Payments>();
         }
         
         public int Id { get; set; }
@@ -38,5 +39,6 @@ namespace BankFull.Models
         public virtual ICollection<BankDetail> BankDetails { get; set; }
         
         public virtual ICollection<UserMessage> UserMessages { get; set; }
+        public virtual ICollection<Payments> Paymentss { get; set; }
     }
 }

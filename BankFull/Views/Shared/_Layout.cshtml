@@ -81,6 +81,12 @@
               <p class="ml-2 mt-2">Transaction</p>
                                 </a>
 
+                                <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail" asp-controller="UserDetail" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Payment</p>
+                                </a>
+
                                  <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transactionrate " asp-controller="TransactionRates" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
@@ -207,6 +213,11 @@
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Transaction</p>
+                                </a>
+                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail" asp-controller="UserDetail" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Payment</p>
                                 </a>
 
                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting " asp-controller="Users" asp-action="Index"
@@ -359,6 +370,9 @@
     }
     else if ('@currentActionName' === "Users") {
         $('.Setting').addClass('active');
+    }
+      else if ('@currentActionName' === "UserDetail") {
+        $('.userdetail').addClass('active');
     }
 });
 </script>

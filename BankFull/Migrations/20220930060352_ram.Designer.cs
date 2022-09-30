@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankFull.Migrations
 {
     [DbContext(typeof(TransferOffContext))]
-    [Migration("20220927141850_ab")]
-    partial class ab
+    [Migration("20220930060352_ram")]
+    partial class ram
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,35 @@ namespace BankFull.Migrations
                     b.ToTable("Bank Details", (string)null);
                 });
 
+            modelBuilder.Entity("BankFull.Models.Payments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Datetime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Payment")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("payments", (string)null);
+                });
+
             modelBuilder.Entity("BankFull.Models.PhotoSend", b =>
                 {
                     b.Property<int>("Id")
@@ -110,6 +139,23 @@ namespace BankFull.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Role", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Role1 = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Role1 = "User"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Role1 = "Agent"
+                        });
                 });
 
             modelBuilder.Entity("BankFull.Models.tblMessage", b =>
@@ -252,6 +298,19 @@ namespace BankFull.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("User", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Bharatpur",
+                            Email = "niraj@gmail.com",
+                            Name = "Niraj Baral",
+                            Password = "$2a$11$hu7egFL.2eMi/p.X0Fc9o.ftamyrHj8HIaa2nZkWkalqY.UNTUJFq",
+                            Phone = "9855075102",
+                            RoleId = 1,
+                            Status = true
+                        });
                 });
 
             modelBuilder.Entity("BankFull.Models.UserMessage", b =>
@@ -286,6 +345,16 @@ namespace BankFull.Migrations
                         .WithMany("BankDetails")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Bank Details_User");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BankFull.Models.Payments", b =>
+                {
+                    b.HasOne("BankFull.Models.User", "User")
+                        .WithMany("Paymentss")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_Bank Details_User1111");
 
                     b.Navigation("User");
                 });
@@ -359,6 +428,8 @@ namespace BankFull.Migrations
             modelBuilder.Entity("BankFull.Models.User", b =>
                 {
                     b.Navigation("BankDetails");
+
+                    b.Navigation("Paymentss");
 
                     b.Navigation("UserMessages");
                 });
