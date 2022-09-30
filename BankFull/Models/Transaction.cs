@@ -9,8 +9,10 @@ namespace BankFull.Models
      
         public int Id { get; set; }
         public string? Date { get; set; }
-        public int? DrAmount { get; set; }
-        public int? CrAmount { get; set; }
+        [Display(Name = "Debit Amount")]
+        public decimal? DrAmount { get; set; }
+        [Display(Name = "Credit Amount")]
+        public decimal? CrAmount { get; set; }
         public int? MessageId { get; set; }
 
         
