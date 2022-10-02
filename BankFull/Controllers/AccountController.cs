@@ -88,7 +88,7 @@ namespace BankFull.Controllers
 
         public async Task<IActionResult> Register()
         {
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Role1");
+            ViewData["RoleId"] = new SelectList(_context.Roles.Where(x=>x.Role1!="Admin"), "Id", "Role1");
 
             return View();
         }

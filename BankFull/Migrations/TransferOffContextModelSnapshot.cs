@@ -71,6 +71,35 @@ namespace BankFull.Migrations
                     b.ToTable("Bank Details", (string)null);
                 });
 
+            modelBuilder.Entity("BankFull.Models.Payments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Date")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Datetime")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Payment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("payments", (string)null);
+                });
+
             modelBuilder.Entity("BankFull.Models.PhotoSend", b =>
                 {
                     b.Property<int>("Id")
@@ -135,9 +164,9 @@ namespace BankFull.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("Amount")
+                    b.Property<decimal?>("Amount")
                         .IsRequired()
-                        .HasColumnType("int");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("BankId")
                         .HasColumnType("int");
@@ -174,8 +203,8 @@ namespace BankFull.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CrAmount")
-                        .HasColumnType("int")
+                    b.Property<decimal?>("CrAmount")
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("Cr Amount");
 
                     b.Property<string>("Date")
@@ -183,8 +212,8 @@ namespace BankFull.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
-                    b.Property<int?>("DrAmount")
-                        .HasColumnType("int")
+                    b.Property<decimal?>("DrAmount")
+                        .HasColumnType("decimal(18,2)")
                         .HasColumnName("Dr Amount");
 
                     b.Property<int?>("MessageId")
@@ -210,8 +239,8 @@ namespace BankFull.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<float>("Rate")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -275,53 +304,9 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$P0xdZqDv.1zNblZLmnzELe71u.bMBrmMI1SBCGmFPaDHLpKsF3Ale",
+                            Password = "$2a$11$T7XJ82qUIWlbrZ42l9Dt6uyjYOnFUJzgteLeZZ8wAvLHyK0k6hlW2",
                             Phone = "9855075102",
                             RoleId = 1,
-                            Status = true
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Address = "Bharatpur",
-                            Email = "nabin@gmail.com",
-                            Name = "Nabin Aryal",
-                            Password = "$2a$11$mYBy8srh1K5rJRDO8tY94OmCqMYzfTFS1qQn5eMaNhkjXx0/GLrby",
-                            Phone = "9855075102",
-                            RoleId = 2,
-                            Status = true
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Address = "Bharatpur",
-                            Email = "sandip@gmail.com",
-                            Name = "Sandip Adhikari",
-                            Password = "$2a$11$Vb.DF31hSN9eGyhwsC036eDxEVaYZRBV4rDakfAxHiJVJvX2Lvw8C",
-                            Phone = "9855075102",
-                            RoleId = 1,
-                            Status = true
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Address = "Bharatpur",
-                            Email = "parkash@gmail.com",
-                            Name = "Prakash Adhikari",
-                            Password = "$2a$11$ZePVNImPAij1mJLumliSUOR./1IpwkzxSYAcKSV2hAI6c99YSV3RO",
-                            Phone = "9855075102",
-                            RoleId = 3,
-                            Status = true
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Address = "Bharatpur",
-                            Email = "pradip@gmail.com",
-                            Name = "pradip Adhikari",
-                            Password = "$2a$11$QMb34ASTtCJr8sIMAg25pOwX1fltW3TiS5kcb3O3r1QcrjQRAFwJy",
-                            Phone = "9855075102",
-                            RoleId = 3,
                             Status = true
                         });
                 });
@@ -358,6 +343,16 @@ namespace BankFull.Migrations
                         .WithMany("BankDetails")
                         .HasForeignKey("UserId")
                         .HasConstraintName("FK_Bank Details_User");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BankFull.Models.Payments", b =>
+                {
+                    b.HasOne("BankFull.Models.User", "User")
+                        .WithMany("Paymentss")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_Bank Details_User1111");
 
                     b.Navigation("User");
                 });
@@ -431,6 +426,8 @@ namespace BankFull.Migrations
             modelBuilder.Entity("BankFull.Models.User", b =>
                 {
                     b.Navigation("BankDetails");
+
+                    b.Navigation("Paymentss");
 
                     b.Navigation("UserMessages");
                 });

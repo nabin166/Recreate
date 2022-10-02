@@ -7,7 +7,7 @@ namespace BankFull.Models
     public partial class BankDetail
     {
         private string? accountNumber;
-        private string accName1;
+        
 
         public BankDetail()
         {
@@ -21,13 +21,16 @@ namespace BankFull.Models
         [Display(Name = "Bank Name")]
         public string? Name { get; set; }
         [Required]
+        [Display(Name = "Account Number")]
         public string? AccountNumber { get => accountNumber; set => accountNumber = value; }
         [Required]
+        [Display(Name ="Account Type")]
         public string? AccountName { get; set; }
         [Required]
         public string? Address { get; set; }
         // public string? AmountIn { get; set; }
         // public string? AmountOut { get; set; }
+        [Display(Name = "Transaction Limit")]
         public string TransactionLimit { get; set; }
 
         public int? UserId { get; set; }

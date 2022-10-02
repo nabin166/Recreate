@@ -29,7 +29,7 @@ namespace BankFull.Controllers
 
 
             return transferOffContext != null ?
-            View(await transferOffContext.ToListAsync()) :
+            View(await transferOffContext.Where(x=>x.Role.Role1 != "Admin").ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
         //thapeko 
@@ -75,6 +75,40 @@ namespace BankFull.Controllers
             return View();
         }
 
+
+
+        public async Task<IActionResult> Cancel(int msid, int Aid)
+        {
+            int d = Aid;
+            var c = msid;
+
+            if (d == 0)
+            {
+
+            }
+            else
+            {
+                int b = _context.UserMessages.Where(x => x.UserId == d).Where(x => x.MessageId == msid).FirstOrDefault().Id;
+
+
+                var user = await _context.UserMessages.FindAsync(b);
+                if (user != null)
+                {
+                    _context.Remove(user);
+                    _context.SaveChanges();
+                }
+
+
+
+            }
+            //  int a= _context.UserMessages.Where(x=>x.Id == Asmid).Count();
+
+            return View();
+        }
+
+        //Thapeko 
+
+
         //Thapeko 
 
 
@@ -111,6 +145,57 @@ namespace BankFull.Controllers
             return View();
         }
 
+        // 
+
+
+        [HttpPost]
+        //  [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Canceldoc(int Messageids, int Dramount)
+        {
+
+            
+
+            if (_context.Transactions.Where(x => x.MessageId == Messageids).Count() > 0)
+            {
+
+                
+
+
+                var query = _context.Transactions.Where(x => x.MessageId == Messageids).FirstOrDefault().Id;
+
+                var c = _context.Transactions.Find(query);
+
+                if (query != null)
+                {
+
+                    c.DrAmount = null;
+
+
+                    _context.Update(c);
+                    await _context.SaveChangesAsync();
+                    PhotoSend photoSend = new PhotoSend();
+
+                    var photosendid = _context.PhotoSends.Where(x=>x.MessageId == Messageids).FirstOrDefault().Id;
+                    var photorem = await _context.PhotoSends.FindAsync(photosendid);
+                    if (photorem != null)
+                    {
+                        _context.Remove(photorem);
+                        _context.SaveChanges();
+                    }
+
+
+                    return RedirectToAction("Index", "Account");
+                }
+
+
+
+
+
+            }
+            return RedirectToAction("Index", "Account");
+
+        }
+
 
 
         // GET: Users/Details/5
@@ -135,7 +220,7 @@ namespace BankFull.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Role1");
+            ViewData["RoleId"] = new SelectList(_context.Roles.Where(x => x.Role1 != "Admin"), "Id", "Role1");
             return View();
         }
 
@@ -277,6 +362,8 @@ namespace BankFull.Controllers
 
             List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
             List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
+
+            
 
 
             dynamic model = new System.Dynamic.ExpandoObject();

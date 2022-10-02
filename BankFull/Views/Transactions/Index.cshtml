@@ -1,4 +1,6 @@
-﻿@model IEnumerable<BankFull.Models.Transaction>
+﻿@using BankFull.Controllers;  
+@model IEnumerable<TransactionModel>
+
 
 @{
     ViewData["Title"] = "Index";
@@ -13,23 +15,27 @@
     <thead class="bg-info">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Date)
+                @Html.DisplayNameFor(model => model.transactions.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DrAmount)
+                @Html.DisplayNameFor(model => model.transactions.DrAmount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CrAmount)
+                @Html.DisplayNameFor(model => model.transactions.CrAmount)
+            </th>
+            <th>Transaction_Rate</th>
+            <th>
+                Won Amount
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TblMessage.BankDetail.AccountNumber)
+            Bank Name
             </th>
              <th>
-                @Html.DisplayNameFor(model => model.TblMessage.BankDetail.Name)
+             Account Number
             </th>
-             <td>
+             <th>
                 Sender
-            </td>
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,22 +43,28 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.transactions.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DrAmount)
+                @Html.DisplayFor(modelItem => item.transactions.DrAmount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CrAmount)
+                @Html.DisplayFor(modelItem => item.transactions.CrAmount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.AccountNumber)
+                 @Html.DisplayFor(modelItem => item.transactionRates.Rate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.Name)
+               @(item.transactions.CrAmount*item.transactionRates.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber) 
             </td>
               <td>
-                @Html.DisplayFor(modelItem => item.TblMessage.BankDetail.User.Name)
+              @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
             </td>
              
            
@@ -60,9 +72,9 @@
                @if(User.Identity.IsAuthenticated){
                @if(@User.IsInRole("never")){
                     
-                  <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> 
+           @*       <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a>  *@
                
-                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
+            @*    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a> *@
                     }
                 }
            
@@ -72,12 +84,12 @@
     </tbody>
 
 
-      <tfoot>
+      <tfoot class="table-danger">
             <tr>
              
                 <th  style="text-align:right">Total: <br /> Sub Total:</th>
                 <th></th>
-                 <th></th>
+                 <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                   
             </tr>
         </tfoot>
@@ -86,6 +98,8 @@
 
                <script>
    $(document).ready(function () {
+
+
     $('#example').DataTable(
         {
             footerCallback: function(row, data, start, end, display) {
@@ -133,6 +147,26 @@
 
                 // Update footer
                 $(api.column(2).footer()).html( pageTotal  + '<br/>  ' + total );
+
+                
+                  total = api
+                    .column(4)
+                    .data()
+                    .reduce(function(a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+
+                   // Total over this page
+                pageTotal = api
+                    .column(4, { page: 'current' })
+                    .data()
+                    .reduce(function(a, b) {
+                        return intVal(a) + intVal(b);
+                    }, 0);
+
+                // Update footer
+                $(api.column(4).footer()).html( pageTotal  + '<br/>  ' + total );
             },
         }
         );

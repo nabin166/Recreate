@@ -20,10 +20,11 @@ namespace BankFull.Models
         
         public int? BankId { get; set; }
         [Required]
-        public int? Amount { get; set; }
+        public decimal? Amount { get; set; }
         [Required]
         public string? Date { get; set; }
-        
+        [Display(Name = "Document Path")]
+
         public string? DocumentPath { get; set; }
         [Required]
         public string? Messages { get; set; }

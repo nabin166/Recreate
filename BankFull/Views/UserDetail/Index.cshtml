@@ -1,0 +1,397 @@
+﻿@model IEnumerable<BankFull.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Pay Detail</h1>
+<!--9/30/2022--->
+
+  <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
+      
+    <li class="active"><a data-toggle="tab" href="#home">wholeseller/Retailer</a></li>
+     <li><a data-toggle="tab" href="#menu1">Agent</a></li>
+    
+    
+    </ul>
+
+       <div class="tab-content">
+
+        @*Wholeseller*@
+        <div id="home" class="tab-pane fade active in bg-white ">
+            <table class="table">
+    <thead>
+        <tr>
+            <th style="display:none;"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+           
+            
+           
+            <th>
+                Amount
+            </th>
+            <th>
+                Pay Amount
+            </th>
+            <th>
+                Remain Amount
+            </th>
+            <th></th>
+              
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+                    @if (item.Role.Role1 == "User")
+                    {
+                        <tr>
+                            <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+           
+           
+           
+            <td >
+              <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+            </td>
+            <td>
+                <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+            </td>
+            <td>
+                @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+            </td>
+            <td>
+                <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
+            </td>
+            
+        </tr>
+        }
+}
+    </tbody>
+ </table>
+
+
+
+
+
+        </div>
+        
+        @*Retailer*@
+
+            <div id="menu1" class="tab-pane fade in bg-white ">
+
+                  <table class="table">
+    <thead>
+        <tr>
+            <th style="display:none;"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+           
+            
+           
+            <th>
+                Amount
+            </th>
+            <th>
+                Pay Amount
+            </th>
+            <th>
+                Remain Amount
+            </th>
+            <th></th>
+              
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+                    @if (item.Role.Role1 == "Agent")
+                        {
+                        <tr>
+                            <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+           
+           
+           
+            <td >
+              <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+            </td>
+            <td>
+                <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+            </td>
+            <td>
+                @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+            </td>
+            <td>
+                <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
+            </td>
+            
+        </tr>
+        }
+}
+    </tbody>
+</table>
+
+
+            </div>
+    
+    
+    
+   
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Amount</h5>
+       
+       
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+         
+      </div>
+             
+      <div class="modal-body">
+          <p id="headers" class="text-success"></p>
+        <div id="mAmount"> </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pay Amount</h5>
+         
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       
+      </div>
+      <div class="modal-body">
+           <p id="header" class="text-success"></p>
+        <div id="mPayAmount"> </div>
+      </div>
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Pay button-->
+<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pay</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="mPay"> </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+ </div>
+<script>
+
+
+
+    
+$(document).ready(function () {
+   //Sum Amount
+    $('.sumAmount').click(function(e) {
+
+
+
+        var userid = $(this).closest('tr').find("td:eq(0)").text();
+         var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+          $("#headers").empty().append(User);
+        console.log(userid);
+        $.ajax({
+            'url': '@Url.Action("AmountC","UserDetail")',
+            'type': 'post',
+            'data': { userid },
+
+            'success': function(abc) {
+                $("#mAmount").empty().html(abc);
+                //   $("exampleModal1").modal('show');
+                  
+
+
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+
+
+    });
+
+    //
+
+
+      $('.payAmount').click(function(e) {
+     
+        
+
+           var users = $(this).closest('tr').find("td:eq(0)").text();
+           var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+            $("#header").empty().append(User);
+            console.log(users);
+               $.ajax({
+           'url': '@Url.Action("PayAmountC","UserDetail")',
+            'type': 'post',
+            'data': { users },
+
+            'success': function(payments) {
+                 
+                $("#mPayAmount").empty().html(payments);
+             //   $("exampleModal1").modal('show');
+               
+
+              
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+        
+
+    });
+    //
+
+    
+      $('.paybtn').click(function(e) {
+     
+        
+
+           var usr = $(this).closest('tr').find("td:eq(0)").text();
+           var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+            $("#headering").empty().append(User);
+            console.log(usr);
+               $.ajax({
+           'url': '@Url.Action("Pay","UserDetail")',
+            'type': 'post',
+            'data': { usr },
+
+            'success': function(pays) {
+                 
+                $("#mPay").empty().html(pays);;
+             //   $("exampleModal1").modal('show');
+               
+
+              
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+        
+
+    });
+
+
+
+
+});
+
+
+
+
+
+</script>
+
+

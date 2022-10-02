@@ -54,7 +54,7 @@
             </th>
             
              <th>
-                
+                Message
             </th>
             
           
@@ -103,7 +103,7 @@
 
 
                     <td>
-
+                        @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                         
                     </td>     
 
@@ -112,10 +112,10 @@
         }
     </tbody>
 
-    <tfoot>
+    <tfoot class="table-danger">
             <tr>
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                 
             </tr>
         </tfoot>

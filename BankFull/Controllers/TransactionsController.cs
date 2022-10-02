@@ -20,10 +20,39 @@ namespace BankFull.Controllers
         }
 
         // GET: Transactions
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var transferOffContext = _context.Transactions.Include(t => t.TblMessage).Include(t=>t.TblMessage.BankDetail.User);
-            return View(await transferOffContext.OrderByDescending(x=>x.Id).ToListAsync());
+           
+
+            List<TransactionRate> transactionRates = _context.TransactionRates.ToList();
+            List<Transaction> transactions = _context.Transactions.ToList();
+            List<tblMessage> tblMessages = _context.tblMessages.ToList();
+            List<BankDetail> bankDetails = _context.BankDetails.ToList();
+            List<User> users = _context.user.ToList();
+
+            List<TransactionModel> transactionModels =   ( from t in transactions
+                                                        join tr in transactionRates on t.Date equals tr.Date
+                                                        join tbl in tblMessages on t.MessageId equals tbl.Id
+                                                        join b in bankDetails on tbl.BankId equals b.Id
+                                                        join u in users on b.UserId equals u.Id
+                                                        
+                                                        
+
+
+                                                        select new TransactionModel()
+                                                        {
+                                                            transactionRates = tr,
+                                                            transactions = t,
+                                                            tblMessage = tbl,
+                                                            Users = u
+                                                            
+
+
+                                                        }).ToList();
+
+            var c = 12;
+           // var transferOffContext = _context.Transactions.Include(t => t.TblMessage).Include(t=>t.TblMessage.BankDetail.User);
+            return View(transactionModels);
         }
 
         [Authorize(Roles = "never")]
@@ -64,6 +93,7 @@ namespace BankFull.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(transaction);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -168,5 +198,15 @@ namespace BankFull.Controllers
         {
           return (_context.Transactions?.Any(e => e.Id == id)).GetValueOrDefault();
         }
+    }
+
+    internal class TransactionModel
+    {
+
+        public TransactionRate transactionRates { get; set; }
+        public Transaction transactions { get; set; }
+
+        public tblMessage tblMessage { get; set; }
+        public User Users { get; set; }  
     }
 }

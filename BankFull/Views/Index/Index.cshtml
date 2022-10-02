@@ -7,6 +7,8 @@
    <table id="exxa" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-success">
           <tr>
+                <th  ></th>
+              <th ></th>
               <th>Assigned To</th>
                <th>
                 Sent_by
@@ -49,6 +51,14 @@
          
             
                 <tr>  
+                       <td style="visibility:hidden;" >
+                        @Html.DisplayFor(modelItem => item.tblMessage.Id) 
+                        
+                    </td>
+                    <td style="visibility:hidden;">
+                        @Html.DisplayFor(modelItem => item.User.Id) 
+
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.User.Name) 
                     </td>
@@ -83,7 +93,7 @@
 
 
                     <td>
-
+                          <button class="btn btn-secondary cancel1">Cancel</button>
                         
                     </td>     
 
@@ -97,7 +107,7 @@
             <tr>
              
                 <th colspan="1" style="text-align:right">Total: <br />Sub Total:</th>
-                <th></th> <th></th> <th></th> <th></th> <th></th>
+                <th></th> <th></th> <th></th> <th></th> <th></th><th></th><th></th>
                
             </tr>
         </tfoot>
@@ -121,7 +131,7 @@
  
             // Total over all pages
             total = api
-                .column(5)
+                .column(7)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -129,14 +139,14 @@
  
             // Total over this page
             pageTotal = api
-                .column(5, { page: 'current' })
+                .column(7, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(5).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(7).footer()).html( pageTotal  + ' <br/>' + total  );
         },
     }
     
@@ -145,6 +155,45 @@
     
     
     );
+
+     // aja 12 gate ko update
+
+         $(".cancel1").click(function(e) {
+        var msid = $(this).closest('tr').find("td:eq(0)").text();
+        var Aid = $(this).closest('tr').find("td:eq(1)").text();
+        //console gare ra check gareko 
+        console.log(msid);
+        console.log(Aid);
+
+        $.ajax({
+            'url': '@Url.Action("Cancel","Users")',
+            'type': 'post',
+            'data': { msid,Aid},
+
+            'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+                window.location.href = '@Url.Action("Index","tblMessages")';
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("","tblMessages")';
+            }
+
+
+        });
+
+    });
+    //yeha samma
+
+
+
        
 });
 

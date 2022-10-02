@@ -1,0 +1,13 @@
+Scaffold-DbContext “Server=DESKTOP-SC4NGQA\\SQLEXPRESS;Database=codeforeign;Integrated Security=True” Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+
+
+
+2f504e green dark
+
+public interface IPasswordHasher
+{
+    string HashPassword(string password);
+    PasswordVerificationResult VerifyHashedPassword(string hashedPassword, 
+                                                       string providedPassword);
+}

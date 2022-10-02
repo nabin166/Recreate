@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\barali\\lastVersion1.1\\BankFull\\BankFull.csproj": {}
+    "D:\\Recreate\\BankFull\\BankFull.csproj": {}
   },
   "projects": {
-    "E:\\barali\\lastVersion1.1\\BankFull\\BankFull.csproj": {
+    "D:\\Recreate\\BankFull\\BankFull.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\barali\\lastVersion1.1\\BankFull\\BankFull.csproj",
+        "projectUniqueName": "D:\\Recreate\\BankFull\\BankFull.csproj",
         "projectName": "BankFull",
-        "projectPath": "E:\\barali\\lastVersion1.1\\BankFull\\BankFull.csproj",
+        "projectPath": "D:\\Recreate\\BankFull\\BankFull.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "E:\\barali\\lastVersion1.1\\BankFull\\obj\\",
+        "outputPath": "D:\\Recreate\\BankFull\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
