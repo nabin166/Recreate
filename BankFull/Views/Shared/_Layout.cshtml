@@ -92,12 +92,19 @@
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Transaction Rate</p>
                                 </a>
+                                <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act AdminBank" asp-controller="AdminBanks" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Add Banks</p>
+                                </a>
 
                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting" asp-controller="Users" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Setting</p>
                                 </a>
+
+                                
                             }
 
                             else if (@User.IsInRole("User"))
@@ -219,12 +226,18 @@
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Payment</p>
                                 </a>
-
+                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act AdminBank" asp-controller="AdminBanks" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
+                style="margin-top: 13px;"></i>
+              <p class="ml-2 mt-2">Add Banks</p>
+                                </a>
                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting " asp-controller="Users" asp-action="Index"
               style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
                 style="margin-top: 13px;"></i>
               <p class="ml-2 mt-2">Setting</p>
                                 </a>
+                              
+
                             }
 
                             else if (@User.IsInRole("User"))
@@ -373,6 +386,9 @@
     }
       else if ('@currentActionName' === "UserDetail") {
         $('.userdetail').addClass('active');
+    }
+       else if ('@currentActionName' === "AdminBanks") {
+        $('.AdminBank').addClass('active');
     }
 });
 </script>

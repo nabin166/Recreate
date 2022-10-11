@@ -19,8 +19,8 @@
        <div class="tab-content">
 
         @*Wholeseller*@
-        <div id="home" class="tab-pane fade active in bg-white ">
-            <table class="table">
+        <div id="home" class="tab-pane fade active in bg-white  ">
+            <table id="datass" class="table" style="width:75vw;">
     <thead>
         <tr>
             <th style="display:none;"></th>
@@ -91,6 +91,14 @@
         }
 }
     </tbody>
+
+    
+       <tfoot class="table-danger">
+            <tr>
+                <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                  <th></th>  <th style="display:none;"></th>  <th></th>  <th></th> <th></th><th></th><th></th><th></th>
+            </tr>
+        </tfoot>
  </table>
 
 
@@ -100,10 +108,11 @@
         </div>
         
         @*Retailer*@
+        <!--comment it for Agent new index create-->
 
-            <div id="menu1" class="tab-pane fade in bg-white ">
+          <div id="menu1" class="tab-pane fade in bg-white">
 
-                  <table class="table">
+     <table id="agdatas" class="table" style="width:75vw;">
     <thead>
         <tr>
             <th style="display:none;"></th>
@@ -174,6 +183,13 @@
         }
 }
     </tbody>
+
+      <tfoot class="table-danger">
+            <tr>
+                <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                  <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
+            </tr>
+        </tfoot>
 </table>
 
 
@@ -186,7 +202,9 @@
 
 
 
+ <div id="menu1" class="tab-pane fade in bg-white loadagent">
 
+ </div>
 
 
 
@@ -273,10 +291,128 @@
 
     
 $(document).ready(function () {
+
+    $(document).ready(function(e) {
+
+     $('#datass').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(7)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(7, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
+
+
+
+
+
+             
+        },
+    }
+     
+     
+     
+     );
+
+
+     $('#agdatas').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(7)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(7, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
+
+
+
+
+
+             
+        },
+    }
+     
+     
+     
+     );
+
+    $(".imgprev").click(function(e) {
+        var cid = $(this).closest('tr').find("td:eq(0)").text();
+        console.log(cid);
+       
+
+
+        $.ajax({
+
+            'url': '@Url.Action("Preview","Sender")',
+            'type': 'post',
+            'data': { cid
+             },
+            'success': function(image) {
+                  $("#appends").append('<image style="width:30vw;" src ="' +image+'"/>');
+                     
+            
+            },
+            'error': function() {
+                 
+            },
+        });
+
+
+      
+
+         
+    });
+});
+
+
+
    //Sum Amount
+  //  $(".loadagent").load("UserDetail/RetailerAgent");
     $('.sumAmount').click(function(e) {
-
-
 
         var userid = $(this).closest('tr').find("td:eq(0)").text();
          var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
@@ -395,3 +531,14 @@ $(document).ready(function () {
 </script>
 
 
+            
+                 @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }

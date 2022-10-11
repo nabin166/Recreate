@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "icDiuCTJjDoBwWU7HC3ZEiL4tPyyoLMABx7FU4CWPuM=",
+  "Hash": "ozkVHuhL99NcmWv2gil7cYMHFZ7RHoA+xGFwj8yFdeM=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -1766,6 +1766,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\PhotoSend\\f4c391fb-1514-4d8f-9ca9-c2adaa3a1f84loop in react.png"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\public\\logo.png",

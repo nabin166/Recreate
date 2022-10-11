@@ -12,18 +12,18 @@ using System.Dynamic;
 
 namespace BankFull.Controllers
 {
-    [Authorize (Roles = "User,Admin")]
+    [Authorize(Roles = "User,Admin")]
     public class tblMessagesController : Controller
     {
         private readonly TransferOffContext _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
-    
 
-        public tblMessagesController(TransferOffContext context , IWebHostEnvironment webHostEnvironment)
+
+        public tblMessagesController(TransferOffContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _webHostEnvironment = webHostEnvironment;
-        
+
         }
 
 
@@ -32,7 +32,7 @@ namespace BankFull.Controllers
         {
 
             //   return View(_context.UserMessages.Include(x=>x.User).Include(x=>x.User.Role).Include(x=>x.tblMessage).Include(x=>x.tblMessage.BankDetail).ToList());  
-            return View(_context.tblMessages.Include(x=>x.UserMessages).Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).Include(x=>x.BankDetail.User.Role).ToList());
+            return View(_context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList());
         }
 
 
@@ -41,11 +41,11 @@ namespace BankFull.Controllers
 
 
 
-            public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index()
         {
 
 
-           
+
 
             //  List<tblMessage> tbllist = _context.tblMessages.Where(x => x.UserMessages.Count() <= 1).ToList();
             /*  List<tblMessage> tbllist = _context.tblMessages.ToList();
@@ -130,15 +130,15 @@ namespace BankFull.Controllers
                                                             }).Where(x=>x.usermess.User.Role.Role1 == "Agent").ToList();
                     */
 
-                    var data =  _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x=>x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList();
-                 /*   dynamic model = new System.Dynamic.ExpandoObject();
-                    model.data = data;
-                   // model.Assigned = Assigned;
-                    */
+                    var data = _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList();
+                    /*   dynamic model = new System.Dynamic.ExpandoObject();
+                       model.data = data;
+                      // model.Assigned = Assigned;
+                       */
 
-                   // var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
-                  //  ViewData["rate"] = Latestrateid;
-                  
+                    // var Latestrateid = _context.TransactionRates.OrderByDescending(x => x.Id).First().Rate;
+                    //  ViewData["rate"] = Latestrateid;
+
 
 
                     string email = User.Identity.Name;
@@ -147,21 +147,22 @@ namespace BankFull.Controllers
                     //2022---------------------------9/30-------------------------
 
 
-               //     ViewData["usr"] = new SelectList( _context.user.Where(x=>x.Role.Role1 == "Agent") , "Id", "Name");
 
-                    
+                    ViewData["usr"] = new SelectList(_context.user.Where(x => x.Role.Role1 == "Agent"), "Id", "Name");
+
+
 
 
                     return data != null ?
                           View(data) :
 
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); 
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
 
                     //   return _context.tblMessages != null ?
                     //          View(await _context.UserMessages.Include(x=>x.User).Include(x=>x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.User.Role.Role1 != "Agent").ToListAsync()) :
                     //          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
-                else if(User.IsInRole("User"))
+                else if (User.IsInRole("User"))
                 {
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
@@ -188,10 +189,10 @@ namespace BankFull.Controllers
 
 
                       */
-                    return  _context.tblMessages != null ?
-                          View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x=>x.BankDetail.UserId == uid).ToListAsync()) :
+                    return _context.tblMessages != null ?
+                          View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x => x.BankDetail.UserId == uid).ToListAsync()) :
 
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null."); 
+                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
                 else if (User.IsInRole("Agent"))
                 {
@@ -204,9 +205,9 @@ namespace BankFull.Controllers
                 }
 
             }
-              return _context.tblMessages != null ? 
-                          View(await _context.tblMessages.ToListAsync()) :
-                          Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+            return _context.tblMessages != null ?
+                        View(await _context.tblMessages.ToListAsync()) :
+                        Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
 
         // GET: tblMessages/Details/5
@@ -250,10 +251,10 @@ namespace BankFull.Controllers
 
             //BankViewModel vm = new BankViewModel();
             //vm.Bankid = uid;
-          //  vm.Name_Account = _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().Name + _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().AccountName;
-          //  ViewData["BankViewModel"] = new SelectList(vm, "Bankid", "Name_Account");
+            //  vm.Name_Account = _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().Name + _context.BankDetails.Where(x => x.Id == uid).FirstOrDefault().AccountName;
+            //  ViewData["BankViewModel"] = new SelectList(vm, "Bankid", "Name_Account");
 
-         //   ViewData["BankId"] = new SelectList(), "Bankid", "Name");
+            //   ViewData["BankId"] = new SelectList(), "Bankid", "Name");
 
 
 
@@ -267,7 +268,7 @@ namespace BankFull.Controllers
 
 
 
-                ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x=>x.UserId == uid), "Id" , "CheckName");
+            ViewData["BankId"] = new SelectList(_context.BankDetails.Where(x => x.UserId == uid), "Id", "CheckName");
 
 
             return View();
@@ -297,62 +298,62 @@ namespace BankFull.Controllers
         {
             if (ModelState.IsValid)
             {
-             
-             /*       string folder = "photo/";
 
-                    folder += Guid.NewGuid().ToString() + tblMessage.Document.FileName;
+                /*       string folder = "photo/";
 
-                    tblMessage.DocumentPath = folder;
+                       folder += Guid.NewGuid().ToString() + tblMessage.Document.FileName;
 
-                    string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
+                       tblMessage.DocumentPath = folder;
 
-                    await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
+                       string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
-                    _context.Add(tblMessage);
-                    await _context.SaveChangesAsync();
+                       await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
 
-
-                    string email = User.Identity.Name;
-                    int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-                    int msgid = tblMessage.Id;
+                _context.Add(tblMessage);
+                await _context.SaveChangesAsync();
 
 
-                    Transaction transaction = new Transaction();
+                string email = User.Identity.Name;
+                int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+                int msgid = tblMessage.Id;
 
-                    //yeha bata transaction rate nikalne .
 
-                    //  int abc = _context.TransactionRates.OrderByDescending(x => x.Id).FirstOrDefault().Id;
-                    //  int amoun2 = (int)_context.TransactionRates.Where(p => p.Id == abc).FirstOrDefault().Rate;
-                    //  int? bcd = tblMessage.Amount * amoun2;
-                    //  transaction.CrAmount = bcd;
-                    //yeha samma lekhe ko 
+                Transaction transaction = new Transaction();
 
-                    
+                //yeha bata transaction rate nikalne .
 
-                    transaction.CrAmount = tblMessage.Amount;
-                    transaction.MessageId = msgid;
-                    transaction.Date = DateTime.Now.ToString("yyyy-MM-dd");
+                //  int abc = _context.TransactionRates.OrderByDescending(x => x.Id).FirstOrDefault().Id;
+                //  int amoun2 = (int)_context.TransactionRates.Where(p => p.Id == abc).FirstOrDefault().Rate;
+                //  int? bcd = tblMessage.Amount * amoun2;
+                //  transaction.CrAmount = bcd;
+                //yeha samma lekhe ko 
+
+
+
+                transaction.CrAmount = tblMessage.Amount;
+                transaction.MessageId = msgid;
+                transaction.Date = DateTime.Now.ToString("yyyy-MM-dd");
 
 
 
                 _context.Add(transaction);
 
-                    UserMessage userMessage = new UserMessage();
-                    userMessage.UserId = uid;
-                    userMessage.MessageId = msgid;
-                    _context.Add(userMessage);
-                    _context.SaveChanges();
+                UserMessage userMessage = new UserMessage();
+                userMessage.UserId = uid;
+                userMessage.MessageId = msgid;
+                _context.Add(userMessage);
+                _context.SaveChanges();
 
-                    return RedirectToAction(nameof(Index));
-
-                
-              
+                return RedirectToAction(nameof(Index));
 
 
-               
+
+
+
+
             }
 
-            
+
 
             return View(tblMessage);
         }
@@ -440,14 +441,14 @@ namespace BankFull.Controllers
             {
                 _context.tblMessages.Remove(tblMessage);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool tblMessageExists(int id)
         {
-          return (_context.tblMessages?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.tblMessages?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 
