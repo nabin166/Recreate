@@ -27,10 +27,17 @@
             <th>
              @*   Document *@
             </th>
+            <th>
+                Choose Bank
+            </th>
             
              <th>
                 
             </th>
+            <th>
+
+            </th>
+
            
             
           
@@ -72,6 +79,13 @@
 
                   @*      <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
 
+                    </td>
+                    <td>
+                         <select id="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
+
+                    </td>
+                    <td>
+                        <button type="button" class="bankSubmit btn btn-info" value="submit">Submit</button>
                     </td>
 
 
@@ -142,7 +156,43 @@
     );
    
 
-    @*----------Cancel-document----------------*@
+       @*----------Cancel-document----------------*@
+
+           $(".bankSubmit").click(function(e){
+
+                 var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
+                 var adminbank1 =  $('#bankadmin').find(":selected").text(); 
+              // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
+               console.log(ammountAdmin);
+               console.log(adminbank1);
+
+               
+        $.ajax({
+            'url': '@Url.Action("BankLimit","AdminBanks")',
+            'type': 'post',
+            'data': { ammountAdmin,adminbank1},
+
+            'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+                window.location.href = '@Url.Action("Index","tblMessages")';
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("","tblMessages")';
+            }
+
+
+        });
+
+
+          });
 
 
 

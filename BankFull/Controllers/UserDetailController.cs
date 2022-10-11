@@ -18,6 +18,11 @@ namespace BankFull.Controllers
             _context = context;
         }
 
+       
+        public IActionResult RetailerAgent()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult AmountC(int userid)
         {

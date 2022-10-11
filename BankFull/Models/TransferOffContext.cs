@@ -24,6 +24,8 @@ namespace BankFull.Models
         public virtual DbSet<TransactionRate> TransactionRates { get; set; } = null!; 
         public virtual DbSet<PhotoSend> PhotoSends { get; set; } = null!;
         public virtual DbSet<Payments> Paymentss { get; set; } = null!;
+
+        public virtual DbSet<AdminBank> AdminBanks { get; set; } = null!;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
