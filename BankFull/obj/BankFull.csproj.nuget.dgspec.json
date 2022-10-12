@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Recreate\\BankFull\\BankFull.csproj": {}
+    "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\BankFull.csproj": {}
   },
   "projects": {
-    "D:\\Recreate\\BankFull\\BankFull.csproj": {
+    "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\BankFull.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Recreate\\BankFull\\BankFull.csproj",
+        "projectUniqueName": "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\BankFull.csproj",
         "projectName": "BankFull",
-        "projectPath": "D:\\Recreate\\BankFull\\BankFull.csproj",
+        "projectPath": "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\BankFull.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Recreate\\BankFull\\obj\\",
+        "outputPath": "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",

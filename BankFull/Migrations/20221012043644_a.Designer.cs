@@ -4,6 +4,7 @@ using BankFull.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankFull.Migrations
 {
     [DbContext(typeof(TransferOffContext))]
-    partial class TransferOffContextModelSnapshot : ModelSnapshot
+    [Migration("20221012043644_a")]
+    partial class a
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,9 +220,6 @@ namespace BankFull.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
-                    b.Property<bool>("completed")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BankId");
@@ -337,7 +336,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$BkLGuGdajgSsNe6RWI04keK4S8VPa803y5CS9XT.O2pOGgES/9YXy",
+                            Password = "$2a$11$x.7vOG.Nrs9C/hbbLrGkI.u6sdToRWKUgNwYza00UXts3NsKZZJri",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true

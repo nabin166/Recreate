@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BankFull.Models.UserMessage?> 
+﻿
+@model IEnumerable<BankFull.Models.UserMessage?> 
 
 
 
@@ -7,7 +8,7 @@
     Layout = null;
 }
     
-   <table id="completeuser" class="mb-4 table tablecolor wid " style="width:75vw;">
+   <table id="completebool" class="mb-4 table tablecolor wid " style="width:75vw;">
     <thead class="bg-success">
           <tr>
               <th></th>
@@ -26,12 +27,11 @@
             <th>Address</th>
             <th>
              @*   Document *@
-             Message
+             Messages
             </th>
             <th>
-                Choose Bank
+                
             </th>
-            <th>Pay to Admin</th>
             
              <th>
                 
@@ -79,25 +79,20 @@
                     <td>
 
                   @*      <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-                        @Html.DisplayFor(ModelItem => item.tblMessage.Messages)
-
+                     @Html.DisplayFor(modelItem => item.tblMessage.Messages) 
                     </td>
                     <td>
-                         <select id="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
-
+                       
                     </td>
                     <td>
-                        <input type="number" id="pay" class="check" name="payamount"/>
-                    </td>
-                    <td>
-                        <button type="button" class="bankSubmit btn btn-info" value="submit">Submit</button>
+                       
                     </td>
 
 
 
 
                     <td>
-                        <button type="button" class="btn btn-secondary btn-danger canceldoc">Cancel Document</button>
+                       
                         
                     </td>     
 
@@ -124,7 +119,7 @@
  <script>
    $(document).ready(function () {
 
-        $('#completeuser').DataTable(
+        $('#completebool').DataTable(
     
           {
         footerCallback: function (row, data, start, end, display) {
@@ -161,21 +156,18 @@
     );
    
 
-       @*----------Cancel-document----------------*@
+       @*----------Cancel-document----------------
 
            $(".bankSubmit").click(function(e){
 
 
-                // var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
-                var adminbank1 =  $('#bankadmin').find(":selected").text(); 
-                var mid = $(this).closest('tr').find("td:eq(0)").text();
-                var ammountAdmin = $(this).closest('tr').find(".check").val(); 
-            //   var abc = #('#pay').text();
+                 var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
+                 var adminbank1 =  $('#bankadmin').find(":selected").text(); 
+                 var mid = $(this).closest('tr').find("td:eq(0)").text();
               // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
-              // console.log(ammountAdmin);
+               console.log(ammountAdmin);
                console.log(adminbank1);
-              console.log(mid);
-            //  console.log(amountAdmin);
+               console.log(mid);
 
                
         $.ajax({
@@ -200,7 +192,7 @@
             }
 
 
-        }); 
+        });
 
           });
 
@@ -239,7 +231,7 @@
 
         });
         
-    });
+    }); *@
 
 
        

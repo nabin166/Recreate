@@ -68,6 +68,7 @@ namespace BankFull.Controllers
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
 
+        //Bool False in message table
         public async Task<IActionResult> ProcessComplete()
         {
             string email = User.Identity.Name;
@@ -79,11 +80,35 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
+                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.tblMessage.completed==false).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
 
+
+        //Bool True in message table
+        public async Task<IActionResult> Completebooltrue()
+        {
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+            return _context.tblMessages != null ?
+
+                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+        }
+
+        public async Task<IActionResult> CompletebooltrueAdmin()
+        {
+
+
+            return _context.tblMessages != null ?
+
+                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").ToListAsync()) :
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+        }
 
         //Complete wala
 

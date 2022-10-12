@@ -28,6 +28,7 @@ namespace BankFull.Models
         public string? DocumentPath { get; set; }
         [Required]
         public string? Messages { get; set; }
+        public Boolean completed { get; set; }
        
      //   [NotMapped]
 
