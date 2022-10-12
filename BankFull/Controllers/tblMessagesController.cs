@@ -308,6 +308,7 @@ namespace BankFull.Controllers
                        string serverFolder = Path.Combine(_webHostEnvironment.WebRootPath, folder);
 
                        await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
+                tblMessage.completed = false;
 
                 _context.Add(tblMessage);
                 await _context.SaveChangesAsync();

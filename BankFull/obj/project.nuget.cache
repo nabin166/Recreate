@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fOKN2lb+jsZU0LSWKAgycWYJLylDOkcJ/94tX8U3clXfb+diD53uu2Eu2QDyodkeh+jqsOVfgOUg2jceW5eGZQ==",
+  "dgSpecHash": "UDlSaurR4CIZW+t+XqUmtYW95DUmWxaw5xBDYhDiWKFHyz1jLMUu348nSUl/k6r72+rAXorhmxhnph8cQU3rFQ==",
   "success": true,
-  "projectFilePath": "D:\\Recreate\\BankFull\\BankFull.csproj",
+  "projectFilePath": "E:\\Version 12 tarik\\Version 12 tarik\\BankFull\\BankFull.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

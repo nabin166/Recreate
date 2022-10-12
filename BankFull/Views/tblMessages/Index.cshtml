@@ -26,6 +26,7 @@
     <li class="active"><a data-toggle="tab" href="#home">Messages</a></li>
      <li><a data-toggle="tab" href="#menu1">Processing</a></li>
      <li><a data-toggle="tab" href="#menu2">Complete</a></li>
+      <li><a data-toggle="tab" href="#menu4">FinalComplete</a></li>
     
       }
         @if (!User.IsInRole("User"))
@@ -34,6 +35,8 @@
             <li><a data-toggle="tab" href="#menu1">Assigned</a></li>
              <li><a data-toggle="tab" href="#menu2">Complete</a></li>
             <li><a data-toggle="tab" href="#menu3">MessageComplete</a></li>
+            <li><a data-toggle="tab" href="#menu5">FinalComplete</a></li>
+           
         }
         @*  <li><a data-toggle="tab" href="#menu2">Agents</a></li> *@
 
@@ -282,6 +285,8 @@
             @if (@User.IsInRole("User"))
             {
                    <div id="Completeprocess"></div>
+
+              
             }
     
 
@@ -296,6 +301,25 @@
 
    
     <div id="MessageComplete"></div>
+
+
+    </div>
+
+       <div id="menu4" class="tab-pane fade bg-white">
+    @*Submitted_data*@
+
+   
+    <div id="Completebool"></div>
+
+
+    </div>
+
+
+      <div id="menu5" class="tab-pane fade bg-white">
+    @*Submitted_data*@
+
+   
+    <div id="CompleteboolAdmin"></div>
 
 
     </div>
@@ -328,6 +352,8 @@ $(document).ready(function() {
     $("#Process").load("Index/Processing");
     $("#Completeprocess").load("Index/ProcessComplete");
     $("#MessageComplete").load("Index/FinalMessage");
+    $("#Completebool").load("Index/Completebooltrue");
+    $("#CompleteboolAdmin").load("Index/CompletebooltrueAdmin");
     
 
 

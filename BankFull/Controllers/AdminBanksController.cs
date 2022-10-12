@@ -24,13 +24,14 @@ namespace BankFull.Controllers
         }
 
 
-        public IActionResult BankLimit(decimal ammountAdmin, string adminbank1)
+        public IActionResult BankLimit(decimal ammountAdmin, string adminbank1, int mid)
         {
             //   if(_context.AdminBanks.Where(x=>x.Date == DateTime.Now.ToString("yyyy-MM-dd"))){
 
             //  }
 
             // decimal Ammount = +ammountAdmin;
+
 
 
            string abc = GetSubstringByString("(", ")", adminbank1);
@@ -67,10 +68,19 @@ namespace BankFull.Controllers
             if(Amount1 <= 600000)
             {
                 var c = _context.AdminBanks.Find(id);
-                if(c != null)
+                if (c != null) {
                     c.Ammount = Amount1;
-                _context.Update(c);
-                _context.SaveChanges();
+                    _context.Update(c);
+                    _context.SaveChanges();
+                }
+                var d = _context.tblMessages.Find(mid);
+                if(d!= null)
+                {
+                    d.completed = true;
+                    _context.Update(d);
+                    _context.SaveChanges();
+                }
+
 
             }
             else
