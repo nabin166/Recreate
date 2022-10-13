@@ -42,7 +42,7 @@ html {
 
 
 .tablecolor {
-    background-color: rgba(105, 119, 119, 0.266);
+    background-color: lightblue;
 }
 
 @media (max-width:768px ) {

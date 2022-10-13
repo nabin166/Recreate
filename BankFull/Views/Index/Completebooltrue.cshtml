@@ -8,23 +8,26 @@
     Layout = null;
 }
     
-   <table id="completebool" class="mb-4 table tablecolor wid " style="width:75vw;">
-    <thead class="bg-success">
+   <table id="completebool" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+    <thead class="bg-danger">
           <tr>
               <th></th>
               <th></th>
-              <th>Account_Number</th>
-              
+               <th>
+                Date
+            </th>
              <th>
                 Bank_Name
             </th>
+             <th>Address</th>
+              <th>Account_Number</th>
+              
+            
             <th>
                 Amount
             </th>
-            <th>
-                Date
-            </th>
-            <th>Address</th>
+           
+           
             <th>
              @*   Document *@
              Messages
@@ -33,12 +36,7 @@
                 
             </th>
             
-             <th>
-                
-            </th>
-            <th>
-
-            </th>
+            
 
            
             
@@ -58,22 +56,25 @@
                        @Html.DisplayFor(modelItem => item.tblMessage.Id)
                     </td>
                     <td></td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address) 
+                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber) 
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
-                    </td>
+                   
 
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Amount)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address) 
-                    </td>
+                   
+                   
 
 
                     <td>
@@ -84,17 +85,7 @@
                     <td>
                        
                     </td>
-                    <td>
-                       
-                    </td>
-
-
-
-
-                    <td>
-                       
-                        
-                    </td>     
+                      
 
                 </tr>
             
@@ -102,10 +93,10 @@
     </tbody>
 
     
-       <tfoot>
+       <tfoot class="table-danger">
             <tr>
                 <th colspan="2" style="text-align:right">Total: <br /> Sub Total:</th>
-                <th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
             </tr>
         </tfoot>
 
@@ -132,7 +123,7 @@
  
             // Total over all pages
             total = api
-                .column(4)
+                .column(6)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -140,14 +131,14 @@
  
             // Total over this page
             pageTotal = api
-                .column(4, { page: 'current' })
+                .column(6, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(4).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(6).footer()).html( pageTotal  + ' <br/>' + total  );
         },
     }
      

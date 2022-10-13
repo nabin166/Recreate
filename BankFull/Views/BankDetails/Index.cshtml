@@ -11,27 +11,29 @@
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Add Bank</a>
 </p>
    }
-<table id="example" class="table tablecolor" style="width:75vw;">
+<table id="example" class="table table-bordered tablecolor" style="width:75vw;">
     <thead class="bg-info">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AccountNumber)
+                  @Html.DisplayNameFor(model => model.Address)
+              
+            </th>
+            <th>
+                  @Html.DisplayNameFor(model => model.AccountNumber)
+  
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.AccountName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
             </th>
             
             <th>
                 @Html.DisplayNameFor(model => model.TransactionLimit)
             </th>
 
-            <th>Sent by</th>
+            <th>Wholesaler</th>
            
             <th></th>
         </tr>
@@ -42,15 +44,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
+               <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AccountName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
+         
           
             <td>
                 @Html.DisplayFor(modelItem => item.TransactionLimit)
