@@ -27,12 +27,14 @@ namespace BankFull.Controllers
         public IActionResult AmountC(int userid)
         {
 
-              List<tblMessage> abc = _context.tblMessages.Include(x=>x.UserMessages).Include(x=> x.BankDetail.User).Include(x=>x.UserMessages.Where(x=>x.UserId == userid)).Where(x=>x.BankDetail.UserId == userid).ToList();
-             
+            //  List<tblMessage> abc = _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.tblMessage)).Include(x=> x.BankDetail.User)
+            List<UserMessage> abc = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == userid).ToList();
+
+      
         
             
 
-            return View(abc);
+            return PartialView(abc);
         }
 
         [HttpPost]

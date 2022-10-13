@@ -10,16 +10,16 @@
 
   <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
       
-    <li class="active"><a data-toggle="tab" href="#home">wholeseller/Retailer</a></li>
-     <li><a data-toggle="tab" href="#menu1">Agent</a></li>
+    <li class="active"><a data-toggle="tab" href="#home">Agent</a></li>
+   <!--  <li><a data-toggle="tab" href="#menu1">wholeseller/Retailer</a></li> -->
     
     
     </ul>
 
        <div class="tab-content">
 
-        @*Wholeseller*@
-        <div id="home" class="tab-pane fade active in bg-white  ">
+        @*Wholeseller *@
+        <div id="home" class="tab-pane fade active in bg-white ">
             <table id="datass" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
     <thead class="bg-info">
         <tr>
@@ -55,7 +55,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-                    @if (item.Role.Role1 == "User")
+                    @if (item.Role.Role1 == "Agent")
                     {
                         <tr>
                             <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
@@ -96,7 +96,7 @@
        <tfoot class="table-info">
             <tr>
                 <th  style="text-align:right">Total: <br/>Sub Total:</th>
-                  <th></th>  <th style="display:none;"></th>  <th></th>  <th></th> <th></th><th></th><th></th><th></th>
+                  <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
             </tr>
         </tfoot>
  </table>
@@ -105,8 +105,7 @@
 
 
 
-        </div>
-        
+        </div>  
         @*Retailer*@
         <!--comment it for Agent new index create-->
 
@@ -147,7 +146,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-                    @if (item.Role.Role1 == "Agent")
+                    @if (item.Role.Role1 == "User")
                         {
                         <tr>
                             <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
