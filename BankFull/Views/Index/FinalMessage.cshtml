@@ -32,13 +32,18 @@
         </div>
     </div>
 
-   <table id="datass" class="mb-4 table tablecolor wid " style="width:75vw;">
+   <table id="datass" class="mb-4 table tablecolor wid table-bordered" style="width:75vw;">
     <thead class="bg-danger">
           <tr>
               <th></th>
-              
+               <th>
+                Date
+            </th>
              <th>
                 Bank Name
+            </th>
+             <th>
+                Address
             </th>
              <th>
                 Account_number
@@ -46,11 +51,12 @@
             <th>
                 Amount
             </th>
-            <th>
-                Date
-            </th>
+           
             <th>
                 Message
+            </th>
+            <th>
+            @*    Wholesaler *@
             </th>
             
              <th>
@@ -73,8 +79,15 @@
                     <td class="id" style=" visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Date)
+                    </td>
+                  
                     <td>
                         @Html.DisplayFor(modelItem => item.bankdet.Name)
+                    </td>
+                       <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Address)
                     </td>
                      <td>
                         @Html.DisplayFor(modelItem => item.bankdet.AccountNumber)
@@ -83,18 +96,18 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.tbl.Amount)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tbl.Date)
-                    </td>
+                   
 
 
                     <td>
 
-                    @*    <img src="~/@Html.DisplayFor(modelItem => item.tbl.DocumentPath)" style="cursor:pointer;" data-toggle="modal" data-target="#exampleModals"  width="50px"/> *@
-                    @Html.DisplayFor(modelItem => item.tbl.Messages)
+                         @Html.DisplayFor(modelItem => item.tbl.Messages)
                     </td>
 
+                     <td>
 
+                      
+                    </td>
 
 
                     <td>
@@ -110,7 +123,7 @@
        <tfoot class="table-danger">
             <tr>
                 <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
-                  <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> 
+                  <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th></th><th></th>
             </tr>
         </tfoot>
 </table>
@@ -131,7 +144,7 @@ $(document).ready(function(e) {
  
             // Total over all pages
             total = api
-                .column(3)
+                .column(5)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -139,14 +152,14 @@ $(document).ready(function(e) {
  
             // Total over this page
             pageTotal = api
-                .column(3, { page: 'current' })
+                .column(5, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(3).footer()).html( pageTotal  + ' <br/> ' + total );
+            $(api.column(5).footer()).html( pageTotal  + ' <br/> ' + total );
         },
     }
      
@@ -174,7 +187,7 @@ $(document).ready(function(e) {
             'error': function() {
                  
             },
-        });
+        }); 
 
 
       

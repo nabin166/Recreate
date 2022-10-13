@@ -4,38 +4,44 @@
     Layout = null;
 }
     
-   <table id="exxa" class="mb-4 table tablecolor wid " style="width:75vw;">
-    <thead class="bg-success">
+   <table id="exxa" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+    <thead class="bg-info">
           <tr>
                 <th  ></th>
               <th ></th>
-              <th>Assigned To</th>
-               <th>
-                Sent_by
+                <th>
+                Date
+            </th>
+              <th>
+                Bank_Name
             </th>
             <th>
                 Address
             </th>
-              
-             <th>
-                Bank_Name
-            </th>
+            
              <th>
                 Account_No
             </th>
+              <th>Assigned Agent</th>
+               <th>
+                Wholesaler
+            </th>
+            
+              
+           
             <th>
                 Amount
             </th>
+          
             <th>
-                Date
-            </th>
-            <th>
-             @*   Document *@
+            
+              Message
             </th>
             
              <th>
-                
+               
             </th>
+
            
             
           
@@ -60,33 +66,36 @@
 
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.User.Name) 
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
                     </td>
                      <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
-                    </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
                     </td>
 
                     <td>
+                        @Html.DisplayFor(modelItem => item.User.Name) 
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                     
+                   
+                    
+
+                    <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Amount)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
-                    </td>
-
+                    
 
                     <td>
 
-                  @*      <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-
+                         @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                     </td>
 
 
@@ -107,7 +116,7 @@
             <tr>
              
                 <th colspan="1" style="text-align:right">Total: <br />Sub Total:</th>
-                <th></th> <th></th> <th></th> <th></th> <th></th><th></th><th></th>
+                <th></th> <th></th> <th></th> <th></th> <th></th><th></th><th></th><th></th>
                
             </tr>
         </tfoot>
@@ -131,7 +140,7 @@
  
             // Total over all pages
             total = api
-                .column(7)
+                .column(8)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -139,14 +148,14 @@
  
             // Total over this page
             pageTotal = api
-                .column(7, { page: 'current' })
+                .column(8, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(7).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(8).footer()).html( pageTotal  + ' <br/>' + total  );
         },
     }
     
@@ -202,16 +211,7 @@
 
 </script>
 
-             @section scripts{
-             @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
-
-    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
-
-                 }
+            
                  
              
 

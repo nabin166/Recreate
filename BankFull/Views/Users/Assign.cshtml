@@ -65,30 +65,29 @@
         @*Submit*@
 
 
-       <table id="exx" class="mb-4 table tablecolor wid " style="width:75vw;">
+       <table id="exx" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
         <thead class="bg-success">
           <tr>
               <th ></th>
-              <th>Account Holder</th>
-
-              <th>Bank Name</th>
-
-             <th>
+               <th>
+                Date
+            </th>
+            <th>Bank Name</th>
+              <th>
                 Address
             </th>
-             <th>
+            <th>
                 Account No
             </th>
             <th>
                 Amount
             </th>
-            <th>
-                Date
-            </th>
-            <th>
-             @*   Document  *@
+               <th>
+        
              Message
             </th>
+              <th>Account Holder</th>
+
             
              <th>
                 
@@ -107,32 +106,32 @@
                     <td style="visibility:hidden;">
                        @Html.DisplayFor(modelItem => item.tblMessage.Id)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
-                    </td>
                      <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+                      <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
                     </td>
                      <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
                     </td>
-                     <td>
+                      <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
                     </td>
-
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Amount)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
-                    </td>
-
-
-                    <td>
+                      <td>
 
                     @*    <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" data-toggle="modal" data-target="#exampleMod" width="50px"/> *@
                     @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                     </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                  
+
+                  
 
                     <td>
                             <input type="file" required class="form-control p-0 pt-1" id="PhotoSend" />
@@ -159,7 +158,7 @@
             <tr>
              
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>  <th></th>
                 
            
             </tr>
@@ -176,29 +175,34 @@
         <div id="menu1" class="tab-pane fade bg-white">
     @*Submitted_data*@
 
-     <table id="exam"  class="mb-4 table tablecolor wid " style="width:75vw;">
+     <table id="exam"  class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
     <thead class="bg-danger ">
           <tr>
               <th></th>
-              <th>Account No</th>
-              <th>Send by</th>
+              <th>
+               Date
+            </th>
              <th>
                Bank Name
             </th>
-            <th>
+             
+             <th>
+               Address 
+            </th>
+              <th>Account No</th>
+               <th>
                Amount
             </th>
             <th>
-               Date
+          
+              Message
             </th>
-            <th>
-          @*     Document  *@
-          Message
-            </th>
+              <th>Wholesaler</th>
             
-             <th>
-                
-            </th>
+           
+            
+            
+           
             
           
          
@@ -216,39 +220,32 @@
                     <td style="visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.MessageId)
                     </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
-                    </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Date)
                     </td>
-
-
-                    <td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
+                    </td>
+                       <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                    </td>
+                     <td>
 
                      @*   <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
                       @Html.DisplayFor(modelItem => item.tblMessage.Messages)
                     </td>
-
-
-
-
                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                   
 
                        
-
-                       
-                    </td>     
 
                 </tr>
             
@@ -292,7 +289,7 @@ $(document).ready(function() {
 
                 // Total over all pages
                 total = api
-                    .column(4)
+                    .column(5)
                     .data()
                     .reduce(function(a, b) {
                         return intVal(a) + intVal(b);
@@ -300,14 +297,14 @@ $(document).ready(function() {
 
                 // Total over this page
                 pageTotal = api
-                    .column(4, { page: 'current' })
+                    .column(5, { page: 'current' })
                     .data()
                     .reduce(function(a, b) {
                         return intVal(a) + intVal(b);
                     }, 0);
 
                 // Update footer
-                $(api.column(4).footer()).html(pageTotal + ' <br/>' + total);
+                $(api.column(5).footer()).html(pageTotal + ' <br/>' + total);
             },
         });
 
@@ -444,7 +441,7 @@ $(document).ready(function() {
              
                 window.location.href = '@Url.Action("Assign","Users")';
             }
-        }); 
+        });   
     });
     
 
