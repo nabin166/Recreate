@@ -1,59 +1,98 @@
-﻿@model IEnumerable<BankFull.Models.tblMessage>
-@{
-    Layout = null;
-}
-
-
-<table id="amt" class="table">
-    <thead>
-        <tr>
+﻿@model List<BankFull.Models.UserMessage> 
+   
+    
+    @{
+        Layout = null;
+    }
+ 
+<table id="exxa" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+        <thead class="">
+          <tr>
+            
+               <th>
+                Date
+            </th>
+            <th>Bank Name</th>
+              <th>
+                Address
+            </th>
+            <th>
+                Account No
+            </th>
             <th>
                 Amount
             </th>
-           
-            <th>
-                Date
+               <th>
+        
+             Message
             </th>
+              <th>Wholesaler</th>
+
             
-           
-           
-           
-            
+     
+                  
         </tr>
+            
+        
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                 @Html.DisplayFor(modelItem => item.Amount)
-               
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
+@foreach (UserMessage item in Model) {
 
-           
-        </tr>
-}
+                <tr>  
+                  
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
+                    </td>
+                      <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                    </td>
+                      <td>
+
+                    @*    <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" data-toggle="modal" data-target="#exampleMod" width="50px"/> *@
+                    @Html.DisplayFor(modelItem => item.tblMessage.Messages)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
+                    </td>
+                  
+
+                  
+
+
+ 
+
+                </tr>
+            
+        }
     </tbody>
-
-    <tfoot>
+     <tfoot class=" ">
             <tr>
-                <th colspan="1" style="text-align:right"></th>
-                  <th></th>  <th></th> 
+             
+                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
+                <th></th><th></th><th></th><th></th><th></th><th>
+                
+           
             </tr>
         </tfoot>
+
+
 </table>
 
+<script>
 
-
-
- <script>
-   $(document).ready(function () {
-    $("#amt").DataTable(
+$(document).ready(function() {
+  $('#exxa').DataTable(
     
-    @*
-    {
+       {
         footerCallback: function (row, data, start, end, display) {
             var api = this.api();
  
@@ -64,7 +103,7 @@
  
             // Total over all pages
             total = api
-                .column(2)
+                .column(5)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -72,43 +111,34 @@
  
             // Total over this page
             pageTotal = api
-                .column(2, { page: 'current' })
+                .column(5, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(2).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(5).footer()).html( pageTotal  + ' <br/>' + total  );
         },
-    }
-    
-    
-    *@
-    
-    
-    );
+       }
+
+);
+
+  }
+
+   </script>
 
 
-
-
-       
-});
-
-
-
-</script>
-
-                 @section scripts{
+                      @section scripts{
+  
              @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+  
 
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
 
-                 }
-                 
-             
+     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
 
+       }

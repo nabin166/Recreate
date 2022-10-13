@@ -131,6 +131,7 @@ namespace BankFull.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Address,Name,Ammount,AccountNumber")] AdminBank adminBank)
         {
+            adminBank.Ammount = 0;
             if (ModelState.IsValid)
             {
                 _context.Add(adminBank);

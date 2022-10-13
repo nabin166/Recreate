@@ -251,7 +251,7 @@ namespace BankFull.Controllers
                 else
                 {
                     ViewData["error"] = "Username already exist";
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Register","Account");
                 }
 
 
