@@ -60,17 +60,6 @@ namespace BankFull.Controllers
                                               bankdet = b,
                                           }).ToList();
 
-
-            return _context.tblMessages != null ?
-
-                PartialView(joins) :
-
-                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
-        }
-
-        //Bool False in message table
-        public async Task<IActionResult> ProcessComplete()
-        {
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
@@ -80,7 +69,42 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x=>x.tblMessage.completed==false).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
+                PartialView(joins) :
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+        }
+        /// <summary>
+        ///----- it is going to be hide it is process complete section which is located in user view.(Message Complete tab)---------
+        /// </summary>
+        /// <returns></returns>
+
+        //Bool False in message table
+        public async Task<IActionResult> ProcessComplete()
+        {
+            List<tblMessage> tbl = _context.tblMessages.ToList();
+            List<PhotoSend> photosen = _context.PhotoSends.ToList();
+            List<BankDetail> bankdet = _context.BankDetails.ToList();
+
+            List<PhotoSendModel> joins = (from t in tbl
+                                          join p in photosen on t.Id equals p.MessageId
+                                          join b in bankdet on t.BankId equals b.Id
+                                          select new PhotoSendModel()
+                                          {
+                                              tbl = t,
+                                              photosen = p,
+                                              bankdet = b,
+                                          }).ToList();
+
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+
+
+            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+
+            return _context.tblMessages != null ?
+
+                PartialView(joins) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
