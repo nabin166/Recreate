@@ -1,14 +1,14 @@
-﻿@model IEnumerable<BankFull.Models.UserMessage?> 
+﻿@*@model IEnumerable<BankFull.Models.UserMessage?> 
 
 
 
-    @*It is for ----------complete---------- section of -------------USER--------------*@
+    @*It is for ----------complete---------- section of -------------USER--------------
 @{
     Layout = null;
 }
     
    <table id="completeuser" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
-    <thead class="bg-success">
+    <thead class="bg-danger">
           <tr>
               <th></th>
               <th></th>
@@ -25,12 +25,10 @@
             <th>
                 Amount
             </th>
-             <th>
-                Document
-            </th>
+           
             
             <th>
-             @*   Document *@
+             @*   Document 
              Message
             </th>
             <th>
@@ -80,10 +78,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Amount)
                     </td>
-                  <td>
-                        @*      <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-
-                    </td>
+                 
                    
 
 
@@ -117,10 +112,10 @@
     </tbody>
 
     
-       <tfoot>
+       <tfoot class="table-danger">
             <tr>
                 <th colspan="2" style="text-align:right">Total: <br /> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
             </tr>
         </tfoot>
 
@@ -171,7 +166,7 @@
     );
    
 
-       @*----------Cancel-document----------------*@
+       @*----------Cancel-document----------------
 
            $(".bankSubmit").click(function(e){
 
@@ -259,7 +254,7 @@
 
 </script>
 @section scripts{
-                   @*DataTable*@
+                   @*DataTable
   
 
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -272,6 +267,327 @@
        }
 
                  
-             
+ *@
 
 
+
+@using BankFull.Controllers;  
+@model IEnumerable<PhotoSendModel>
+
+    
+
+    
+    <!--Bootstrap modal -->
+    <div class="modal fade " id="exampleModals" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+
+                   
+                    <h5 class="modal-title" id="exampleModalLabel">
+                       <i class="fa-solid fa-images"></i>
+                    </h5>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                     <div id="appends"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <table id="usrdata" class="mb-4 table tablecolor wid table-bordered" style="width:75vw;">
+    <thead class="bg-danger">
+          <tr>
+              <th></th>
+               <th></th>
+               <th>
+                Date
+            </th>
+             <th>
+                Bank Name
+            </th>
+             <th>
+                Address
+            </th>
+             <th>
+                Account_number
+            </th>
+            <th>
+                Amount
+            </th>
+           
+            <th>
+                Message
+            </th>
+            <th>
+            @*    Wholesaler *@
+            </th>
+            
+             <th>
+                Final_Document
+            </th>
+            <th></th>
+             <th></th>
+              <th></th>
+               <th></th>
+            
+          
+         
+            
+        </tr>
+            
+        
+    </thead>
+    <tbody>
+@foreach (PhotoSendModel item in Model) {
+
+         
+            
+                <tr>  
+                    <td class="id" style=" visibility:hidden;">
+                        @Html.DisplayFor(modelItem => item.tbl.Id) 
+                    </td>
+                    <td style=" visibility:hidden;"></td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Date)
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Name)
+                    </td>
+                       <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Address)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.AccountNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Amount)
+                    </td>
+                   
+
+
+                    <td>
+
+                         @Html.DisplayFor(modelItem => item.tbl.Messages)
+                    </td>
+
+                     <td>
+
+                      
+                    </td>
+
+
+                    <td>
+                         <img src="~/@Html.DisplayFor(modelItem => item.photosen.Photo)" style="cursor:pointer;" class="imgprev"  data-toggle="modal" data-target="#exampleModals"  width="50px"/>
+                        
+                    </td>    
+                    
+                     <td>
+                         <select id="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
+
+                    </td>
+                    <td>
+                        <input type="number" id="pay" class="check" name="payamount"/>
+                    </td>
+                    <td>
+                        <button type="button" class="bankSubmit btn btn-info" value="submit">Submit</button>
+                    </td>
+
+
+
+
+                    <td>
+                        <button type="button" class="btn btn-secondary btn-danger canceldoc">Cancel Document</button>
+                        
+                    </td>     
+
+                </tr>
+            
+        }
+    </tbody>
+
+       <tfoot class="table-danger">
+            <tr>
+                <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
+                  <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th></th><th></th>    <th></th>
+             <th></th>
+              <th></th>
+               <th></th>
+            </tr>
+        </tfoot>
+</table>
+
+<script>
+$(document).ready(function(e) {
+
+     $('#usrdata').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(6)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(6, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(6).footer()).html( pageTotal  + ' <br/> ' + total );
+        },
+    }
+     
+     
+     
+     );
+
+    $(".imgprev").click(function(e) {
+        var cid = $(this).closest('tr').find("td:eq(0)").text();
+        console.log(cid);
+       
+
+
+        $.ajax({
+
+            'url': '@Url.Action("Preview","Sender")',
+            'type': 'post',
+            'data': { cid
+             },
+            'success': function(image) {
+                  $("#appends").empty().append('<image style="width:30vw;" src ="' +image+'"/>');
+                     
+            
+            },
+            'error': function() {
+                 
+            },
+        }); 
+
+
+      
+
+         
+    });
+
+       $(".bankSubmit").click(function(e){
+
+
+                // var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
+                var adminbank1 =  $('#bankadmin').find(":selected").text(); 
+                var mid = $(this).closest('tr').find("td:eq(0)").text();
+                var ammountAdmin = $(this).closest('tr').find(".check").val(); 
+            //   var abc = #('#pay').text();
+              // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
+              // console.log(ammountAdmin);
+               console.log(adminbank1);
+              console.log(mid);
+              console.log(ammountAdmin);
+
+               
+        $.ajax({
+            'url': '@Url.Action("BankLimit","AdminBanks")',
+            'type': 'post',
+            'data': { ammountAdmin,adminbank1,mid},
+
+            'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+                window.location.href = '@Url.Action("Index","tblMessages")';
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("","tblMessages")';
+            }
+
+
+        }); 
+
+          });
+
+
+
+    $(".canceldoc").click(function(e) {
+
+
+        var messageids = $(this).closest('tr').find("td:eq(0)").text();
+        var empty =  $(this).closest('tr').find("td:eq(1)").text();
+       
+        console.log(messageids);
+        console.log(empty);
+
+       $.ajax({
+            'url': '@Url.Action("Canceldoc","Users")',
+            'type': 'post',
+            'data': { messageids , empty },
+
+            'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+                window.location.href = '@Url.Action("Index","tblMessages")';
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","tblMessages")';
+            }
+
+
+        });
+        
+    });
+
+});
+
+</script>
+
+
+
+
+                 @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }
