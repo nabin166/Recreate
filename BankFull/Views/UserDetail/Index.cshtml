@@ -124,10 +124,10 @@
         @*Retailer*@
         <!--comment it for Agent new index create-->
 
-        <div id="menu1" class="tab-pane fade in bg-white" style="width:75vw;">
+        <div id="menu1" class="tab-pane fade in bg-white" >
 
             <!--   <div id="wholesalerpay"></div> -->
-            <table id="dat" class="mb-4 table tablecolor wid table-bordered " >
+            <table id="dat" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
                 <thead class="bg-info">
                     <tr>
                         <th style="display:none;"></th>
@@ -307,15 +307,10 @@
         
     }
 
-     @if (@User.IsInRole("User"))
+     @if(@User.IsInRole("User"))
     {
-          @*Retailer*@
-        <!--comment it for Agent new index create-->
-
-               <div id="menu1" class="tab-pane fade in bg-white" style="width:75vw;">
-
-            <!--   <div id="wholesalerpay"></div> -->
-            <table id="dat" class="mb-4 table tablecolor wid table-bordered " >
+          <div id="home" class="tab-pane fade active in bg-white ">
+            <table id="datass" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
                 <thead class="bg-info">
                     <tr>
                         <th style="display:none;"></th>
@@ -343,7 +338,7 @@
                         <th>
                             Remain Amount
                         </th>
-                     
+                        <th></th>
 
 
                     </tr>
@@ -379,7 +374,9 @@
                                 <td>
                                     @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
                                 </td>
-
+                                <td>
+                                    <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
+                                </td>
 
                             </tr>
                         }
@@ -391,16 +388,19 @@
                 <tfoot class="table-info">
                     <tr>
                         <th  style="text-align:right">Total: <br/>Sub Total:</th>
-                        <th></th>  <th style="display:none;"></th> <th></th> <th></th><th></th><th></th><th></th>
+                        <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
                     </tr>
                 </tfoot>
             </table>
 
 
-        </div>
+
+
+
+        </div> 
     }
 
-
+     </div>
 
 
 
@@ -487,11 +487,11 @@
 
 
  </div>
+
+
+
 <script>
-
-
-
-    
+   
 $(document).ready(function () {
 
 
