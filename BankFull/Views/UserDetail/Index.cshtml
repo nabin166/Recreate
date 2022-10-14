@@ -9,97 +9,112 @@
 <!--9/30/2022--->
 
   <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
-      
+      @if (@User.IsInRole("Admin"))  
+      {
     <li class="active"><a data-toggle="tab" href="#home">Agent</a></li>
     <li><a data-toggle="tab" href="#menu1">wholeseller/Retailer</a></li>
-    
+    }
+
+      @if (@User.IsInRole("User"))  
+      {
+  
+    <li class="active" ><a data-toggle="tab" href="#menu1">wholeseller/Retailer</a></li>
+    }
+      @if (@User.IsInRole("Agent"))  
+      {
+        <li class="active"><a data-toggle="tab" href="#home">Agent</a></li>
+
+    }
     
     </ul>
 
        <div class="tab-content">
-
-        @*Wholeseller *@
+    @if (@User.IsInRole("Admin"))
+    {
+        @*Agent *@
         <div id="home" class="tab-pane fade active in bg-white ">
             <table id="datass" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
-    <thead class="bg-info">
-        <tr>
-            <th style="display:none;"></th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-           
-            
-           
-            <th>
-                Amount
-            </th>
-            <th>
-                Pay Amount
-            </th>
-            <th>
-                Remain Amount
-            </th>
-            <th></th>
-              
-          
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-                    @if (item.Role.Role1 == "Agent")
-                    {
-                        <tr>
-                            <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-           
-           
-           
-            <td >
-              <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
-            </td>
-            <td>
-                <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
-            </td>
-            <td>
-                @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
-            </td>
-            <td>
-                <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
-            </td>
-            
-        </tr>
-        }
-}
-    </tbody>
+                <thead class="bg-info">
+                    <tr>
+                        <th style="display:none;"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
 
-    
-       <tfoot class="table-info">
-            <tr>
-                <th  style="text-align:right">Total: <br/>Sub Total:</th>
-                  <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
-            </tr>
-        </tfoot>
- </table>
+
+
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Pay Amount
+                        </th>
+                        <th>
+                            Remain Amount
+                        </th>
+                        <th></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (item.Role.Role1 == "Agent")
+                        {
+                            <tr>
+                                <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+
+
+
+                                <td >
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+                                </td>
+                                <td>
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
+                                </td>
+
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+
+
+                <tfoot class="table-info">
+                    <tr>
+                        <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                        <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
+                    </tr>
+                </tfoot>
+            </table>
 
 
 
@@ -109,94 +124,282 @@
         @*Retailer*@
         <!--comment it for Agent new index create-->
 
-          <div id="menu1" class="tab-pane fade in bg-white">
+        <div id="menu1" class="tab-pane fade in bg-white" style="width:75vw;">
 
-         <!--   <div id="wholesalerpay"></div> -->
-               <table id="dat" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
-    <thead class="bg-info">
-        <tr>
-            <th style="display:none;"></th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-           
-            
-           
-            <th>
-                Amount
-            </th>
-            <th>
-                Pay Amount
-            </th>
-            <th>
-                Remain Amount
-            </th>
-            <th></th>
-              
-          
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-                    @if (item.Role.Role1 == "User")
+            <!--   <div id="wholesalerpay"></div> -->
+            <table id="dat" class="mb-4 table tablecolor wid table-bordered " >
+                <thead class="bg-info">
+                    <tr>
+                        <th style="display:none;"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+
+
+
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Pay Amount
+                        </th>
+                        <th>
+                            Remain Amount
+                        </th>
+                     
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
                     {
-                        <tr>
-                            <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-           
-           
-           
-            <td >
-              <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
-            </td>
-            <td>
-                <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
-            </td>
-            <td>
-                @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
-            </td>
-           
-            
-        </tr>
-        }
-}
-    </tbody>
-
-    
-       <tfoot class="table-info">
-            <tr>
-                <th  style="text-align:right">Total: <br/>Sub Total:</th>
-                  <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
-            </tr>
-        </tfoot>
- </table>
+                        @if (item.Role.Role1 == "User")
+                        {
+                            <tr>
+                                <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
 
 
-            </div>
-    
-    
-    
-   
+
+                                <td >
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+                                </td>
+                                <td>
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                </td>
+
+
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+
+
+                <tfoot class="table-info">
+                    <tr>
+                        <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                        <th></th>  <th style="display:none;"></th> <th></th> <th></th><th></th><th></th><th></th>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    }
+
+    @if (@User.IsInRole("Agent"))
+    {
+        @*Agent *@
+        <div id="home" class="tab-pane fade active in bg-white ">
+            <table id="datass" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+                <thead class="bg-info">
+                    <tr>
+                        <th style="display:none;"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+
+
+
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Pay Amount
+                        </th>
+                        <th>
+                            Remain Amount
+                        </th>
+                        <th></th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (item.Email == @User.Identity.Name)
+                        {
+                            <tr>
+                                <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+
+
+
+                                <td >
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+                                </td>
+                                <td>
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
+                                </td>
+
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+
+
+                <tfoot class="table-info">
+                    <tr>
+                        <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                        <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+
+
+
+        </div> 
+        
+    }
+
+     @if (@User.IsInRole("User"))
+    {
+          @*Retailer*@
+        <!--comment it for Agent new index create-->
+
+               <div id="menu1" class="tab-pane fade in bg-white" style="width:75vw;">
+
+            <!--   <div id="wholesalerpay"></div> -->
+            <table id="dat" class="mb-4 table tablecolor wid table-bordered " >
+                <thead class="bg-info">
+                    <tr>
+                        <th style="display:none;"></th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+
+
+
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Pay Amount
+                        </th>
+                        <th>
+                            Remain Amount
+                        </th>
+                     
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (item.Email == @User.Identity.Name)
+                        {
+                            <tr>
+                                <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+
+
+
+                                <td >
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                </td>
+                                <td>
+                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+                                </td>
+                                <td>
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                </td>
+
+
+                            </tr>
+                        }
+
+                    }
+                </tbody>
+
+
+                <tfoot class="table-info">
+                    <tr>
+                        <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                        <th></th>  <th style="display:none;"></th> <th></th> <th></th><th></th><th></th><th></th>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    }
+
 
 
 

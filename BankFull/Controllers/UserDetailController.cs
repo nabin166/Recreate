@@ -83,7 +83,7 @@ namespace BankFull.Controllers
 
             var email = User.Identity.Name;
             var id = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-           var transferOffContext = _context.user.Include(x=>x.BankDetails).Include(x=>x.UserMessages).ThenInclude(x=>x.tblMessage).Include(x=>x.Paymentss).Where(x=>x.Id != id).Include(u => u.Role);
+           var transferOffContext = _context.user.Include(x=>x.BankDetails).Include(x=>x.UserMessages).ThenInclude(x=>x.tblMessage).Include(x=>x.Paymentss).Where(x=>x.Role.Role1 != "Admin").Include(u => u.Role);
 
         
             
