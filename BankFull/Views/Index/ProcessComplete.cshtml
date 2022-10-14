@@ -41,6 +41,7 @@
           <tr>
               <th></th>
                <th></th>
+                <th></th>
                <th>
                 Date
             </th>
@@ -88,7 +89,12 @@
                     <td class="id" style=" visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
+                   
                     <td style=" visibility:hidden;"></td>
+                    
+                           <td class="id" style=" visibility:hidden;">
+                        @Html.DisplayFor(modelItem => item.bankdet.UserId) 
+                    </td>
                      <td>
                         @Html.DisplayFor(modelItem => item.tbl.Date)
                     </td>
@@ -154,6 +160,7 @@
              <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
              <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th></th><th></th>    <th></th>
              <th></th>
+              <th></th>
              <th></th>
              <th></th>
             </tr>
@@ -176,7 +183,7 @@ $(document).ready(function(e) {
  
             // Total over all pages
             total = api
-                .column(6)
+                .column(7)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -184,14 +191,14 @@ $(document).ready(function(e) {
  
             // Total over this page
             pageTotal = api
-                .column(6, { page: 'current' })
+                .column(7, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(6).footer()).html( pageTotal  + ' <br/> ' + total );
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
         },
     }
      
@@ -234,18 +241,19 @@ $(document).ready(function(e) {
                 var adminbank1 =  $('#bankadmin').find(":selected").text(); 
                 var mid = $(this).closest('tr').find("td:eq(0)").text();
                 var ammountAdmin = $(this).closest('tr').find(".check").val(); 
+                var userid = $(this).closest('tr').find("td:eq(2)").text();
             //   var abc = #('#pay').text();
               // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
-              // console.log(ammountAdmin);
+               console.log(userid);
                console.log(adminbank1);
               console.log(mid);
               console.log(ammountAdmin);
 
                
-        $.ajax({
+       $.ajax({
             'url': '@Url.Action("BankLimit","AdminBanks")',
             'type': 'post',
-            'data': { ammountAdmin,adminbank1,mid},
+            'data': { ammountAdmin,adminbank1,mid,userid},
 
             'success': function() {
 

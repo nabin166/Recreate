@@ -24,7 +24,7 @@ namespace BankFull.Controllers
         }
 
 
-        public IActionResult BankLimit(decimal ammountAdmin, string adminbank1, int mid)
+        public IActionResult BankLimit(decimal ammountAdmin, string adminbank1, int mid , int userid)
         {
             //   if(_context.AdminBanks.Where(x=>x.Date == DateTime.Now.ToString("yyyy-MM-dd"))){
 
@@ -80,6 +80,14 @@ namespace BankFull.Controllers
                     _context.Update(d);
                     _context.SaveChanges();
                 }
+                // ----------Don't know how much he/see can pay.----------//
+                //-----------------We canont track payment according to the slip --------------------------//
+
+                Payments payments = new Payments();
+                payments.UserId = userid;
+                payments.Payment = ammountAdmin;
+                _context.Add(payments);
+                _context.SaveChanges();
 
 
             }
