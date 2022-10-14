@@ -34,6 +34,9 @@ namespace BankFull.Controllers
           
             return View(_context.tblMessages.Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).ToList());
         }
+       
+
+       
 
         // GET: Payments/Details/5
         public async Task<IActionResult> Details(int? id)

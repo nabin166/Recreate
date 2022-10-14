@@ -28,11 +28,7 @@ namespace BankFull.Controllers
         {
 
             //  List<tblMessage> abc = _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.tblMessage)).Include(x=> x.BankDetail.User)
-            List<UserMessage> abc = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == userid).ToList();
-
-      
-        
-            
+            List<UserMessage> abc = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.UserId == userid).ToList();
 
             return PartialView(abc);
         }
@@ -91,6 +87,19 @@ namespace BankFull.Controllers
 
         
             
+
+            return View(await transferOffContext.ToListAsync());
+        }
+
+
+        public async Task<IActionResult> Wholesalerview()
+        {
+            var email = User.Identity.Name;
+            var id = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+            var transferOffContext = _context.user.Include(x => x.BankDetails).Include(x => x.UserMessages).ThenInclude(x => x.tblMessage).Include(x => x.Paymentss).Where(x => x.Id != id).Include(u => u.Role);
+
+
+
 
             return View(await transferOffContext.ToListAsync());
         }
