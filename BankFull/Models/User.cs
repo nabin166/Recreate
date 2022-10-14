@@ -15,7 +15,7 @@ namespace BankFull.Models
         }
         
         public int Id { get; set; }
-        [MinLength(4)]
+        [MinLength(2)]
         [MaxLength(30)]
         [Required]
         public string? Name { get; set; }
