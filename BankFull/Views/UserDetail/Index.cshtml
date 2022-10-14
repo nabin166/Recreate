@@ -11,7 +11,7 @@
   <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
       
     <li class="active"><a data-toggle="tab" href="#home">Agent</a></li>
-   <!--  <li><a data-toggle="tab" href="#menu1">wholeseller/Retailer</a></li> -->
+    <li><a data-toggle="tab" href="#menu1">wholeseller/Retailer</a></li>
     
     
     </ul>
@@ -111,8 +111,9 @@
 
           <div id="menu1" class="tab-pane fade in bg-white">
 
-     <table id="agdatas1" class="table" style="width:75vw;">
-    <thead>
+         <!--   <div id="wholesalerpay"></div> -->
+               <table id="dat" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+    <thead class="bg-info">
         <tr>
             <th style="display:none;"></th>
             <th>
@@ -147,7 +148,7 @@
     <tbody>
 @foreach (var item in Model) {
                     @if (item.Role.Role1 == "User")
-                        {
+                    {
                         <tr>
                             <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
             <td>
@@ -174,22 +175,21 @@
             <td>
                 @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
             </td>
-            <td>
-                <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
-            </td>
+           
             
         </tr>
         }
 }
     </tbody>
 
-      <tfoot class="table-danger">
+    
+       <tfoot class="table-info">
             <tr>
                 <th  style="text-align:right">Total: <br/>Sub Total:</th>
                   <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
             </tr>
         </tfoot>
-</table>
+ </table>
 
 
             </div>
@@ -291,9 +291,53 @@
     
 $(document).ready(function () {
 
+
+    $("#wholesalerpay").load("UserDetail/Wholesalerview");
+
     $(document).ready(function(e) {
 
      $('#datass').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(7)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(7, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
+
+
+
+
+
+             
+        },
+    }
+     
+     
+     
+     );
+     $('#dat').DataTable(
      
          {
         footerCallback: function (row, data, start, end, display) {

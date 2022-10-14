@@ -1,0 +1,408 @@
+﻿@model IEnumerable<BankFull.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+@{
+    Layout = null;
+}
+      
+            <table id="dat" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+    <thead class="bg-info">
+        <tr>
+            <th style="display:none;"></th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+           
+            
+           
+            <th>
+                Amount
+            </th>
+            <th>
+                Pay Amount
+            </th>
+            <th>
+                Remain Amount
+            </th>
+            <th></th>
+              
+          
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+                    @if (item.Role.Role1 == "User")
+                    {
+                        <tr>
+                            <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+           
+           
+           
+            <td >
+              <button data-target="#exampleModal4" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+            </td>
+            <td>
+                <button data-target="#exampleModal5" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+            </td>
+            <td>
+                @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+            </td>
+           
+            
+        </tr>
+        }
+}
+    </tbody>
+
+    
+       <tfoot class="table-info">
+            <tr>
+                <th  style="text-align:right">Total: <br/>Sub Total:</th>
+                  <th></th>  <th style="display:none;"></th>  <th></th> <th></th> <th></th><th></th><th></th><th></th>
+            </tr>
+        </tfoot>
+ </table>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Amount</h5>
+       
+       
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+         
+      </div>
+             
+      <div class="modal-body">
+          <p id="headers" class="text-success"></p>
+        <div id="mAmount"> </div>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Pay Amount</h5>
+         
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       
+      </div>
+      <div class="modal-body">
+           <p id="header" class="text-success"></p>
+        <div id="mPayAmount"> </div>
+      </div>
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<script>
+
+
+
+    
+$(document).ready(function () {
+
+    $(document).ready(function(e) {
+
+     $('#dat').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(7)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(7, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
+
+
+
+
+
+             
+        },
+    }
+     
+     
+     
+     );
+
+@*
+     $('#agdatas').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(7)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(7, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
+
+
+
+
+
+             
+        },
+    }
+     
+     
+     
+     );*@
+
+    $(".imgprev").click(function(e) {
+        var cid = $(this).closest('tr').find("td:eq(0)").text();
+        console.log(cid);
+       
+
+
+        $.ajax({
+
+            'url': '@Url.Action("Preview","Sender")',
+            'type': 'post',
+            'data': { cid
+             },
+            'success': function(image) {
+                  $("#appends").append('<image style="width:30vw;" src ="' +image+'"/>');
+                     
+            
+            },
+            'error': function() {
+                 
+            },
+        });
+
+
+      
+
+         
+    });
+});
+
+
+
+   //Sum Amount
+  //  $(".loadagent").load("UserDetail/RetailerAgent");
+    $('.sumAmount').click(function(e) {
+
+        var userid = $(this).closest('tr').find("td:eq(0)").text();
+         var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+          $("#headers").empty().append(User);
+        console.log(userid);
+        $.ajax({
+            'url': '@Url.Action("AmountC","UserDetail")',
+            'type': 'post',
+            'data': { userid },
+
+            'success': function(abc) {
+                $("#mAmount").empty().html(abc);
+                //   $("exampleModal1").modal('show');
+                  
+
+
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+
+
+    });
+
+    //
+
+
+      $('.payAmount').click(function(e) {
+     
+        
+
+           var users = $(this).closest('tr').find("td:eq(0)").text();
+           var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+            $("#header").empty().append(User);
+            console.log(users);
+               $.ajax({
+           'url': '@Url.Action("PayAmountC","UserDetail")',
+            'type': 'post',
+            'data': { users },
+
+            'success': function(payments) {
+                 
+                $("#mPayAmount").empty().html(payments);
+             //   $("exampleModal1").modal('show');
+               
+
+              
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+        
+
+    });
+    //
+
+    @*
+      $('.paybtn').click(function(e) {
+     
+        
+
+           var usr = $(this).closest('tr').find("td:eq(0)").text();
+           var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
+            $("#headering").empty().append(User);
+            console.log(usr);
+               $.ajax({
+           'url': '@Url.Action("Pay","UserDetail")',
+            'type': 'post',
+            'data': { usr },
+
+            'success': function(pays) {
+                 
+                $("#mPay").empty().html(pays);;
+             //   $("exampleModal1").modal('show');
+               
+
+              
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","UserDetail")';
+            }
+
+
+        });
+        
+
+    });
+    *@
+
+
+
+});
+
+
+
+
+
+</script>
+
+
+            
+                 @section scripts{
+             @*DataTable*@
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+
+    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+
+       }
