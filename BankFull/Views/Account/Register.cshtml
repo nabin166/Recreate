@@ -50,8 +50,9 @@
           <div class="col-md-12  mt-3 p-0">
             <div class="d-flex flex-column">
              @* <label for="Address" class="form-label mx-2 mt-1 ">Address:</label> *@
-              <input required asp-for="Email" class="form-control"  placeholder="Email"autocomplete="off" />
+              <input required asp-for="Email" class="form-control" id="email"  placeholder="Email"autocomplete="off" />
                <span asp-validation-for="Email" class="text-danger"></span>
+               <span id="spans" class="text-danger"></span>
               
             </div>
           </div>
@@ -85,7 +86,7 @@
         <div class="col-md-12 mt-3 p-0">
              <div class="d-flex flex-column ">
          @*  <label for="Password" class="mx-2 mt-1 ">Password:</label> *@
-            <input required asp-for="Password" type="password" class="form-control" placeholder="Password"/>
+            <input required asp-for="Password" type="password" class="form-control" id="password" placeholder="Password"/>
              <span asp-validation-for="Password" class="text-danger"></span>
           </div>       
           </div> 
@@ -93,7 +94,7 @@
           <div class="col-md-12 mt-3 p-0">
             <div class="d-flex flex-column ">
          @*  <label for="Password" class="mx-2 mt-1 ">Repeat_Password:</label> *@
-           <input required type="password" class="form-control" name="repeatpassword"  placeholder="Repeat_Password"/>
+           <input required type="password" class="form-control" id="repeatpassword"  placeholder="Repeat_Password"/>
             <span asp-validation-for="Password" class="text-danger"></span>
          </div>       
          </div>
@@ -118,7 +119,12 @@
 
           
         </div>
-         <div class="w-100" > <input  type="submit" name="Submit" class="btn btn-info px-3 mt-2 " value="Register"/></div>
+
+           <span id="span" class="text-danger"></span>
+
+         <div class="w-100" > 
+             <input id="inputdisable" type="submit" name="Submit" class="btn btn-info px-3 mt-2 " value="Register"/>
+             </div>
 
           <a asp-controller="Account" asp-action="Index" class=" mt-3">Login</a>
          
@@ -136,5 +142,72 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<script>
+$(document).ready(function() {
+
+    //Button Disable for password incorrect.
+    $("#inputdisable").attr("disabled", true);
+    if ($("#repeatpassword").keyup(function() {
+      
+        $.ajax({
+            'url': '@Url.Action("Register","Account")',
+            'type': 'get',
+            'success': function() {
+                 var pas = $("#password").val();
+                 var rep = $("#repeatpassword").val();
+                if (pas != rep) {
+                    $("#span").empty().append("Password doesnot match.");
+                    $("#inputdisable").attr("disabled", true);
+                } else {
+                     $("#span").empty().append("");
+                    $("#inputdisable").attr("disabled", false);
+                }
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","Users")';
+            }
+
+
+        });
+    }));
+
+
+     //Email already exist.
+   
+    if ($("#email").keyup(function() {
+      var email = $("#email").val();
+        $.ajax({
+            'url': '@Url.Action("Emailcheck","Account")',
+            'type': 'post',
+            'data': {email},
+            'success': function(data) {
+                 
+                
+                if (data == false) {
+                    $("#spans").empty().append("Invalid Email Address.");
+                    $("#inputdisable").attr("disabled", true);
+                   
+                } else {
+                     $("#spans").empty().append("");
+                  
+                }
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","Users")';
+            }
+
+
+        });
+    }));
+
+
+
+
+});
+</script>
 
   

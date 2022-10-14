@@ -135,6 +135,24 @@ namespace BankFull.Controllers
             ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
             return RedirectToAction("Register", "Account");
         }
+        [HttpPost]
+        public JsonResult Emailcheck(string email)
+        {
+            List<User> users = _context.user.Where(x => x.Email == email).ToList();
+            if(users.Count == 1)
+            {
+                bool data = false;
+                return Json(data);
+            }
+            else
+            {
+                bool data = true;
+                return Json(data);
+
+            }
+           
+           
+        }
 
 
     }
