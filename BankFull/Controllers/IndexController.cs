@@ -84,15 +84,18 @@ namespace BankFull.Controllers
             List<tblMessage> tbl = _context.tblMessages.ToList();
             List<PhotoSend> photosen = _context.PhotoSends.ToList();
             List<BankDetail> bankdet = _context.BankDetails.ToList();
+            List<User> user = _context.user.ToList();
 
             List<PhotoSendModel> joins = (from t in tbl
                                           join p in photosen on t.Id equals p.MessageId
                                           join b in bankdet on t.BankId equals b.Id
+                                          join u in user on b.User.Email equals u.Email
                                           select new PhotoSendModel()
                                           {
                                               tbl = t,
                                               photosen = p,
                                               bankdet = b,
+                                              user = u,
                                           }).ToList();
 
             string email = User.Identity.Name;
@@ -159,6 +162,7 @@ namespace BankFull.Controllers
         public tblMessage tbl;
         public PhotoSend photosen;
         public BankDetail bankdet;
+        public User user;
     }
 
 }
