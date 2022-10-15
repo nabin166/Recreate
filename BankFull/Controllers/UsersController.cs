@@ -273,7 +273,7 @@ namespace BankFull.Controllers
             {
                 return NotFound();
             }
-            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Id", user.RoleId);
+            ViewData["RoleId"] = new SelectList(_context.Roles.Where(x => x.Role1 != "Admin"), "Id", "Role1");
             return View(user);
         }
 
@@ -288,6 +288,9 @@ namespace BankFull.Controllers
             {
                 return NotFound();
             }
+
+            //Model state remove from password .checking purpose.
+            ModelState.Remove("Password");
 
             if (ModelState.IsValid)
             {
@@ -386,6 +389,29 @@ namespace BankFull.Controllers
         public IActionResult Setting()
         {
             return View();
+        }
+        //--------Email-check-------
+        [HttpPost]
+        public JsonResult Emailcheck(string email , int cid)
+        {
+            var useremail = _context.user.Where(x => x.Id == cid).FirstOrDefault().Email;
+            List<User> users = _context.user.Where(x => x.Email == email).Where(x=>x.Email != useremail).ToList();
+
+           
+
+            if (users.Count == 1)
+            {
+                bool data = false;
+                return Json(data);
+            }
+            else
+            {
+                bool data = true;
+                return Json(data);
+
+            }
+
+
         }
 
 

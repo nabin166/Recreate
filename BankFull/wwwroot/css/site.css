@@ -1,6 +1,7 @@
 html {
-  
+    
 }
+
 /*
 ::-webkit-scrollbar {
    scroll-behavior:smooth;
@@ -9,16 +10,15 @@ html {
 }
 */
 
-.a{
+.a {
     text-decoration: none !important;
     color: white !important;
-    
-  
-
+    font-family: "Trirong", serif;
 }
-.a:hover{
-    background-color: rgba(105, 119, 119, 0.266);
-}
+    .a:hover {
+        background-color: rgba(105, 119, 119, 0.266);
+       
+    }
 
 .anc {
     text-decoration: none !important;

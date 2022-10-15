@@ -12,7 +12,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+            <input type="hidden" id="cid" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
                 <input asp-for="Name" class="form-control" />
@@ -22,34 +22,34 @@
                 <label asp-for="Address" class="control-label"></label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
+               
             </div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" id="Emails" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
+                 <span id="spana" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Phone" class="control-label"></label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
+        
             <div class="form-group">
                 <label asp-for="RoleId" class="control-label"></label>
                 <select asp-for="RoleId" class="form-control" asp-items="ViewBag.RoleId"></select>
                 <span asp-validation-for="RoleId" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            
+            <div class="form-group" hidden>
                 <label asp-for="Password" class="control-label"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
+            
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-info" />
+                <input type="submit" id="inputdisable" style="cursor:pointer;" value="Save" class="btn btn-info" />
             </div>
         </form>
     </div>
@@ -58,6 +58,39 @@
 <div>
       <a asp-action="Index" class="text-info anc"><i class="fa-solid fa-delete-left fa-lg"></i> Back to List</a>
 </div>
+
+<script>
+
+       if ($("#Emails").keyup(function() {
+      var email = $("#Emails").val();
+      var cid = $("#cid").val();
+        $.ajax({
+            'url': '@Url.Action("Emailcheck","Users")',
+            'type': 'post',
+            'data': {email , cid},
+            'success': function(data) {
+                 
+                
+                if (data == false) {
+                    $("#spana").empty().append("Invalid Email Address.");
+                    $("#inputdisable").attr("disabled", true);
+                   
+                } else {
+                     $("#spana").empty().append("");
+                     $("#inputdisable").attr("disabled", false);
+                  
+                }
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","Users")';
+            }
+
+
+        });
+    }));
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
