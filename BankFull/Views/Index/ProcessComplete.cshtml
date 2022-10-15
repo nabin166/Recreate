@@ -83,8 +83,8 @@
     <tbody>
 @foreach (PhotoSendModel item in Model) {
 
-         
-            
+            if (item.user.Email == @User.Identity.Name)
+            {
                 <tr>  
                     <td class="id" style=" visibility:hidden;">
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
@@ -151,8 +151,10 @@
                     </td>     
 
                 </tr>
+             }
+             }
             
-        }
+        
     </tbody>
 
        <tfoot class="table-danger">
