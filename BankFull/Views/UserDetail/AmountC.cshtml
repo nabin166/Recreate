@@ -22,6 +22,9 @@
             <th>
                 Amount
             </th>
+             <th>
+                Rate
+            </th>
                <th>
         
              Message
@@ -53,7 +56,10 @@
                         @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
+                        @Html.DisplayFor(modelItem => item.tblMessage.Amount) 
+                    </td>
+                    <td>
+                         (@item.tblMessage.Rate)
                     </td>
                       <td>
 
@@ -78,7 +84,7 @@
             <tr>
              
                 <th >Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th>
+                <th></th><th></th><th></th><th></th><th></th><th></th>
                 
            
             </tr>

@@ -184,13 +184,13 @@
 
 
                                 <td >
-                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)</button>
                                 </td>
                                 <td>
                                     <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment) won</button>
                                 </td>
                                 <td>
-                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)-item.Paymentss.Sum(x=>x.Payment))
                                 </td>
 
 
@@ -368,13 +368,13 @@
 
 
                                 <td >
-                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)won</button>
                                 </td>
                                 <td>
                                     <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)won</button>
                                 </td>
                                 <td>
-                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)-item.Paymentss.Sum(x=>x.Payment))
                                 </td>
                                 <td>
                                     <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
@@ -413,9 +413,9 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade " style=" overflow-x:scroll; "   id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog " role="document">
-    <div class="modal-content" style="width:50vw;"  >
+    <div class="modal-content " style="width:77vw;"  >
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Amount</h5>
        
