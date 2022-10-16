@@ -218,6 +218,9 @@ namespace BankFull.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<bool>("completed")
                         .HasColumnType("bit");
 
@@ -337,7 +340,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$BkLGuGdajgSsNe6RWI04keK4S8VPa803y5CS9XT.O2pOGgES/9YXy",
+                            Password = "$2a$11$7H2tbiCoC9rvgADvUewbM.cCeUqAsaynTWtQSS/1OEKSyf3OFut7q",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true
