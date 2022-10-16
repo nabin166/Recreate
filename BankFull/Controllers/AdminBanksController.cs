@@ -65,7 +65,7 @@ namespace BankFull.Controllers
             } */
 
             Amount1 = Amount1 + ammountAdmin;
-            if(Amount1 <= 600000)
+            if(Amount1 <= 6000000)
             {
                 var c = _context.AdminBanks.Find(id);
                 if (c != null) {

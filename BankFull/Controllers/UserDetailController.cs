@@ -80,6 +80,7 @@ namespace BankFull.Controllers
         // GET: UserDetail
         public async Task<IActionResult> Index()
         {
+           
 
             var email = User.Identity.Name;
             var id = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;

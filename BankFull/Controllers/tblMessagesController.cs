@@ -309,7 +309,7 @@ namespace BankFull.Controllers
 
                        await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
                 tblMessage.completed = false;
-
+                tblMessage.Rate = 0;
                 _context.Add(tblMessage);
                 await _context.SaveChangesAsync();
 

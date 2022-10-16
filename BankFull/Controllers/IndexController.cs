@@ -65,7 +65,7 @@ namespace BankFull.Controllers
 
 
 
-            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 6000000), "Id", "CheckName");
 
             return _context.tblMessages != null ?
 

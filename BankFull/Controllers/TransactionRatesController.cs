@@ -59,8 +59,42 @@ namespace BankFull.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 _context.Add(transactionRate);
                 await _context.SaveChangesAsync();
+                List<tblMessage> tblMessages = _context.tblMessages.ToList();
+                List<TransactionRate> trate = _context.TransactionRates.ToList();
+
+                if (tblMessages != null && trate != null) {
+
+                  foreach (var tblMessag in tblMessages)
+                    {
+                        foreach (var trat in trate) {
+
+                            if (trat.Date == tblMessag.Date)
+                            {
+                             //   List<tblMessage> tbl = tblMessages.ToList();
+
+
+                              
+
+                                    var abc = _context.tblMessages.Find(tblMessag.Id);
+                                    abc.Rate = trat.Rate;
+                                    _context.Update(abc);
+                                    await _context.SaveChangesAsync();
+                                
+
+                            }
+                            
+
+                        }
+                    }
+
+               
+                }
+
+
+
                 return RedirectToAction(nameof(Index));
             }
             return View(transactionRate);
