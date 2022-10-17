@@ -32,10 +32,10 @@
         </div>
     </div>
 
-   <table id="datass" class="mb-4 table tablecolor wid table-bordered" style="width:75vw;">
+   <table id="datass" class="mb-4 table tablecolor wid table-bordered widt " >
     <thead class="bg-danger">
           <tr>
-              <th></th>
+              <th hidden></th>
                <th>
                 Date
             </th>
@@ -55,7 +55,7 @@
             <th>
                 Message
             </th>
-            <th>
+            <th hidden>
             @*    Wholesaler *@
             </th>
             
@@ -76,7 +76,7 @@
          
             
                 <tr>  
-                    <td class="id" style=" visibility:hidden;">
+                    <td class="id" hidden>
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
                      <td>
@@ -104,7 +104,7 @@
                          @Html.DisplayFor(modelItem => item.tbl.Messages)
                     </td>
 
-                     <td>
+                     <td hidden>
 
                       
                     </td>
@@ -122,8 +122,9 @@
 
        <tfoot class="table-danger">
             <tr>
+                <th hidden></th> 
                 <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
-                  <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th></th><th></th>
+                   <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th hidden></th><th></th>
             </tr>
         </tfoot>
 </table>
