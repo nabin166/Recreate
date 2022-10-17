@@ -77,12 +77,13 @@
                             Message
                         </th>
 
-                        <th > 
+                        <th hidden> 
                         </th>
+
                         @if (@User.IsInRole("User"))
                         {
-                            <th></th>
-                            <th></th>
+                            <th hidden></th>
+                            <th hidden></th>
                         }
 
             @if(@User.IsInRole("Admin")){
@@ -142,7 +143,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Messages)
             </td>
-             <td class="msgid invisible">
+             <td class="msgid " hidden>
                 @Html.DisplayFor(modelItem => item.Id)
             </td>
              @if(@User.IsInRole("Admin")){
@@ -197,7 +198,7 @@
                                      <td>
                                         @Html.DisplayFor(modelItem => item.Amount)
                                     </td>
-                                     <td class="cas">
+                                     <td class="cas" hidden>
 
                                        
                                     </td>
@@ -214,12 +215,12 @@
 
                                     </td>
                                     
-                                    <td class="msgid invisible">
+                                    <td class="msgid " hidden>
                                         @Html.DisplayFor(modelItem => item.Id)
                                     </td>
 
                                      
-                                      <td>
+                                      <td hidden>
                                        
                                     </td>
 
@@ -239,7 +240,7 @@
 
      <tfoot class="">
             <tr>
-                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th><th></th><th ></th><th></th><th></th>
+                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th><th></th><th ></th><th></th><th></th><th></th><th></th>
                
             </tr>
         </tfoot>

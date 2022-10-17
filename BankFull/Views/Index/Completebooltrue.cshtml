@@ -8,11 +8,11 @@
     Layout = null;
 }
     
-   <table id="completebool" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+   <table id="completebool" class="mb-4 table tablecolor wid table-bordered widt">
     <thead class="bg-danger">
           <tr>
-              <th></th>
-              <th></th>
+              <th hidden></th>
+              <th hidden></th>
                <th>
                 Date
             </th>
@@ -52,10 +52,10 @@
         
             
                 <tr> 
-                     <td  style="visibility:hidden;">
+                     <td hidden>
                        @Html.DisplayFor(modelItem => item.tblMessage.Id)
                     </td>
-                    <td ></td>
+                    <td hidden></td>
                      <td>
                         @Html.DisplayFor(modelItem => item.tblMessage.Date)
                     </td>
@@ -95,8 +95,9 @@
     
        <tfoot class="table-danger">
             <tr>
+                <th hidden></th><th hidden></th>
                 <th colspan="2" style="text-align:right">Total: <br /> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th>
             </tr>
         </tfoot>
 

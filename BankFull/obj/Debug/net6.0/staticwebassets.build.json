@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5jsFhxvV3YnlrDIxLuYjnyRcZh+tI9cVJHCeP8N70q0=",
+  "Hash": "LiRHMvksmJGs8zbUERot6E+TYDMMgCZTox7I1pKINAA=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -1817,6 +1817,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\PhotoSend\\bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg"
+    },
+    {
+      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
       "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\d5f105c8-7a26-48b6-8511-4d383db190fcappends.png",

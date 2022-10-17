@@ -127,10 +127,10 @@
         <div id="menu1" class="tab-pane fade in bg-white"  >
 
             <!--   <div id="wholesalerpay"></div> -->
-            <table id="dat" class=" table tablecolor wid table-bordered "  >
+            <table id="dat" class=" table tablecolor wid table-bordered widt"  >
                 <thead class="bg-info">
                     <tr>
-                        <th style="display:none;"></th>
+                        <th hidden></th>
                         <th>
                             @Html.DisplayNameFor(model => model.Name)
                         </th>
@@ -167,7 +167,7 @@
                         {
                            
                             <tr>
-                                <td style="display:none;">@Html.DisplayFor(modelItem => item.Id) </td>
+                                <td hidden>@Html.DisplayFor(modelItem => item.Id) </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Name)
                                 </td>
@@ -203,8 +203,9 @@
 
                 <tfoot class="table-info">
                     <tr>
+                         <th hidden></th>
                         <th  style="text-align:right">Total: <br/>Sub Total:</th>
-                        <th></th>  <th style="display:none;"></th> <th></th> <th></th><th></th><th></th><th></th>
+                       <th></th> <th></th><th></th><th></th><th></th><th></th>
                     </tr>
                 </tfoot>
             </table> 

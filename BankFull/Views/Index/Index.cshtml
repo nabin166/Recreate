@@ -4,11 +4,11 @@
     Layout = null;
 }
     
-   <table id="exxa" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+   <table id="exxa" class="mb-4 table tablecolor wid table-bordered widt "  >
     <thead class="bg-info">
           <tr>
-                <th  ></th>
-              <th ></th>
+              <th hidden></th>
+              <th hidden></th>
                 <th>
                 Date
             </th>
@@ -33,7 +33,7 @@
                 Amount
             </th>
           
-            <th>
+            <th >
             
               Message
             </th>
@@ -57,11 +57,11 @@
          
             
                 <tr>  
-                       <td style="visibility:hidden;" >
+                       <td hidden>
                         @Html.DisplayFor(modelItem => item.tblMessage.Id) 
                         
                     </td>
-                    <td style="visibility:hidden;">
+                    <td hidden >
                         @Html.DisplayFor(modelItem => item.User.Id) 
 
                     </td>
@@ -114,9 +114,9 @@
 
      <tfoot>
             <tr>
-             
+             <th hidden></th> <th hidden></th>
                 <th colspan="1" style="text-align:right">Total: <br />Sub Total:</th>
-                <th></th> <th></th> <th></th> <th></th> <th></th><th></th><th></th><th></th>
+                 <th></th><th></th><th></th><th></th><th ></th> <th></th> <th></th> 
                
             </tr>
         </tfoot>
@@ -126,10 +126,12 @@
     
  <script>
    $(document).ready(function () {
+
+       
    $('#exxa').DataTable(
     
-    
     {
+
         footerCallback: function (row, data, start, end, display) {
             var api = this.api();
  
@@ -197,7 +199,7 @@
             }
 
 
-        });
+        });  
 
     });
     //yeha samma

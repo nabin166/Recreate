@@ -36,12 +36,12 @@
         </div>
     </div>
 
-   <table id="usrdata" class="mb-4 table tablecolor wid table-bordered" style="width:75vw;">
+   <table id="usrdata" class="mb-4 table tablecolor wid table-bordered widt" >
     <thead class="bg-danger">
           <tr>
-              <th></th>
-               <th></th>
-                <th></th>
+              <th hidden></th>
+               <th hidden></th>
+                <th hidden></th>
                <th>
                 Date
             </th>
@@ -61,7 +61,7 @@
             <th>
                 Message
             </th>
-            <th>
+            <th hidden>
             @*    Wholesaler *@
             </th>
             
@@ -86,13 +86,13 @@
             if (item.user.Email == @User.Identity.Name)
             {
                 <tr>  
-                    <td class="id" style=" visibility:hidden;">
+                    <td class="id" hidden>
                         @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
                    
-                    <td style=" visibility:hidden;"></td>
+                    <td hidden></td>
                     
-                           <td class="id" style=" visibility:hidden;">
+                           <td class="id" hidden>
                         @Html.DisplayFor(modelItem => item.bankdet.UserId) 
                     </td>
                      <td>
@@ -120,7 +120,7 @@
                          @Html.DisplayFor(modelItem => item.tbl.Messages)
                     </td>
 
-                     <td>
+                     <td hidden>
 
                       
                     </td>
@@ -159,12 +159,13 @@
 
        <tfoot class="table-danger">
             <tr>
+             <th hidden></th>
+             <th hidden></th>
+             <th hidden></th>
              <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
-             <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th></th><th></th>    <th></th>
+             <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th hidden></th>  <th></th> <th></th><th></th>    <th></th>
              <th></th>
-              <th></th>
-             <th></th>
-             <th></th>
+         
             </tr>
         </tfoot>
 </table>
