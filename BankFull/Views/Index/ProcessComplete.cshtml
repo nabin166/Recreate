@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-
+       <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
    <table id="usrdata" class="mb-4 table table-responsive tablecolor wid table-bordered widt" >
     <thead class="bg-danger">
           <tr>
@@ -68,8 +68,8 @@
              <th>
                 Final_Document
             </th>
-            <th></th>
-             <th></th>
+            <th>Choose Bank</th>
+             <th>Pay to Admin</th>
               <th></th>
                <th></th>
             
@@ -136,7 +136,7 @@
 
                     </td>
                     <td>
-                        <input type="number" id="pay" class="check" placeholder="Paying Amount" name="payamount"/>
+                        <input type="number" id="pay" class="check" placeholder="Pay Amount in Won" name="payamount"/>
                     </td>
                     <td>
                         <button type="button" class="bankSubmit btn btn-info" value="submit">Submit</button>
@@ -169,6 +169,7 @@
             </tr>
         </tfoot>
 </table>
+</div>
 
 <script>
 $(document).ready(function(e) {
