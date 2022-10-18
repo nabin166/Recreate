@@ -65,10 +65,10 @@
         @*Submit*@
 
 
-       <table id="exx" class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+       <table id="exx" class="mb-4 table tablecolor table-responsive wid table-bordered widt" >
         <thead class="bg-success">
           <tr>
-              <th ></th>
+              <th hidden></th>
                <th>
                 Date
             </th>
@@ -103,7 +103,7 @@
 @foreach (UserMessage item in Model.Assign) {
 
                 <tr>  
-                    <td style="visibility:hidden;">
+                    <td hidden>
                        @Html.DisplayFor(modelItem => item.tblMessage.Id)
                     </td>
                      <td>
@@ -156,9 +156,9 @@
     </tbody>
      <tfoot class="table-success ">
             <tr>
-             
+                <th hidden></th>
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>  <th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>  <th></th>
                 
            
             </tr>
@@ -175,10 +175,10 @@
         <div id="menu1" class="tab-pane fade bg-white">
     @*Submitted_data*@
 
-     <table id="exam"  class="mb-4 table tablecolor wid table-bordered " style="width:75vw;">
+     <table id="exam"  class="mb-4 table tablecolor table-responsive wid table-bordered widt" >
     <thead class="bg-danger ">
           <tr>
-              <th></th>
+              <th hidden></th>
               <th>
                Date
             </th>
@@ -217,7 +217,7 @@
          
             
                 <tr>
-                    <td style="visibility:hidden;">
+                    <td hidden>
                         @Html.DisplayFor(modelItem => item.MessageId)
                     </td>
                     <td>
@@ -253,9 +253,9 @@
     </tbody>
      <tfoot class="table-danger">
             <tr>
-             
+                <th hidden></th>
                 <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                <th></th><th></th><th></th><th></th><th></th><th></th>
                
             </tr>
         </tfoot>

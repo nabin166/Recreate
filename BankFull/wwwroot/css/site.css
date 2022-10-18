@@ -1,14 +1,17 @@
-html {
+body {
     
+    margin:0px;
+    width:100vw;
 }
 
-/*
+
 ::-webkit-scrollbar {
    scroll-behavior:smooth;
    display:none;
-   overflow-x:hidden;
+  
+  
 }
-*/
+
 
 .a {
     text-decoration: none !important;
@@ -74,5 +77,7 @@ html {
 }
 
 .widt {
-    width: 75vw !important;
+    width: 83vw !important;
+    
 }
+
