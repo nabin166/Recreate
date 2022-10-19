@@ -32,7 +32,7 @@ namespace BankFull.Controllers
         {
 
             //   return View(_context.UserMessages.Include(x=>x.User).Include(x=>x.User.Role).Include(x=>x.tblMessage).Include(x=>x.tblMessage.BankDetail).ToList());  
-            return View(_context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList());
+            return View(_context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).OrderByDescending(x => x.Id).ToList());
         }
 
 
@@ -130,7 +130,7 @@ namespace BankFull.Controllers
                                                             }).Where(x=>x.usermess.User.Role.Role1 == "Agent").ToList();
                     */
 
-                    var data = _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).ToList();
+                    var data = _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).OrderByDescending(x => x.Id).ToList();
                     /*   dynamic model = new System.Dynamic.ExpandoObject();
                        model.data = data;
                       // model.Assigned = Assigned;
@@ -190,7 +190,7 @@ namespace BankFull.Controllers
 
                       */
                     return _context.tblMessages != null ?
-                          View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x => x.BankDetail.UserId == uid).ToListAsync()) :
+                          View(await _context.tblMessages.Include(x => x.UserMessages).Include(x => x.BankDetail).Include(x => x.UserMessages).Include(x => x.BankDetail.User).Include(x => x.BankDetail.User.Role).Where(x => x.BankDetail.UserId == uid).OrderByDescending(x => x.Id).ToListAsync()) :
 
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }
@@ -199,7 +199,7 @@ namespace BankFull.Controllers
                     string email = User.Identity.Name;
                     int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
                     return _context.tblMessages != null ?
-                          View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x => x.UserId == uid).ToListAsync()) :
+                          View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Where(x => x.UserId == uid).OrderByDescending(x => x.Id).ToListAsync()) :
 
                           Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
                 }

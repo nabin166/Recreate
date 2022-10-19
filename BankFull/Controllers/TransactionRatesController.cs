@@ -22,7 +22,7 @@ namespace BankFull.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.TransactionRates != null ? 
-                          View(await _context.TransactionRates.ToListAsync()) :
+                          View(await _context.TransactionRates.OrderByDescending(x => x.Id).ToListAsync()) :
                           Problem("Entity set 'TransferOffContext.TransactionRates'  is null.");
         }
 

@@ -28,7 +28,7 @@ namespace BankFull.Controllers
         {
 
             //  List<tblMessage> abc = _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.tblMessage)).Include(x=> x.BankDetail.User)
-            List<UserMessage> abc = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.UserId == userid).ToList();
+            List<UserMessage> abc = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.UserId == userid).OrderByDescending(x => x.Id).ToList();
 
             return PartialView(abc);
         }
@@ -37,7 +37,7 @@ namespace BankFull.Controllers
         public IActionResult PayAmountC(int users)
         {
             // Null vancha ta -------------------- //
-            List<Payments> payments = _context.Paymentss.Where(x => x.User.Id == users).ToList();
+            List<Payments> payments = _context.Paymentss.Where(x => x.User.Id == users).OrderByDescending(x => x.Id).ToList();
 
 
 
@@ -67,7 +67,7 @@ namespace BankFull.Controllers
         {
 
             
-            return View(_context.user.Where(x => x.Id == userid).ToList());
+            return View(_context.user.Where(x => x.Id == userid).OrderByDescending(x => x.Id).ToList());
         }
 
      

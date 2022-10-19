@@ -32,7 +32,7 @@ namespace BankFull.Controllers
             ViewBag.UserSendig=tbllist;
 
           
-            return View(_context.tblMessages.Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).ToList());
+            return View(_context.tblMessages.Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).OrderByDescending(x => x.Id).ToList());
         }
        
 
