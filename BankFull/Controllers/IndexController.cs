@@ -24,7 +24,7 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-             View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.User.Role.Role1 == "Agent").ToListAsync()) :
+             View(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.User.Role.Role1 == "Agent").OrderByDescending(x => x.Id).ToListAsync()) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
@@ -37,7 +37,7 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "Agent").ToListAsync()) :
+                PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "Agent").OrderByDescending(x => x.Id).ToListAsync()) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
@@ -58,7 +58,7 @@ namespace BankFull.Controllers
                                               tbl = t,
                                               photosen = p,
                                               bankdet = b,
-                                          }).ToList();
+                                          }).OrderByDescending(x => x.tbl.Id).ToList();
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
@@ -96,7 +96,7 @@ namespace BankFull.Controllers
                                               photosen = p,
                                               bankdet = b,
                                               user = u,
-                                          }).ToList();
+                                          }).OrderByDescending(x => x.tbl.Id).ToList();
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
@@ -121,7 +121,7 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
+                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).OrderByDescending(x => x.Id).ToListAsync()) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
@@ -132,7 +132,7 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").ToListAsync()) :
+                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").OrderByDescending(x => x.Id).ToListAsync()) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
@@ -146,7 +146,7 @@ namespace BankFull.Controllers
 
             return _context.tblMessages != null ?
 
-                PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).ToListAsync()) :
+                PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.User.Role.Role1 == "User").Where(x => x.tblMessage.BankDetail.UserId == uid).OrderByDescending(x => x.Id).ToListAsync()) :
 
 
 

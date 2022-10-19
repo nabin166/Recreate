@@ -105,7 +105,7 @@ namespace BankFull.Controllers
         // GET: AdminBanks
         public async Task<IActionResult> Index()
         {
-              return View(await _context.AdminBanks.ToListAsync());
+              return View(await _context.AdminBanks.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: AdminBanks/Details/5

@@ -29,7 +29,7 @@ namespace BankFull.Controllers
 
 
             return transferOffContext != null ?
-            View(await transferOffContext.Where(x=>x.Role.Role1 != "Admin").ToListAsync()) :
+            View(await transferOffContext.Where(x=>x.Role.Role1 != "Admin").OrderByDescending(x=>x.Id).ToListAsync()) :
             Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
         //thapeko 

@@ -29,7 +29,7 @@ namespace BankFull.Controllers
                 if (User.IsInRole("Admin"))
                 {
                     return _context.BankDetails != null ?
-                        View(await _context.BankDetails.Include(x => x.User).ToListAsync()) :
+                        View(await _context.BankDetails.Include(x => x.User).OrderByDescending(x => x.Id).ToListAsync()) :
                         Problem("Entity set'TransferoffContext.BankDetails' is null.");
                 }
                 else if (User.IsInRole( "User"))
@@ -38,7 +38,7 @@ namespace BankFull.Controllers
                     int cid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
                     // !null 5:15 pm 26
                     return _context.BankDetails != null ?
-                    View(await _context.BankDetails.Include(x => x.User).Where(x => x.UserId == cid).ToListAsync()) :
+                    View(await _context.BankDetails.Include(x => x.User).Where(x => x.UserId == cid).OrderByDescending(x => x.Id).ToListAsync()) :
                     Problem("Entity set 'TranasferoffContext.BankDetails' is null.");
                 }
               
