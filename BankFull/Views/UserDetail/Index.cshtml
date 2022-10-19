@@ -40,28 +40,28 @@
                     <tr>
                         <th style="display:none;"></th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            @Html.DisplayNameFor(model => model.Name) (नाम)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                            @Html.DisplayNameFor(model => model.Address) (ठेगाना)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            @Html.DisplayNameFor(model => model.Email) (ईमेल)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Phone)
+                            @Html.DisplayNameFor(model => model.Phone) (फोन नंबर)
                         </th>
 
 
 
                         <th>
-                            Amount
+                            Amount (रकम )
                         </th>
                         <th>
-                            Pay Amount
+                            Pay Amount (तिरेको रकम )
                         </th>
                         <th>
-                            Remain Amount
+                            Remain Amount (बाँकी रकम)
                         </th>
                         <th></th>
 
@@ -134,28 +134,28 @@
                     <tr>
                         <th hidden></th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            @Html.DisplayNameFor(model => model.Name) (नाम)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                            @Html.DisplayNameFor(model => model.Address) (ठेगाना)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            @Html.DisplayNameFor(model => model.Email) (ईमेल)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Phone)
+                            @Html.DisplayNameFor(model => model.Phone) (फोन नंबर)
                         </th>
 
 
 
                         <th>
-                            Amount
+                            Amount (रकम)
                         </th>
                         <th>
-                            Pay Amount
+                            Pay Amount (तिरेको रकम)
                         </th>
                         <th>
-                            Remain Amount
+                            Remain Amount (बाँकी रकम) won 
                         </th>
                      
 
@@ -186,13 +186,13 @@
 
 
                                 <td >
-                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)</button>
+                                    <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate) won</button>
                                 </td>
                                 <td>
                                     <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment) won</button>
                                 </td>
                                 <td>
-                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)-item.Paymentss.Sum(x=>x.Payment))
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount * x.tblMessage.Rate)-item.Paymentss.Sum(x=>x.Payment)) 
                                 </td>
 
 
@@ -226,28 +226,28 @@
                     <tr>
                         <th style="display:none;"></th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            @Html.DisplayNameFor(model => model.Name) (नाम)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                            @Html.DisplayNameFor(model => model.Address) (ठेगाना)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Email)
+                            @Html.DisplayNameFor(model => model.Email) (ईमेल )
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Phone)
+                            @Html.DisplayNameFor(model => model.Phone) (फोन नंबर)
                         </th>
 
 
 
                         <th>
-                            Amount
+                            Amount (रकम)
                         </th>
                         <th>
-                            Pay Amount
+                            Pay Amount (तिरेको रकम )
                         </th>
                         <th>
-                            Remain Amount
+                            Remain Amount (बाँकी रकम) 
                         </th>
                        
 
