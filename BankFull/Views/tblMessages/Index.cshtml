@@ -55,26 +55,26 @@
                     <tr>
 
                          <th>
-                            Date
+                            Date  (मिति)
                         </th>
                         <th>
-                            Bank Name
+                            Bank Name  (बैंक नाम)
                         </th>
                          <th>
-                            Address
+                            Address (ठेगाना)
                         </th>
                           <th>
-                            Account Number
+                            Account Number  (खाता नंबर)
                         </th>
                         <th>
-                            Amount
+                            Amount  (रकम)
                         </th>
                        
                         <th hidden>
                             @*      document *@
                         </th>
                         <th>
-                            Message
+                            Message (खबर)
                         </th>
 
                         <th hidden> 
@@ -87,11 +87,11 @@
                         }
 
             @if(@User.IsInRole("Admin")){
-             <th > wholesaler
+             <th > wholesaler (होलसेलर)
             </th>
 
               
-             <th >   Agent
+             <th >   Agent (एजेंट)
             </th>
             <th > 
              </th>
@@ -116,17 +116,17 @@
             
                   <tr class="">
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                @Html.DisplayFor(modelItem => item.Date)  
             </td>
            
            <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.Name)   
+                @Html.DisplayFor(modelItem => item.BankDetail.Name) 
             </td>
              <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.Address)   
+                @Html.DisplayFor(modelItem => item.BankDetail.Address) 
             </td>
              <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber)   
+                @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber) 
             </td>
           
              
@@ -141,7 +141,7 @@
                
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Messages)
+                @Html.DisplayFor(modelItem => item.Messages) 
             </td>
              <td class="msgid " hidden>
                 @Html.DisplayFor(modelItem => item.Id)
