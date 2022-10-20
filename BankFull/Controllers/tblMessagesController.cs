@@ -309,9 +309,46 @@ namespace BankFull.Controllers
 
                        await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
                 tblMessage.completed = false;
-                tblMessage.Rate = 0;
+
+
+
+
+
+
+                //   List<tblMessage> tbl = tblMessages.ToList();
+                // var ratecheck = _context.TransactionRates.Where(x => x.Date == DateTime.Now.ToString("yyyy-MM-dd")).First().Rate;
+                int a = _context.TransactionRates.Where(x => x.Date == tblMessage.Date).Count();
+                if(a > 0)
+                {
+                    decimal r = _context.TransactionRates.Where(x => x.Date == tblMessage.Date).FirstOrDefault().Rate;
+                    tblMessage.Rate = r;
+
+
+                }
+                else
+                {
+                    tblMessage.Rate = 0;
+                }
+
+                           
+
+                            _context.Add(tblMessage);
+                            await _context.SaveChangesAsync();
+                       
+
+
+                
+
+
+                
+
                 _context.Add(tblMessage);
                 await _context.SaveChangesAsync();
+
+
+
+
+
 
 
                 string email = User.Identity.Name;

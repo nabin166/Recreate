@@ -340,7 +340,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$7H2tbiCoC9rvgADvUewbM.cCeUqAsaynTWtQSS/1OEKSyf3OFut7q",
+                            Password = "$2a$11$qelAEmmZqmxw9rqnaR99SuJj8GwqXhhZlB/fLQAZ1D69gUwFlSkBC",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true
