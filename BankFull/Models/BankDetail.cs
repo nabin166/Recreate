@@ -18,20 +18,20 @@ namespace BankFull.Models
         [MinLength(1)]
         [MaxLength(30)]
         [Required]
-        [Display(Name = "Bank Name")]
+        [Display(Name = "बैंक नाम")]
         public string? Name { get; set; }
         [Required]
         [Display(Name = "Account Number")]
         public string? AccountNumber { get => accountNumber; set => accountNumber = value; }
         [Required]
-        [Display(Name ="Account Type")]
+        [Display(Name = "खातावाला नाम")]
         public string? AccountName { get; set; }
         [Required]
         public string? Address { get; set; }
         // public string? AmountIn { get; set; }
         // public string? AmountOut { get; set; }
-        [Display(Name = "Transaction Limit")]
-        public string TransactionLimit { get; set; }
+       // [Display(Name = "Transaction Limit")]
+      //  public string TransactionLimit { get; set; }
 
         public int? UserId { get; set; }
 

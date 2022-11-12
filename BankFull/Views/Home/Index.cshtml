@@ -3,7 +3,18 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome ! </h1>
+    @if (User.IsInRole("Admin"))
+    {
+        <h1 class="display-4">Welcome ! Admin </h1>
+    }
+    @if(User.IsInRole("User")){
+        <h1 class="display-4">Welcome !   Wholeseller </h1>
+
+    }
+   @if(User.IsInRole("Agent")){
+       <h1 class="display-4">Welcome !   Agent </h1>
+   }
+    
 
 </div>
 

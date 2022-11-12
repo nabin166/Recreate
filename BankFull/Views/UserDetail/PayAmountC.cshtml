@@ -7,16 +7,34 @@
 
 
 
-<table id="payamttbl" class="table" >
+<table id="payamttbl" class="mb-4 table tablecolor wid table-bordered " style="width:30vw;" >
     <thead>
         <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Datetime)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Payment)
             </th>
-          
-            <th>
-                @Html.DisplayNameFor(model => model.Datetime)
+            @if (User.IsInRole("User"))
+            {
+                 <th>
+                @Html.DisplayNameFor(model => model.AdminBank)
             </th>
+           
+                
+            }
+              @if (User.IsInRole("Admin"))
+            {
+                 <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+           
+                
+            }
+           
+          
+           
            
         
         </tr>
@@ -24,13 +42,30 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Payment)
-            </td>
-           
+
             <td>
                 @Html.DisplayFor(modelItem => item.Datetime)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Payment)
+            </td>
+                @if (User.IsInRole("User"))
+                {
+                  <td>
+                   @Html.DisplayFor(modelItem => item.AdminBank)
+                 </td>
+                 
+                }
+                   @if (User.IsInRole("Admin"))
+            {
+                 <th>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </th>
+           
+                
+            }
+
+            
             
           
         </tr>

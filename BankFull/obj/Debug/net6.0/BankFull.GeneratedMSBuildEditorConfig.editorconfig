@@ -8,293 +8,293 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BankFull
 build_property.RootNamespace = BankFull
-build_property.ProjectDir = D:\Recreate\BankFull\
+build_property.ProjectDir = E:\final Version 1.2.1\final Version 1.2.1\BankFull\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Recreate\BankFull
+build_property.MSBuildProjectDirectory = E:\final Version 1.2.1\final Version 1.2.1\BankFull
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Recreate/BankFull/Views/Account/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Account/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Account/Register.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/AdminBanks/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/AdminBanks/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5CYW5rc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/AdminBanks/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/AdminBanks/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5CYW5rc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/AdminBanks/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/AdminBanks/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5CYW5rc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/AdminBanks/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/AdminBanks/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5CYW5rc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/AdminBanks/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/AdminBanks/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5CYW5rc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/BankDetails/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/BankDetails/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua0RldGFpbHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/BankDetails/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/BankDetails/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua0RldGFpbHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/BankDetails/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/BankDetails/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua0RldGFpbHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/BankDetails/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/BankDetails/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua0RldGFpbHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/BankDetails/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/BankDetails/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFua0RldGFpbHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Home/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Home/Privacy.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/Complete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/Complete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcQ29tcGxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/Completebooltrue.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/Completebooltrue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcQ29tcGxldGVib29sdHJ1ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/CompletebooltrueAdmin.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/CompletebooltrueAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcQ29tcGxldGVib29sdHJ1ZUFkbWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/FinalMessage.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/FinalMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcRmluYWxNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/ProcessComplete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/ProcessComplete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcUHJvY2Vzc0NvbXBsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Index/Processing.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Index/Processing.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXhcUHJvY2Vzc2luZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/joindate/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/joindate/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncam9pbmRhdGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Payments/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Payments/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Payments/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Payments/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Payments/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Payments/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Payments/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Payments/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Payments/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Payments/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Roles/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Roles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Roles/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Roles/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Roles/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Roles/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Roles/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Roles/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Roles/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Sender/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Sender/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VuZGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Shared/Error.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/tblMessages/viewforadmin.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/tblMessages/viewforadmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcdGJsTWVzc2FnZXNcdmlld2ZvcmFkbWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/TransactionRates/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/TransactionRates/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25SYXRlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/TransactionRates/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/TransactionRates/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25SYXRlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/TransactionRates/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/TransactionRates/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25SYXRlc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/TransactionRates/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/TransactionRates/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25SYXRlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/TransactionRates/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/TransactionRates/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25SYXRlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Transactions/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Transactions/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Transactions/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Transactions/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Transactions/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Transactions/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Transactions/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Transactions/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Transactions/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Transactions/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/AmountC.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/AmountC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxBbW91bnRDLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Pay.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Pay.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxQYXkuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/PayAmountC.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/PayAmountC.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxQYXlBbW91bnRDLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/RetailerAgent.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/RetailerAgent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxSZXRhaWxlckFnZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/UserDetail/Wholesalerview.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/UserDetail/Wholesalerview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlckRldGFpbFxXaG9sZXNhbGVydmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Assign.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Assign.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQXNzaWduLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Create.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Delete.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Details.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Edit.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Index.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Users/Setting.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Users/Setting.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcU2V0dGluZy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/_ViewImports.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/_ViewStart.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Recreate/BankFull/Views/Shared/_Layout.cshtml]
+[E:/final Version 1.2.1/final Version 1.2.1/BankFull/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-eax3v9z5wi

@@ -8,7 +8,7 @@ namespace BankFull.Models
         [Key]
         public int Id { get; set; }
        
-        [Display(Name = "Bank Address")]
+        [Display(Name = "Account Holder")]
         [Required]
         
         public string Address { get; set; }

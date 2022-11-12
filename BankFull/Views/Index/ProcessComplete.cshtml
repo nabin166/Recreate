@@ -36,7 +36,7 @@
         </div>
     </div>
        <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
-   <table id="usrdata" class="mb-4 table tablecolor wid table-bordered widt" >
+   <table id="usrdata" class="mb-4 table  tablecolor wid table-bordered widt" >
     <thead class="bg-danger">
           <tr>
               <th hidden></th>
@@ -211,6 +211,7 @@ $(document).ready(function(e) {
      );
 
     $(".imgprev").click(function(e) {
+           e.preventDefault();
         var cid = $(this).closest('tr').find("td:eq(0)").text();
         console.log(cid);
        
@@ -218,7 +219,8 @@ $(document).ready(function(e) {
 
         $.ajax({
 
-            'url': '@Url.Action("Preview","Sender")',
+          'url': '@Url.Action("Preview","Sender")',
+             
             'type': 'post',
             'data': { cid
              },
@@ -239,7 +241,7 @@ $(document).ready(function(e) {
     });
 
        $(".bankSubmit").click(function(e){
-
+              e.preventDefault();
 
                 // var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
                 var adminbank1 =  $('#bankadmin').find(":selected").text(); 
@@ -283,7 +285,7 @@ $(document).ready(function(e) {
 
 
     $(".canceldoc").click(function(e) {
-
+           e.preventDefault();
 
         var messageids = $(this).closest('tr').find("td:eq(0)").text();
         var empty =  $(this).closest('tr').find("td:eq(1)").text();
@@ -324,13 +326,11 @@ $(document).ready(function(e) {
 
 
 
-                 @section scripts{
-             @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
+      @section scripts{
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
 
-    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
 
-       }
+
+                 }

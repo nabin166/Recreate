@@ -13,6 +13,7 @@
 
 <h1 class="text-dark">Message</h1>
 <hr />
+
    @if(@User.IsInRole("User")){
 <p>
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create Message</a>
@@ -108,131 +109,144 @@
 
 @foreach (var item in Model){
 
-    @if(User.IsInRole("Admin")){
+                            @if (User.IsInRole("Admin"))
+                            {
+                                
+                                
 
-            if (item.UserMessages.Count() < 2)
-            { 
+                                    if (item.UserMessages.Count() < 2)
+                                    {
+                                    if (item.BankDetail.User.Status != false)
+                                    {
 
-            
-                  <tr class="">
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)  
-            </td>
-           
-           <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.Name) 
-            </td>
-             <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.Address) 
-            </td>
-             <td>
-                @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber) 
-            </td>
-          
-             
-            <td class="cas">
-                
-                @Html.DisplayFor(modelItem => item.Amount) 
-            </td>
-          
-            <td hidden>
 
-              @*  <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>  *@
-               
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Messages) 
-            </td>
-             <td class="msgid " hidden>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-             @if(@User.IsInRole("Admin")){
-             <td>
-                 @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
-                        
-            </td>   
-            
-           
-                    <td>
+                                        <tr class="">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)  
+                                            </td>
 
-                        <div class="form-group">                      
-                         <select  class ="form-control data"  asp-for="@item.BankDetail.User.Id"  asp-items="ViewBag.usr"></select>  
-                        </div>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.Name) 
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.Address) 
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber) 
+                                            </td>
 
-                    </td>
-                    <td>
 
-                <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/> 
-             
-            </td>
-                
-            }
-                
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
-               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
-               <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  
-            </td>
-        </tr>
-            }
-           }
-           
+                                            <td class="cas">
+
+                                                @Html.DisplayFor(modelItem => item.Amount) 
+                                            </td>
+
+                                            <td hidden>
+
+                                                @*  <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/>  *@
+
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Messages) 
+                                            </td>
+                                            <td class="msgid " hidden>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+                                            @if (@User.IsInRole("Admin"))
+                                            {
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.BankDetail.User.Name)   
+
+                                                </td>   
+
+
+                                                <td>
+
+                                                    <div class="form-group">                      
+                                                        <select  class ="form-control data"  asp-for="@item.BankDetail.User.Id"  asp-items="ViewBag.usr"></select>  
+                                                    </div>
+
+                                                </td>
+                                                <td>
+
+                                                    <input type="submit"  class="btn btn-success userid"  data-value="@item.Id"/> 
+
+                                                </td>
+                                            }
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+                                                @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
+                                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  
+
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+
+                                
+                            }   
 
     @if(User.IsInRole("User")){
+                                
 
-                            if (item.UserMessages.Count() < 2)
-                            {
-                                <tr class="">
-                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Date)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BankDetail.Name)   
-                                    </td>
-                                      <td>
-                                            @Html.DisplayFor(modelItem => item.BankDetail.Address)   
-                                        </td>
-                                         <td>
-                                            @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber)   
-                                        </td>
-                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Amount)
-                                    </td>
-                                     <td class="cas" hidden>
-
-                                       
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Messages)
-                                    </td>
+                                    if (item.UserMessages.Count() < 2)
+                                    {
+                                        if (item.BankDetail.User.Status != false)
+                                       {
+                                         <tr class="">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Date)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.Name)   
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.Address)   
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BankDetail.AccountNumber)   
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Amount)
+                                            </td>
+                                            <td class="cas" hidden>
 
 
-                                   
-                                   
-                                    <td hidden>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Messages)
+                                            </td>
 
-                                        @*    <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/> *@
 
-                                    </td>
-                                    
-                                    <td class="msgid " hidden>
-                                        @Html.DisplayFor(modelItem => item.Id)
-                                    </td>
 
-                                     
-                                      <td hidden>
-                                       
-                                    </td>
 
-                                   
+                                            <td hidden>
 
-                                    <td>
-                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
-                                        @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
-                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>  
-                                    </td>
-                                </tr>
-                            }
+                                                @*    <img src=" @Html.DisplayFor(modelItem => item.DocumentPath)" width="50px"/> *@
+
+                                            </td>
+
+                                            <td class="msgid " hidden>
+                                                @Html.DisplayFor(modelItem => item.Id)
+                                            </td>
+
+
+                                            <td hidden>
+
+                                            </td>
+
+
+
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+                                                @* <a asp-action="Details" asp-route-id="@item.Id">Details</a>  *@
+                                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a> 
+                                                <a>delete2</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
 
                         }
                     }
@@ -362,6 +376,7 @@ $(document).ready(function() {
 
    
     $(".userid").click(function(e){
+           e.preventDefault();
 
         // var id =  $(this).attr("#data-value");
 
@@ -460,7 +475,14 @@ $(document).ready(function() {
 </script>
 
                  @section scripts{
-             @*DataTable*@
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
+
+
+
+                 }
+             @*DataTable
   
 
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -470,4 +492,4 @@ $(document).ready(function() {
      <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
 
-       }
+       }*@

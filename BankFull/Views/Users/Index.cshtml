@@ -12,8 +12,18 @@
     <a asp-action="Create" class="text-info anc "><i class="fa-solid fa-folder-plus fa-lg"></i> Create User</a>
 </p>
 
-<div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
-<table id="exa" class="table tablecolor" style="width:83vw;">
+ <ul class="nav nav-pills mb-1 " style="border-bottom:0.3px solid green;">
+    @if (@User.IsInRole("Admin"))
+    {
+        <li class="active"><a data-toggle="tab" href="#User">User</a></li>
+        <li><a data-toggle="tab" href="#Agent">Agent</a></li>
+    }
+</ul>
+<div class="tab-content">
+    @*User*@
+
+<div id="User" class="tab-pane fade active in bg-white " style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
+<table id="exxxa" class="table tablecolor" style="width:83vw;">
     <thead class="bg-info">
         <tr>
             <th>
@@ -40,6 +50,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
+    @if(item.Role.Role1 == "User"){
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -77,17 +88,134 @@
                 <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
-}
+}}
     </tbody>
 </table>
 </div>
- <!-- <h1 class="text-dark">Privacy</h1>  -->
+
+@*Agent*@
+
+<div id="Agent" class="tab-pane fade  in bg-white " style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
+<table id="exxm" class="table tablecolor" style="width:83vw;">
+    <thead class="bg-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name) (नाम)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    @if(item.Role.Role1 == "Agent"){
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+               @if (item.Status == true)
+               {
+                 <td>
+                    <button class="btn btn-danger status" >Disable</button>
+                  </td>
+                    
+                }
+                else
+                {
+                  <td>
+                    <button class="btn btn-success status">Enable</button>
+                 </td>
+                    
+                }
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.Role1)
+            </td>
+            <td>
+                  <a asp-action="Edit" asp-route-id="@item.Id"><i class="fa-lg anc text-success fa-regular fa-pen-to-square"></i></a> |
+               @* <a asp-action="Details" asp-route-id="@item.Id">Details</a> *@
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa-lg anc text-danger fa-solid fa-trash-can"></i></a>
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>
+</div>
+
+</div>
 
 <hr />
+   @section scripts{
+
+
+
+ <!-- <h1 class="text-dark">Privacy</h1>  -->
+
+
 <script>
 
 $(document).ready(function () {
-    $('#example').DataTable();
+    $('#exxxa').DataTable();
+        $('.status').click(function(e) {
+     
+        
+
+            var emails = $(this).closest('tr').find("td:eq(2)").text();
+           
+            console.log(emails);
+               $.ajax({
+           'url': '@Url.Action("StatusAssign","Users")',
+           'type': 'post',
+           'data': { emails },
+
+           'success': function() {
+
+                $("#clk").css({
+                    "display": "block",
+                });
+
+                //Error Occur But why ????? So i comment out the Redirect location
+
+                window.location.href = '@Url.Action("Index","Users")';
+
+            },
+            'error': function() {
+
+                window.location.href = '@Url.Action("Index","Users")';
+            }
+
+
+        });
+        
+
+    })
+
+
+        $('#exxm').DataTable();
         $('.status').click(function(e) {
      
         
@@ -125,13 +253,11 @@ $(document).ready(function () {
 
 </script>
                 
-    @section scripts{
-             @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-   <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
 
-    <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
 
-       }
+
+
+                 }

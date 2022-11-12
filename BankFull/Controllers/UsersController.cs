@@ -145,7 +145,6 @@ namespace BankFull.Controllers
             return View();
         }
 
-        // 
 
 
         [HttpPost]
@@ -186,8 +185,6 @@ namespace BankFull.Controllers
 
                     return RedirectToAction("Index", "Account");
                 }
-
-
 
 
 
@@ -345,10 +342,55 @@ namespace BankFull.Controllers
                 return Problem("Entity set 'TransferOffContext.user'  is null.");
             }
             var user = await _context.user.FindAsync(id);
-            if (user != null)
+            
+            //  var tblmessage = _context.tblMessages.FirstOrDefault(m => m.Id == id);
+          //  int a = (int)_context.UserMessages.Where(u => u.UserId == id).FirstOrDefault().MessageId;
+
+          //  var usermess = _context.UserMessages.Where(u => u.UserId == id);
+          //  var tbalmess = _context.tblMessages.Where(t => t.Id == a);
+           // if(tbalmess != null)
+           // {
+           //     _context.tblMessages.RemoveRange(tbalmess);
+          //  }
+         //   if(usermess != null)
+          //  {
+             //   _context.UserMessages.RemoveRange(usermess);
+           // }
+
+
+          //  if
+          //  var paymen = _context.Paymentss.Where(p => p.UserId == id);
+          var bank = _context.BankDetails.Where(b => b.UserId == id);
+            if(bank != null)
             {
-                _context.user.Remove(user);
+                _context.BankDetails.RemoveRange(bank);
+                _context.SaveChanges();
             }
+         //   var usermess = _context.UserMessages.Where(u => u.UserId == id);
+        /*    if(usermess != null)
+            {
+                _context.UserMessages.RemoveRange(usermess);
+                _context.SaveChanges();
+            }
+            if(bank != null)
+            {
+                _context.BankDetails.RemoveRange(bank);
+                _context.SaveChanges();
+            } 
+            if (paymen != null)
+            {
+                _context.Paymentss.RemoveRange(paymen);
+                _context.SaveChanges();
+               // _context.Paymentss.Remove(paymen); 
+            }
+            
+            //var pay1 = _context.Paymentss.Where(p => p.UserId == id); */
+          
+         //   if (user != null)
+         //   {
+          //      _context.user.Remove(user);
+          //      _context.SaveChanges();
+          //  }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -361,9 +403,17 @@ namespace BankFull.Controllers
 
 
             string email = User.Identity.Name;
+            
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+            int b = _context.UserMessages.Where(x => x.UserId == uid).FirstOrDefault().Id;
+          //  int d = _context.tblMessages.Where(x=>x.)
+       //   int tbid = _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.Id==b).)
 
-            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
+
+           // int c = _context.tblMessages.Where(x=>x.u)
+           // int a = _context.tblMessages.Where(x => x.UserMessages.Where(x => x.UserId == b).FirstOrDefault().Id == uid).FirstOrDefault().Id;
+
+            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x=>x.tblMessage.BankDetail.User.Status == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
             List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
 
             

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankFull.Migrations
 {
     [DbContext(typeof(TransferOffContext))]
-    [Migration("20221020100109_v2")]
-    partial class v2
+    [Migration("20221020061839_a456")]
+    partial class a456
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -120,6 +120,9 @@ namespace BankFull.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Payment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal>("Rate")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UserId")
@@ -342,7 +345,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$qelAEmmZqmxw9rqnaR99SuJj8GwqXhhZlB/fLQAZ1D69gUwFlSkBC",
+                            Password = "$2a$11$q9IMfiuR3/PidWXjMSFWNekUFWjpoD4ZQaTyWIsgS3hepW.d6H.RG",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true

@@ -28,10 +28,12 @@ namespace BankFull.Controllers
         public async Task<IActionResult> Index()
         {
             List<tblMessage> tbllist = _context.tblMessages.ToList();
-
+           
             ViewBag.UserSendig=tbllist;
 
-          
+            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+
+
             return View(_context.tblMessages.Include(x=>x.BankDetail).Include(x=>x.BankDetail.User).OrderByDescending(x => x.Id).ToList());
         }
        
@@ -65,7 +67,7 @@ namespace BankFull.Controllers
             {
                 int id = _context.user.Where(x => x.Email == Emails).FirstOrDefault().Id;
 
-                ViewData["UserId"] = new SelectList(_context.user.Where(x => x.Id != id), "Id", "Name");
+                ViewData["UserId"] = new SelectList(_context.user.Where(x => x.Id != id).FirstOrDefault().Name, "Id", "Name");
                 return View();
             }
             return View();
@@ -76,17 +78,39 @@ namespace BankFull.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Payment,UserId")] Payments payments)
+        public async Task<IActionResult> Create([Bind("Id,Payment,Rate,AdminBank,UserId")] Payments payments)
         {
-            if (ModelState.IsValid)
-            {
+            // ModelState.Remove('AdminBank');
+            //     ModelState.ClearValidationState("AdminBank");
+
+            //  var abc = _context.AdminBanks.Find('AdminBank');
+            //  payments.AdminBank = abc.Name;
+            int b = int.Parse(payments.AdminBank);
+
+            
+
+
+            //  var bank = _context.AdminBanks.Where(x => x.Id.ToString() == payments.AdminBank).First().Name;
+            payments.AdminBank = _context.AdminBanks.Where(x => x.Id.ToString() == payments.AdminBank).FirstOrDefault().CheckName;
+                payments.Rate = 1;
+              //  payments.AdminBank = bank;
+              //  payments.AdminBank = AdminBank;
                 _context.Add(payments);
+           
+            _context.SaveChanges();
+            int a = payments.Id;
+            var abc = _context.AdminBanks.Find(b);
+            decimal aa = _context.Paymentss.Where(x => x.Id == a).FirstOrDefault().Payment;
+            abc.Ammount = abc.Ammount + aa;
+            _context.Update(abc);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index","UserDetail");
-            }
+            
             ViewData["UserId"] = new SelectList(_context.user, "Id", "Address", payments.UserId);
             return View(payments);
         }
+
+       
 
         // GET: Payments/Edit/5
         public async Task<IActionResult> Edit(int? id)

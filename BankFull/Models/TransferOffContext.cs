@@ -26,7 +26,6 @@ namespace BankFull.Models
         public virtual DbSet<Payments> Paymentss { get; set; } = null!;
 
         public virtual DbSet<AdminBank> AdminBanks { get; set; } = null!;
-      
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -49,7 +48,8 @@ namespace BankFull.Models
                 entity.HasOne(e => e.User)
                 .WithMany(p => p.Paymentss)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK_Bank Details_User1111");
+                .HasConstraintName("FK_Bank Details_User1111")
+                .OnDelete(DeleteBehavior.Cascade);
 
 
             });
@@ -76,16 +76,14 @@ namespace BankFull.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TransactionLimit)
-                    .HasMaxLength(100)
-                    .IsFixedLength();
 
                 entity.Property(e => e.UserId).HasColumnName("User_Id");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.BankDetails)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_Bank Details_User");
+                    .HasConstraintName("FK_Bank Details_User")
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<tblMessage>(entity =>
@@ -95,7 +93,8 @@ namespace BankFull.Models
                 entity.HasOne(d => d.BankDetail)
                  .WithMany(p => p.TblMessages)
                 .HasForeignKey(d => d.BankId)
-                .HasConstraintName("FK_Bank Details_User1");
+                .HasConstraintName("FK_Bank Details_User1")
+                .OnDelete(DeleteBehavior.Cascade);
 
 
 
@@ -142,7 +141,9 @@ namespace BankFull.Models
                 entity.HasOne(d => d.TblMessage)
                     .WithMany(p => p.Transactions)
                     .HasForeignKey(d => d.MessageId)
-                    .HasConstraintName("FK_Transaction_User");
+                    .HasConstraintName("FK_Transaction_User")
+                    .OnDelete(DeleteBehavior.Cascade);
+
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -171,7 +172,8 @@ namespace BankFull.Models
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Users)
                     .HasForeignKey(d => d.RoleId)
-                    .HasConstraintName("FK_User_Role");
+                    .HasConstraintName("FK_User_Role")
+                    .OnDelete(DeleteBehavior.Cascade);
             });
 
 
@@ -190,12 +192,14 @@ namespace BankFull.Models
                 entity.HasOne(d => d.tblMessage)
                     .WithMany(p => p.UserMessages)
                     .HasForeignKey(d => d.MessageId)
-                    .HasConstraintName("FK_User_Message_Message");
+                    .HasConstraintName("FK_User_Message_Message")
+                    .OnDelete(DeleteBehavior.Restrict);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.UserMessages)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK_User_Message_User");
+                    .HasConstraintName("FK_User_Message_User")
+                    .OnDelete(DeleteBehavior.Cascade);
 
 
 
