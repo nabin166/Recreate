@@ -17,7 +17,7 @@ namespace BankFull.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("ProductVersion", "6.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -84,12 +84,6 @@ namespace BankFull.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("TransactionLimit")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nchar(100)")
-                        .IsFixedLength();
-
                     b.Property<int?>("UserId")
                         .HasColumnType("int")
                         .HasColumnName("User_Id");
@@ -109,6 +103,9 @@ namespace BankFull.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("AdminBank")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Date")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -118,6 +115,9 @@ namespace BankFull.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Payment")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<decimal?>("Rate")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("UserId")
@@ -340,7 +340,7 @@ namespace BankFull.Migrations
                             Address = "Bharatpur",
                             Email = "niraj@gmail.com",
                             Name = "Niraj Baral",
-                            Password = "$2a$11$qelAEmmZqmxw9rqnaR99SuJj8GwqXhhZlB/fLQAZ1D69gUwFlSkBC",
+                            Password = "$2a$11$pSLMkBbI8MDzglYS40WxZO4KtIr80dhxEuo6/Bo2CQ7Ao12llaEom",
                             Phone = "9855075102",
                             RoleId = 1,
                             Status = true
@@ -378,6 +378,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("BankDetails")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_Bank Details_User");
 
                     b.Navigation("User");
@@ -388,6 +389,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.User", "User")
                         .WithMany("Paymentss")
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_Bank Details_User1111");
 
                     b.Navigation("User");
@@ -398,6 +400,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.BankDetail", "BankDetail")
                         .WithMany("TblMessages")
                         .HasForeignKey("BankId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_Bank Details_User1");
 
                     b.Navigation("BankDetail");
@@ -408,6 +411,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.tblMessage", "TblMessage")
                         .WithMany("Transactions")
                         .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_Transaction_User");
 
                     b.Navigation("TblMessage");
@@ -418,6 +422,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.Role", "Role")
                         .WithMany("Users")
                         .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .HasConstraintName("FK_User_Role");
 
                     b.Navigation("Role");
@@ -428,6 +433,7 @@ namespace BankFull.Migrations
                     b.HasOne("BankFull.Models.tblMessage", "tblMessage")
                         .WithMany("UserMessages")
                         .HasForeignKey("MessageId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .HasConstraintName("FK_User_Message_Message");
 
                     b.HasOne("BankFull.Models.User", "User")

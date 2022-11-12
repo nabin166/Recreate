@@ -10,7 +10,7 @@
     <a asp-action="Create">Create New</a>
 </p>
 <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
-<table class="table  tablecolor">
+<table id="ratetable" class="table  tablecolor">
     <thead class="bg-info">
         <tr>
             <th>
@@ -42,3 +42,18 @@
 </table>
 
 </div>
+
+
+     @section scripts{
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
+<script>
+             $(document).ready(function () {
+    $('#ratetable').DataTable();
+});
+
+</script>}
+
+
+                 

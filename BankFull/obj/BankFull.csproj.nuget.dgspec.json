@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Recreate\\BankFull\\BankFull.csproj": {}
+    "E:\\final Version 1.2.1\\final Version 1.2.1\\BankFull\\BankFull.csproj": {}
   },
   "projects": {
-    "D:\\Recreate\\BankFull\\BankFull.csproj": {
+    "E:\\final Version 1.2.1\\final Version 1.2.1\\BankFull\\BankFull.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Recreate\\BankFull\\BankFull.csproj",
+        "projectUniqueName": "E:\\final Version 1.2.1\\final Version 1.2.1\\BankFull\\BankFull.csproj",
         "projectName": "BankFull",
-        "projectPath": "D:\\Recreate\\BankFull\\BankFull.csproj",
+        "projectPath": "E:\\final Version 1.2.1\\final Version 1.2.1\\BankFull\\BankFull.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\Recreate\\BankFull\\obj\\",
+        "outputPath": "E:\\final Version 1.2.1\\final Version 1.2.1\\BankFull\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -46,27 +46,27 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[6.0.10, )"
             }
           },
           "imports": [

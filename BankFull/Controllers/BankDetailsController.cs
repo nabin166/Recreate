@@ -21,6 +21,10 @@ namespace BankFull.Controllers
             _context = context;
         }
 
+        public BankDetailsController()
+        {
+        }
+
         // GET: BankDetails
         public async Task<IActionResult> Index()
         {
@@ -179,12 +183,20 @@ namespace BankFull.Controllers
             {
                 return Problem("Entity set 'TransferOffContext.BankDetails'  is null.");
             }
+
             var bankDetail = await _context.BankDetails.FindAsync(id);
+            var tblmessage = _context.tblMessages.Where(m => m.BankId == id);
+          
+            
             if (bankDetail != null)
             {
                 _context.BankDetails.Remove(bankDetail);
             }
-            
+            if (tblmessage != null)
+            {
+                _context.tblMessages.RemoveRange(tblmessage);
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

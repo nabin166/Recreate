@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fbCkTNq+irap4ff0KHQMf8vd9YF+mLxa9srCfEIP5Ug=",
+  "Hash": "6ePVRf9bq1LW0j7uTsmrYlS8Z/sdG1fWyd1J1qRbqD8=",
   "Source": "BankFull",
   "BasePath": "_content/BankFull",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BankFull\\wwwroot",
       "Source": "BankFull",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\BankFull.styles.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\BankFull.styles.css",
       "SourceId": "BankFull",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "BankFull.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\BankFull.styles.css"
+      "OriginalItemSpec": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\bundle\\BankFull.styles.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\BankFull.bundle.scp.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\BankFull.bundle.scp.css",
       "SourceId": "BankFull",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "BankFull.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Recreate\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\BankFull.bundle.scp.css"
+      "OriginalItemSpec": "E:\\final Version 1.2\\BankFull\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\BankFull.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\css\\site.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\css\\site.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\css\\style.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\css\\style.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "css/style.css",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\favicon.ico",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\favicon.ico",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\js\\site.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\js\\site.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\00a20695-a3b7-4447-9dde-2575e536e344301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\00a20695-a3b7-4447-9dde-2575e536e344301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/00a20695-a3b7-4447-9dde-2575e536e344301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\00a20695-a3b7-4447-9dde-2575e536e344301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\00d89979-0f44-4be1-8017-1e082216528fimg.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\00d89979-0f44-4be1-8017-1e082216528fimg.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/00d89979-0f44-4be1-8017-1e082216528fimg.jpg",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\00d89979-0f44-4be1-8017-1e082216528fimg.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\07338bb0-a558-4412-baf7-2c443e2ebe21color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\07338bb0-a558-4412-baf7-2c443e2ebe21color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/07338bb0-a558-4412-baf7-2c443e2ebe21color palette.jpg",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\07338bb0-a558-4412-baf7-2c443e2ebe21color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\0840e654-6d98-44de-8310-68855bc99d2b301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\0840e654-6d98-44de-8310-68855bc99d2b301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/0840e654-6d98-44de-8310-68855bc99d2b301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\0840e654-6d98-44de-8310-68855bc99d2b301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\11179f9f-a4f0-400c-bbca-f3e8c0776b56color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\11179f9f-a4f0-400c-bbca-f3e8c0776b56color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/11179f9f-a4f0-400c-bbca-f3e8c0776b56color palette.jpg",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\11179f9f-a4f0-400c-bbca-f3e8c0776b56color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\11edab9b-891b-45fa-a77b-902567795d98appends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\11edab9b-891b-45fa-a77b-902567795d98appends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/11edab9b-891b-45fa-a77b-902567795d98appends.png",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\11edab9b-891b-45fa-a77b-902567795d98appends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\15ff5eae-7747-453a-a856-48f181cffe13301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\15ff5eae-7747-453a-a856-48f181cffe13301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/15ff5eae-7747-453a-a856-48f181cffe13301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\15ff5eae-7747-453a-a856-48f181cffe13301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\1d13c139-3c09-4f18-8e24-b2bf20a367b2301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\1d13c139-3c09-4f18-8e24-b2bf20a367b2301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/1d13c139-3c09-4f18-8e24-b2bf20a367b2301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\1d13c139-3c09-4f18-8e24-b2bf20a367b2301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\414eb031-52ec-4bab-9668-c0e331d69069301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\414eb031-52ec-4bab-9668-c0e331d69069301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/414eb031-52ec-4bab-9668-c0e331d69069301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\414eb031-52ec-4bab-9668-c0e331d69069301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\461e308c-8eb7-4829-9f83-3731b0d66239appends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\461e308c-8eb7-4829-9f83-3731b0d66239appends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/461e308c-8eb7-4829-9f83-3731b0d66239appends.png",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\461e308c-8eb7-4829-9f83-3731b0d66239appends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\4f91ae6c-aded-4d6e-afe5-374c72c6f634color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\73efc7d3-e3f4-43cc-93af-e5d35eb83486img.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\73efc7d3-e3f4-43cc-93af-e5d35eb83486img.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/73efc7d3-e3f4-43cc-93af-e5d35eb83486img.jpg",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\73efc7d3-e3f4-43cc-93af-e5d35eb83486img.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\7b480233-ab32-4004-833f-7e67d779bf351658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\7b480233-ab32-4004-833f-7e67d779bf351658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/7b480233-ab32-4004-833f-7e67d779bf351658737478300.jpg",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\7b480233-ab32-4004-833f-7e67d779bf351658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\8079c7ac-3a83-422a-aa83-e3c0af8382a1appends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\8079c7ac-3a83-422a-aa83-e3c0af8382a1appends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/8079c7ac-3a83-422a-aa83-e3c0af8382a1appends.png",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\8079c7ac-3a83-422a-aa83-e3c0af8382a1appends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\98406813-3240-406b-9068-9e49b4e4133c1658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\98406813-3240-406b-9068-9e49b4e4133c1658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/98406813-3240-406b-9068-9e49b4e4133c1658737478300.jpg",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\98406813-3240-406b-9068-9e49b4e4133c1658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\9f51ffc8-2ff7-4f66-940a-ad24c5574a66color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\9f51ffc8-2ff7-4f66-940a-ad24c5574a66color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/9f51ffc8-2ff7-4f66-940a-ad24c5574a66color palette.jpg",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\9f51ffc8-2ff7-4f66-940a-ad24c5574a66color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\a1fb0245-802d-4aed-ba1e-027959184dc8scaffold.txt",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\a1fb0245-802d-4aed-ba1e-027959184dc8scaffold.txt",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/a1fb0245-802d-4aed-ba1e-027959184dc8scaffold.txt",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\a1fb0245-802d-4aed-ba1e-027959184dc8scaffold.txt"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\a4ac5e52-b1aa-431a-b7b0-fb79129c3a101658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\a4ac5e52-b1aa-431a-b7b0-fb79129c3a101658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/a4ac5e52-b1aa-431a-b7b0-fb79129c3a101658737478300.jpg",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\a4ac5e52-b1aa-431a-b7b0-fb79129c3a101658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\b0fed308-855a-4824-a1ed-05304dd0f9d1img.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\b0fed308-855a-4824-a1ed-05304dd0f9d1img.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/b0fed308-855a-4824-a1ed-05304dd0f9d1img.jpg",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\b0fed308-855a-4824-a1ed-05304dd0f9d1img.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\bb275a48-df72-46a9-9a5b-f91e40594c4cappends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\bd7b119f-07aa-4b0b-b26c-b8c8603161d1color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\bd7b119f-07aa-4b0b-b26c-b8c8603161d1color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/bd7b119f-07aa-4b0b-b26c-b8c8603161d1color palette.jpg",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\bd7b119f-07aa-4b0b-b26c-b8c8603161d1color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\db078e0f-54b3-42da-9d09-ffb22a211afcappends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\db078e0f-54b3-42da-9d09-ffb22a211afcappends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/db078e0f-54b3-42da-9d09-ffb22a211afcappends.png",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\db078e0f-54b3-42da-9d09-ffb22a211afcappends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\e1e3482a-2e19-4195-a834-196c769e6dac1658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\e1e3482a-2e19-4195-a834-196c769e6dac1658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/e1e3482a-2e19-4195-a834-196c769e6dac1658737478300.jpg",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\e1e3482a-2e19-4195-a834-196c769e6dac1658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\e3525268-e274-4484-b5b1-a65d7a068c94appends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\e3525268-e274-4484-b5b1-a65d7a068c94appends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/e3525268-e274-4484-b5b1-a65d7a068c94appends.png",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\e3525268-e274-4484-b5b1-a65d7a068c94appends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\Photo\\e878a5b1-3201-492f-bc97-b282634137a9color palette.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\Photo\\e878a5b1-3201-492f-bc97-b282634137a9color palette.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "Photo/e878a5b1-3201-492f-bc97-b282634137a9color palette.jpg",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\Photo\\e878a5b1-3201-492f-bc97-b282634137a9color palette.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\099171fc-7936-4a7d-be98-521af56f72861658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\099171fc-7936-4a7d-be98-521af56f72861658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/099171fc-7936-4a7d-be98-521af56f72861658737478300.jpg",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\099171fc-7936-4a7d-be98-521af56f72861658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\2a6258ef-30a4-4cbe-8253-0ad6af9a44f3appends.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\2a6258ef-30a4-4cbe-8253-0ad6af9a44f3appends.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/2a6258ef-30a4-4cbe-8253-0ad6af9a44f3appends.png",
       "AssetKind": "All",
@@ -1547,10 +1547,61 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\2a6258ef-30a4-4cbe-8253-0ad6af9a44f3appends.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\3d452dc3-f514-4653-bfbc-c7dbca80363a301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\2b771a80-3f3c-432d-adcb-27dfff5242fbjhapli joke.jfif",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/2b771a80-3f3c-432d-adcb-27dfff5242fbjhapli joke.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\2b771a80-3f3c-432d-adcb-27dfff5242fbjhapli joke.jfif"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\2eb27aad-20c8-4ccc-b298-5fc0daabe690301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\3695efb4-e2cf-4be0-9686-10d7b6010e46301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/3695efb4-e2cf-4be0-9686-10d7b6010e46301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\3695efb4-e2cf-4be0-9686-10d7b6010e46301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\3d452dc3-f514-4653-bfbc-c7dbca80363a301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/3d452dc3-f514-4653-bfbc-c7dbca80363a301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1564,10 +1615,61 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\3d452dc3-f514-4653-bfbc-c7dbca80363a301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\7a702612-056a-47ba-8760-ad403e2122ce1658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\4df8ab7e-33f5-4fc8-a504-ee091dd17e67resumeScreenSort.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/4df8ab7e-33f5-4fc8-a504-ee091dd17e67resumeScreenSort.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\4df8ab7e-33f5-4fc8-a504-ee091dd17e67resumeScreenSort.png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\5ad89d4d-f52b-438c-b32e-bc554f870e12jhapli joke.jfif",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/5ad89d4d-f52b-438c-b32e-bc554f870e12jhapli joke.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\5ad89d4d-f52b-438c-b32e-bc554f870e12jhapli joke.jfif"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\5bc09a21-2ed8-4162-b112-a351d7a2f91213062132_1607701102885242_2198568226902748503_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/5bc09a21-2ed8-4162-b112-a351d7a2f91213062132_1607701102885242_2198568226902748503_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\5bc09a21-2ed8-4162-b112-a351d7a2f91213062132_1607701102885242_2198568226902748503_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\7a702612-056a-47ba-8760-ad403e2122ce1658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/7a702612-056a-47ba-8760-ad403e2122ce1658737478300.jpg",
       "AssetKind": "All",
@@ -1581,10 +1683,129 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\7a702612-056a-47ba-8760-ad403e2122ce1658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\b285fd05-e444-4fb6-9513-933324a4e613img.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\7dd62674-a23b-497d-a68f-de48bebeed861658737478300.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\8107706d-60be-44a1-8497-fb03e0dd9fedjhapli joke.jfif",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/8107706d-60be-44a1-8497-fb03e0dd9fedjhapli joke.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\8107706d-60be-44a1-8497-fb03e0dd9fedjhapli joke.jfif"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\944fd2c2-5c93-4833-8c1e-a1a7f2c7d60b1658737478300.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\9831e310-5254-4c27-b9bd-a1f975bf0dd8appends.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/9831e310-5254-4c27-b9bd-a1f975bf0dd8appends.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\9831e310-5254-4c27-b9bd-a1f975bf0dd8appends.png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\9d932786-ec49-479b-a63f-e49680f1c93edai navanu la.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/9d932786-ec49-479b-a63f-e49680f1c93edai navanu la.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\9d932786-ec49-479b-a63f-e49680f1c93edai navanu la.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\9e27c619-686b-4d2c-9d3d-28479b7f619c301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/9e27c619-686b-4d2c-9d3d-28479b7f619c301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\9e27c619-686b-4d2c-9d3d-28479b7f619c301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\af846962-130a-4d9a-9d5d-5c0cb0ee52f5jhapli joke.jfif",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/af846962-130a-4d9a-9d5d-5c0cb0ee52f5jhapli joke.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\af846962-130a-4d9a-9d5d-5c0cb0ee52f5jhapli joke.jfif"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\b285fd05-e444-4fb6-9513-933324a4e613img.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/b285fd05-e444-4fb6-9513-933324a4e613img.jpg",
       "AssetKind": "All",
@@ -1598,10 +1819,44 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\b285fd05-e444-4fb6-9513-933324a4e613img.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\b3d5371b-ec84-4d50-b75d-c7eca5d92135jhapli joke.jfif",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/b3d5371b-ec84-4d50-b75d-c7eca5d92135jhapli joke.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\b3d5371b-ec84-4d50-b75d-c7eca5d92135jhapli joke.jfif"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\b408babc-f6b4-4a74-ad89-eed9e89c8b1bbaral ji .png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/b408babc-f6b4-4a74-ad89-eed9e89c8b1bbaral ji .png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\b408babc-f6b4-4a74-ad89-eed9e89c8b1bbaral ji .png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg",
       "AssetKind": "All",
@@ -1615,10 +1870,61 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\bbfb0b2b-eaf1-4a84-b845-ff8b978ed3481658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\dae05fcd-a80c-42d3-b819-b1b59a8f15a01658737478300.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\cff5e55c-8cd7-4dfb-a4dc-2ba440a1e24assssss.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/cff5e55c-8cd7-4dfb-a4dc-2ba440a1e24assssss.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\cff5e55c-8cd7-4dfb-a4dc-2ba440a1e24assssss.png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\d2cdc113-3e4a-4edf-b015-025ecc646f14301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\d5f105c8-7a26-48b6-8511-4d383db190fcappends.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/d5f105c8-7a26-48b6-8511-4d383db190fcappends.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\d5f105c8-7a26-48b6-8511-4d383db190fcappends.png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\dae05fcd-a80c-42d3-b819-b1b59a8f15a01658737478300.jpg",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/dae05fcd-a80c-42d3-b819-b1b59a8f15a01658737478300.jpg",
       "AssetKind": "All",
@@ -1632,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\dae05fcd-a80c-42d3-b819-b1b59a8f15a01658737478300.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\f029bd06-3873-49fe-a870-d12e938d0b0d301771573_472312564804055_9025875695818788036_n.jpg",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\f029bd06-3873-49fe-a870-d12e938d0b0d301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/f029bd06-3873-49fe-a870-d12e938d0b0d301771573_472312564804055_9025875695818788036_n.jpg",
       "AssetKind": "All",
@@ -1649,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\f029bd06-3873-49fe-a870-d12e938d0b0d301771573_472312564804055_9025875695818788036_n.jpg"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\f268d07b-d02a-400f-8723-d072473d88f1success.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\f268d07b-d02a-400f-8723-d072473d88f1success.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/f268d07b-d02a-400f-8723-d072473d88f1success.png",
       "AssetKind": "All",
@@ -1666,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\f268d07b-d02a-400f-8723-d072473d88f1success.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\PhotoSend\\f4c391fb-1514-4d8f-9ca9-c2adaa3a1f84loop in react.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\f4c391fb-1514-4d8f-9ca9-c2adaa3a1f84loop in react.png",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "PhotoSend/f4c391fb-1514-4d8f-9ca9-c2adaa3a1f84loop in react.png",
       "AssetKind": "All",
@@ -1683,10 +1989,44 @@
       "OriginalItemSpec": "wwwroot\\PhotoSend\\f4c391fb-1514-4d8f-9ca9-c2adaa3a1f84loop in react.png"
     },
     {
-      "Identity": "D:\\Recreate\\BankFull\\wwwroot\\public\\logo.png",
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg",
       "SourceId": "BankFull",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Recreate\\BankFull\\wwwroot\\",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\f66cbc1e-c382-431d-a52c-dddbcd6a01c6301771573_472312564804055_9025875695818788036_n.jpg"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\PhotoSend\\ff599376-955d-444e-bf59-cd84a4a5c413CVVersion2.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
+      "BasePath": "_content/BankFull",
+      "RelativePath": "PhotoSend/ff599376-955d-444e-bf59-cd84a4a5c413CVVersion2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\PhotoSend\\ff599376-955d-444e-bf59-cd84a4a5c413CVVersion2.png"
+    },
+    {
+      "Identity": "E:\\final Version 1.2\\BankFull\\wwwroot\\public\\logo.png",
+      "SourceId": "BankFull",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\final Version 1.2\\BankFull\\wwwroot\\",
       "BasePath": "_content/BankFull",
       "RelativePath": "public/logo.png",
       "AssetKind": "All",

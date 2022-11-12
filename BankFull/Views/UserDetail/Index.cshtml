@@ -94,10 +94,10 @@
                                     <button data-target="#exampleModal1" class="sumAmount btn-info" data-toggle="modal">  @item.UserMessages.Sum(x=>x.tblMessage.Amount)</button>
                                 </td>
                                 <td>
-                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment)</button>
+                                    <button data-target="#exampleModal2" class="payAmount btn-info" data-toggle="modal">@item.Paymentss.Sum(x=>x.Payment * x.Rate)</button>
                                 </td>
                                 <td>
-                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment))
+                                    @(item.UserMessages.Sum(x=>x.tblMessage.Amount)-item.Paymentss.Sum(x=>x.Payment * x.Rate))
                                 </td>
                                 <td>
                                     <button data-target="#exampleModal3" class="paybtn btn-success" data-toggle="modal">Pay</button>
@@ -313,7 +313,7 @@
      @if(@User.IsInRole("User"))
     {
           <div id="home" class="tab-pane fade active in bg-white ">
-            <table id="datass" class="mb-4 table tablecolor wid table-bordered " style="width:83vw;">
+            <table id="datass" class="mb-4 table tablecolor wid table-bordered " name="paymentexport" style="width:83vw;">
                 <thead class="bg-info">
                     <tr>
                         <th style="display:none;"></th>
@@ -506,6 +506,9 @@ $(document).ready(function () {
      $('#datass').DataTable(
      
          {
+
+         
+      
         footerCallback: function (row, data, start, end, display) {
             var api = this.api();
  
@@ -533,12 +536,15 @@ $(document).ready(function () {
             // Update footer
             $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
 
-
-
-
-
+       
              
         },
+           dom: 'Bfrtip',
+        buttons: [ {
+            extend: 'excelHtml5',
+            autoFilter: true,
+            sheetName: 'Exported data'
+         } ]
     }
      
      
@@ -580,7 +586,16 @@ $(document).ready(function () {
 
              
         },
-    }
+            dom: 'Bfrtip',
+        buttons: [ {
+            extend: 'excelHtml5',
+            autoFilter: true,
+            sheetName: 'Exported data'
+         } ]
+
+        
+         
+         }
      
      
      
@@ -589,6 +604,7 @@ $(document).ready(function () {
 
 
     $(".imgprev").click(function(e) {
+           e.preventDefault();
         var cid = $(this).closest('tr').find("td:eq(0)").text();
         console.log(cid);
        
@@ -619,6 +635,7 @@ $(document).ready(function () {
 
 
     $('.sumAmount').click(function(e) {
+           e.preventDefault();
 
         var userid = $(this).closest('tr').find("td:eq(0)").text();
          var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
@@ -665,6 +682,12 @@ $(document).ready(function () {
             // Update footer
             $(api.column(4).footer()).html( pageTotal  + ' <br/>' + total  );
         },
+            dom: 'Bfrtip',
+        buttons: [ {
+            extend: 'excelHtml5',
+            autoFilter: true,
+            sheetName: 'Exported data'
+         } ]
        }
 
 );
@@ -687,7 +710,7 @@ $(document).ready(function () {
       $('.payAmount').click(function(e) {
      
         
-
+             e.preventDefault();
            var users = $(this).closest('tr').find("td:eq(0)").text();
            var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
             $("#header").empty().append(User);
@@ -700,6 +723,46 @@ $(document).ready(function () {
             'success': function(payments) {
                  
                 $("#mPayAmount").empty().html(payments);
+                 $('#payamttbl').DataTable(
+    
+       {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(1)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(1, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(1).footer()).html( pageTotal  + ' <br/>' + total  );
+        },
+            dom: 'Bfrtip',
+        buttons: [ {
+            extend: 'excelHtml5',
+            autoFilter: true,
+            sheetName: 'Exported data'
+         } ]
+       }
+
+);
+
              //   $("exampleModal1").modal('show');
                
 
@@ -721,7 +784,7 @@ $(document).ready(function () {
     
       $('.paybtn').click(function(e) {
      
-        
+           e.preventDefault();
 
            var usr = $(this).closest('tr').find("td:eq(0)").text();
            var User = $(this).closest('tr').find("td:eq(1)").text().toUpperCase();
@@ -766,16 +829,29 @@ $(document).ready(function () {
 </script>
 
 
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
+
+
+
+                 }
     
 
                  @*DataTable*@
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+@*   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"/>
                 
 
 
     <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap.min.js"></script>
+ 
 
-       }
+
+
+     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+
+       }*@

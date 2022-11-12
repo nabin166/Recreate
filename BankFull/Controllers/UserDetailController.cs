@@ -53,7 +53,7 @@ namespace BankFull.Controllers
         public IActionResult Pay(int usr)
         {
 
-
+            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 6000000), "Id", "CheckName");
 
             ViewData["UserId"] = new SelectList(_context.user.Where(x => x.Id == usr), "Id", "Name");
 

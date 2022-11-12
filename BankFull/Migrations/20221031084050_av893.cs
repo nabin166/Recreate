@@ -4,7 +4,7 @@
 
 namespace BankFull.Migrations
 {
-    public partial class v2 : Migration
+    public partial class av893 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace BankFull.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Password",
-                value: "$2a$11$qelAEmmZqmxw9rqnaR99SuJj8GwqXhhZlB/fLQAZ1D69gUwFlSkBC");
+                value: "$2a$11$hjQ3XWyST6TSTdCK4jylReDQcHCayNqIVMsWFPI1cY4Q.vJMdIDBG");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -23,7 +23,7 @@ namespace BankFull.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "Password",
-                value: "$2a$11$7H2tbiCoC9rvgADvUewbM.cCeUqAsaynTWtQSS/1OEKSyf3OFut7q");
+                value: "$2a$11$IAzxfYFXnf8zqV73Gqio3.QcOgSX7S385xNVsIndENu0IaRhgJ/gS");
         }
     }
 }

@@ -69,5 +69,20 @@
 }
     </tbody>
 </table>
+<div>
+    <button id="btn" class="btn btn-success">Export to Excel</button>
+</div>
 
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery.table2excel.js"></script>
+<script type="text/javascript">
+$('#btn').click(function() {
+    $('.table').table2excel({
+        exclude: ".noExl",
+        name: "My work",
+        filename: "Biodata"
 
+    });
+});   
+
+</script>

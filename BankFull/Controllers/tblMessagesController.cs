@@ -309,46 +309,21 @@ namespace BankFull.Controllers
 
                        await tblMessage.Document.CopyToAsync(new FileStream(serverFolder, FileMode.Create));  */
                 tblMessage.completed = false;
-
-
-
-
-
-
-                //   List<tblMessage> tbl = tblMessages.ToList();
-                // var ratecheck = _context.TransactionRates.Where(x => x.Date == DateTime.Now.ToString("yyyy-MM-dd")).First().Rate;
+               var abc = DateTime.Now.ToString("yyyy-MM-dd");
                 int a = _context.TransactionRates.Where(x => x.Date == tblMessage.Date).Count();
-                if(a > 0)
+                if (a != 0)
                 {
                     decimal r = _context.TransactionRates.Where(x => x.Date == tblMessage.Date).FirstOrDefault().Rate;
                     tblMessage.Rate = r;
-
-
                 }
                 else
-                {
                     tblMessage.Rate = 0;
-                }
 
-                           
-
-                            _context.Add(tblMessage);
-                            await _context.SaveChangesAsync();
-                       
-
-
-                
-
-
-                
-
+               // int a = _context.TransactionRates.Where(x => x.Date == abc).FirstOrDefault().Id;
+             //   decimal r = _context.TransactionRates.Where(x => x.Id == a).FirstOrDefault().Rate;
+              //  tblMessage.Rate = r; //
                 _context.Add(tblMessage);
                 await _context.SaveChangesAsync();
-
-
-
-
-
 
 
                 string email = User.Identity.Name;
@@ -475,6 +450,17 @@ namespace BankFull.Controllers
                 return Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
             }
             var tblMessage = await _context.tblMessages.FindAsync(id);
+
+            int bankid = _context.BankDetails.Where(x => x.Id == id).FirstOrDefault().Id;
+            //for boolean
+          //  bool bankExists = false;
+
+            //   bankDetails.DeleteConfirmed(bankid);
+            // var result = new ControllerB().FileUploadMsgView("some string");
+            var result = new BankDetailsController().DeleteConfirmed(bankid);
+
+
+
             if (tblMessage != null)
             {
                 _context.tblMessages.Remove(tblMessage);
