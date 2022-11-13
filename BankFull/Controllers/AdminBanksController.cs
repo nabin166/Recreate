@@ -24,8 +24,17 @@ namespace BankFull.Controllers
         }
 
 
-        public IActionResult BankLimit(decimal ammountAdmin, string adminbank1, int mid , int userid)
+        public IActionResult BankLimit( int mid , int userid)
         {
+
+            var d = _context.tblMessages.Find(mid);
+            if (d != null)
+            {
+                d.completed = true;
+                _context.Update(d);
+                _context.SaveChanges();
+            }
+
             //   if(_context.AdminBanks.Where(x=>x.Date == DateTime.Now.ToString("yyyy-MM-dd"))){
 
             //  }
@@ -33,38 +42,38 @@ namespace BankFull.Controllers
             // decimal Ammount = +ammountAdmin;
 
 
-
-           string abc = GetSubstringByString("(", ")", adminbank1);
-            
-
-            int id = _context.AdminBanks.Where(x => x.AccountNumber == abc).FirstOrDefault().Id;
-           var Amount1 = _context.AdminBanks.Where(x => x.Id == id).FirstOrDefault().Ammount;
-            var date1 = _context.AdminBanks.Where(x => x.Id == id).FirstOrDefault().Date;
-            var date2 = DateTime.Now.ToString("yyyy-MM-dd");
-            if(date1 != date2)
-            {
-                var user = _context.AdminBanks.Find(id);
-                user.Ammount = 0;
-                user.Date = DateTime.Now.ToString("yyyy-MM-dd");
-
-                _context.Update(user);
-                _context.SaveChanges();
-
-            }
+            /*
+                       string abc = GetSubstringByString("(", ")", adminbank1);
 
 
-       /*     var a = _context.AdminBanks.Where(x => x.Date != DateTime.Now.ToString("yyyy-MM-dd"));
-            if (a != null)
-            {
-                var user =  _context.AdminBanks.Find(id);
-                user.Ammount = 0;
-                user.Date = DateTime.Now.ToString("yyyy-MM-dddd");
-                
-                _context.Update(user);
-                _context.SaveChanges();
-            } */
+                        int id = _context.AdminBanks.Where(x => x.AccountNumber == abc).FirstOrDefault().Id;
+                       var Amount1 = _context.AdminBanks.Where(x => x.Id == id).FirstOrDefault().Ammount;
+                        var date1 = _context.AdminBanks.Where(x => x.Id == id).FirstOrDefault().Date;
+                        var date2 = DateTime.Now.ToString("yyyy-MM-dd");
+                        if(date1 != date2)
+                        {
+                            var user = _context.AdminBanks.Find(id);
+                            user.Ammount = 0;
+                            user.Date = DateTime.Now.ToString("yyyy-MM-dd");
 
-            Amount1 = Amount1 + ammountAdmin;
+                            _context.Update(user);
+                            _context.SaveChanges();
+
+                        }*/
+
+
+            /*     var a = _context.AdminBanks.Where(x => x.Date != DateTime.Now.ToString("yyyy-MM-dd"));
+                 if (a != null)
+                 {
+                     var user =  _context.AdminBanks.Find(id);
+                     user.Ammount = 0;
+                     user.Date = DateTime.Now.ToString("yyyy-MM-dddd");
+
+                     _context.Update(user);
+                     _context.SaveChanges();
+                 } */
+
+          /*  Amount1 = Amount1 + ammountAdmin;
             if(Amount1 <= 6000000)
             {
                 var c = _context.AdminBanks.Find(id);
@@ -94,7 +103,7 @@ namespace BankFull.Controllers
             else
             {
                 //Viewbag error tomorrow do
-            }
+            }*/
            // bank.Ammount = ammountAdmin;
 
 

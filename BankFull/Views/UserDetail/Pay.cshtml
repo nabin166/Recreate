@@ -9,31 +9,61 @@
 
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" asp-controller="Payments"  >
+       
+            @if (@User.IsInRole("Admin"))
+            {
+                 <form asp-action="Creating" asp-controller="Payments"  >
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Payment" class="control-label"></label>
                 <input asp-for="Payment" name="payment" class="form-control " />
                 <span asp-validation-for="Payment" class="text-danger"></span>
             </div>
-            @if (@User.IsInRole("Admin"))
-            {
                <div class="form-group">
                 <label asp-for="Rate" class="control-label"></label>
                 <input asp-for="Rate" name="Rate" class="form-control" />
                 <span asp-validation-for="Rate" class="text-danger"></span>
                </div>
+                 <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            
+
+              <div class="form-group">
+                <input type="submit"  value="Pay"  class=" check btn btn-primary " />
+
+                
+              </div>
+              </form>
             }
             @if (@User.IsInRole("User"))
             {
+                 <form asp-action="Create" asp-controller="Payments"  >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Payment" class="control-label"></label>
+                <input asp-for="Payment" name="payment" class="form-control " />
+                <span asp-validation-for="Payment" class="text-danger"></span>
+            </div>
                 <div class="form-group">
                     <label asp-for="AdminBank" class="control-label"></label>
                     <select asp-for="AdminBank" class="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
                 </div>
-                
+                  <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            
+
+              <div class="form-group">
+                <input type="submit"  value="Pay" class="abc btn btn-primary " />
 
                 
-               
+              </div>
+
+                
+               </form>
 
               
                 
@@ -41,22 +71,12 @@
             }
             
 
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
-            </div>
-            
-
-              <div class="form-group">
-                <input type="submit" value="Pay" class="btn btn-primary " />
-
-                
-              </div>
+          
                 
              
           
             
-        </form>
+        
          @* <input type="submit" class="abc" id="b"/> *@
 
         
@@ -84,6 +104,38 @@ $(document).ready(function() {
            //  'url':"https://localhost:44346/Payments/Create",  
              'type': 'post',
                 'data': {adminbank1},
+    
+                'success': function() {
+                    console.log("Success");
+                 
+                    //Error Occur But why ????? So i comment out the Redirect location
+            
+                 
+                },
+                'error': function() {
+    
+                    window.location.href = '@Url.Action("","UserDetail")';
+                }
+    
+    
+            })
+
+    });
+
+
+     $(".check").click(function(e) {
+       
+       // var payme = $('.pays').text();
+    
+       // console.log(payme);
+      //  console.log("Hello world");
+
+
+          $.ajax({
+                'url': '@Url.Action("Creating","Payments")',
+           //  'url':"https://localhost:44346/Payments/Create",  
+             'type': 'post',
+                'data': {},
     
                 'success': function() {
                     console.log("Success");

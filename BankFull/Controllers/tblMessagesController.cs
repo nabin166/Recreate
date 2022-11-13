@@ -457,7 +457,7 @@ namespace BankFull.Controllers
 
             //   bankDetails.DeleteConfirmed(bankid);
             // var result = new ControllerB().FileUploadMsgView("some string");
-            var result = new BankDetailsController().DeleteConfirmed(bankid);
+          //  var result = new BankDetailsController().DeleteConfirmed(bankid);
 
 
 

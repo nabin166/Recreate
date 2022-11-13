@@ -1,44 +1,78 @@
 ﻿
-@model IEnumerable<BankFull.Models.UserMessage?> 
 
 
 
-    @*It is for ----------complete---------- section of -------------USER--------------*@
-@{
-    Layout = null;
-}
+@using BankFull.Controllers;  
+@model IEnumerable<PhotoSendModel>
+
+    
+
+    
+    <!--Bootstrap modal -->
+    <div class="modal fade " id="exampleM" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+
+                   
+                    <h5 class="modal-title" id="exampleModalLabel">
+                       <i class="fa-solid fa-images"></i>
+                    </h5>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                     <div id="appes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
        <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
-   <table id="completeboolss" class="mb-4 table tablecolor  wid table-bordered widt" >
+   <table id="urd" class="mb-4 table  tablecolor wid table-bordered widt" >
     <thead class="bg-danger">
           <tr>
               <th hidden></th>
-              <th hidden></t>
+               <th hidden></th>
+                <th hidden></th>
                <th>
                 Date (मिति)
             </th>
              <th>
-                Bank_Name (बैंक नाम)
+                Bank Name (बैंक नाम)
             </th>
-             <th>Address (ठेगाना)</th> 
-              <th>Account_Number (खाता नंबर)</th> 
-              
-            
-            <th>
-                Amount  (रकम )
+             <th>
+                Address (ठेगाना)
             </th>
-           
-           
-            <th>
-             @*   Document *@
-             Messages (खबर)
+             <th>
+                Account_number (खाता नंबर)
             </th>
             <th>
-                
+                Amount (रकम)
+            </th>
+           
+            <th>
+                Message (खबर)
+            </th>
+            <th hidden>
+            @*    Wholesaler *@
             </th>
             
-            
-
-           
+             <th>
+                Final_Document  (अन्तिम कागजात)
+            </th>
+         @*   <th>Choose Bank (बैंक रोजनूस)</th>
+             <th>Pay to Admin (तिरने रकम)</th>*@
+             <th>
+                Wholesaler
+            </th>
             
           
          
@@ -48,73 +82,97 @@
         
     </thead>
     <tbody>
-@foreach (UserMessage item in Model) {
-        
-            
-                <tr> 
-                     <td hidden>
-                       @Html.DisplayFor(modelItem => item.tblMessage.Id)
+@foreach (PhotoSendModel item in Model) {
+
+           
+                <tr>  
+                    <td class="id" hidden>
+                        @Html.DisplayFor(modelItem => item.tbl.Id) 
                     </td>
+                   
                     <td hidden></td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
+                    
+                           <td class="id" hidden>
+                        @Html.DisplayFor(modelItem => item.bankdet.UserId) 
                     </td>
                      <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
+                        @Html.DisplayFor(modelItem => item.tbl.Date)
                     </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address) 
-                    </td>
+                  
                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber) 
+                        @Html.DisplayFor(modelItem => item.bankdet.Name)
+                    </td>
+                       <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Address)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.AccountNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Amount)
                     </td>
                    
 
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
-                    </td>
-                   
-                   
-
 
                     <td>
 
-                  @*      <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-                     @Html.DisplayFor(modelItem => item.tblMessage.Messages) 
+                         @Html.DisplayFor(modelItem => item.tbl.Messages)
                     </td>
-                    <td>
-                       
-                    </td>
+
+                     <td hidden>
+
                       
+                    </td>
+
+
+                    <td>
+                         <img src="~/@Html.DisplayFor(modelItem => item.photosen.Photo)" style="cursor:pointer;" class="imgr"  data-toggle="modal" data-target="#exampleM"  width="50px"/>
+                        
+                    </td>    
+
+                       <td>
+
+                         @Html.DisplayFor(modelItem => item.user.Name)
+                    </td>
+                    
+                   @*  <td>
+                         <select id="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
+
+                    </td>
+                    <td>
+                        <input type="number" id="pay" class="check" placeholder="Pay Amount in Won" name="payamount"/>
+                    </td>*@
+                     
 
                 </tr>
+             
+             }
             
-        }
+        
     </tbody>
 
-    
        <tfoot class="table-danger">
             <tr>
-                <th hidden></th><th hidden></th>
-                <th colspan="2" style="text-align:right">Total: <br /> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th>
+             <th hidden></th>
+             <th hidden></th>
+             <th hidden></th>
+             <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
+             <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th hidden></th>  
+             <th></th>     <th></th>
+         
             </tr>
         </tfoot>
-
-
-
-
 </table>
+</div>
 
-    </div>
+<script>
+$(document).ready(function(e) {
 
- <script>
-   $(document).ready(function () {
-
-        $('#completeboolss').DataTable(
-    
-          {
-        footerCallback: function (row, data, start, end, display) {
+     $('#urd').DataTable(
+     
+         {
+        footerCallback: function (row, daTabta, start, end, display) {
             var api = this.api();
  
             // Remove the formatting to get integer data for summation
@@ -124,7 +182,7 @@
  
             // Total over all pages
             total = api
-                .column(6)
+                .column(7)
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
@@ -132,107 +190,65 @@
  
             // Total over this page
             pageTotal = api
-                .column(6, { page: 'current' })
+                .column(7, { page: 'current' })
                 .data()
                 .reduce(function (a, b) {
                     return intVal(a) + intVal(b);
                 }, 0);
  
             // Update footer
-            $(api.column(6).footer()).html( pageTotal  + ' <br/>' + total  );
+            $(api.column(7).footer()).html( pageTotal  + ' <br/> ' + total );
         },
     }
      
+     
+     
+     );
+
+    $(".imgr").click(function(e) {
+           e.preventDefault();
+        var cid = $(this).closest('tr').find("td:eq(0)").text();
+        console.log(cid);
+       
 
 
-    );
+        $.ajax({
+
+          'url': '@Url.Action("Preview","Sender")',
+             
+            'type': 'post',
+            'data': { cid
+             },
+            'success': function(image) {
+                  $("#appes").empty().append('<image style="width:30vw;" src ="' +image+'"/>');
+                     
+            
+            },
+            'error': function() {
+                 
+            },
+        }); 
+
+
+      
+
+         
+    });
+
+    
+
+
+
    
 
-       @*----------Cancel-document----------------
-
-           $(".bankSubmit").click(function(e){
-
-
-                 var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
-                 var adminbank1 =  $('#bankadmin').find(":selected").text(); 
-                 var mid = $(this).closest('tr').find("td:eq(0)").text();
-              // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
-               console.log(ammountAdmin);
-               console.log(adminbank1);
-               console.log(mid);
-
-               
-        $.ajax({
-            'url': '@Url.Action("BankLimit","AdminBanks")',
-            'type': 'post',
-            'data': { ammountAdmin,adminbank1,mid},
-
-            'success': function() {
-
-                $("#clk").css({
-                    "display": "block",
-                });
-
-                //Error Occur But why ????? So i comment out the Redirect location
-
-                window.location.href = '@Url.Action("Index","tblMessages")';
-
-            },
-            'error': function() {
-
-                window.location.href = '@Url.Action("","tblMessages")';
-            }
-
-
-        });
-
-          });
-
-
-
-    $(".canceldoc").click(function(e) {
-
-
-        var messageids = $(this).closest('tr').find("td:eq(0)").text();
-        var empty =  $(this).closest('tr').find("td:eq(1)").text();
-       
-        console.log(messageids);
-        console.log(empty);
-
-       $.ajax({
-            'url': '@Url.Action("Canceldoc","Users")',
-            'type': 'post',
-            'data': { messageids , empty },
-
-            'success': function() {
-
-                $("#clk").css({
-                    "display": "block",
-                });
-
-                //Error Occur But why ????? So i comment out the Redirect location
-
-                window.location.href = '@Url.Action("Index","tblMessages")';
-
-            },
-            'error': function() {
-
-                window.location.href = '@Url.Action("Index","tblMessages")';
-            }
-
-
-        });
-        
-    }); *@
-
-
-       
 });
 
-
-
 </script>
- @section scripts{
+
+
+
+
+      @section scripts{
                      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
  
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
@@ -240,8 +256,3 @@
 
 
                  }
-
-                 
-             
-
-

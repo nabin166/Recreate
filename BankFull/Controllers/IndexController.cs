@@ -44,6 +44,8 @@ namespace BankFull.Controllers
 
         public async Task<IActionResult> FinalMessageAsync()
         {
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
 
             List<tblMessage> tbl = _context.tblMessages.ToList();
@@ -58,11 +60,9 @@ namespace BankFull.Controllers
                                               tbl = t,
                                               photosen = p,
                                               bankdet = b,
-                                          }).OrderByDescending(x => x.tbl.Id).ToList();
+                                          }).Where(x=>x.tbl.completed == false).OrderByDescending(x => x.tbl.Id).ToList();
 
-            string email = User.Identity.Name;
-            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-
+          
 
 
             ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 6000000), "Id", "CheckName");
@@ -96,14 +96,14 @@ namespace BankFull.Controllers
                                               photosen = p,
                                               bankdet = b,
                                               user = u,
-                                          }).OrderByDescending(x => x.tbl.Id).ToList();
+                                          }).Where(x=>x.tbl.completed == false).OrderByDescending(x => x.tbl.Id).ToList();
 
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
 
 
 
-            ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+          //  ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
 
             return _context.tblMessages != null ?
 
@@ -114,7 +114,7 @@ namespace BankFull.Controllers
 
 
         //Bool True in message table
-        public async Task<IActionResult> Completebooltrue()
+        /*public async Task<IActionResult> Completebooltrue()
         {
             string email = User.Identity.Name;
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
@@ -125,16 +125,78 @@ namespace BankFull.Controllers
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
         }
+*/
 
-        public async Task<IActionResult> CompletebooltrueAdmin()
+
+        public async Task<IActionResult> Completebooltrue()
         {
 
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+            List<tblMessage> tbl = _context.tblMessages.ToList();
+            List<PhotoSend> photosen = _context.PhotoSends.ToList();
+            List<BankDetail> bankdet = _context.BankDetails.ToList();
+            List<User> user = _context.user.ToList();
+
+            List<PhotoSendModel> joins = (from t in tbl
+                                          join p in photosen on t.Id equals p.MessageId
+                                          join b in bankdet on t.BankId equals b.Id
+                                          join u in user on b.User.Email equals u.Email
+                                          select new PhotoSendModel()
+                                          {
+                                              tbl = t,
+                                              photosen = p,
+                                              bankdet = b,
+                                              user = u,
+                                          }).Where(x => x.tbl.completed == true).Where(x=>x.user.Id == uid).OrderByDescending(x => x.tbl.Id).ToList();
+
+    
+
+
+
+            //  ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
 
             return _context.tblMessages != null ?
 
-                  PartialView(await _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Where(x => x.tblMessage.completed == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.User.Role.Role1 == "User").OrderByDescending(x => x.Id).ToListAsync()) :
+                PartialView(joins) :
 
                 Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+        }
+
+        public async Task<IActionResult> CompletebooltrueAdmin()
+        {
+            List<tblMessage> tbl = _context.tblMessages.ToList();
+            List<PhotoSend> photosen = _context.PhotoSends.ToList();
+            List<BankDetail> bankdet = _context.BankDetails.ToList();
+            List<User> user = _context.user.ToList();
+
+            List<PhotoSendModel> joins = (from t in tbl
+                                          join p in photosen on t.Id equals p.MessageId
+                                          join b in bankdet on t.BankId equals b.Id
+                                          join u in user on b.User.Email equals u.Email
+                                          select new PhotoSendModel()
+                                          {
+                                              tbl = t,
+                                              photosen = p,
+                                              bankdet = b,
+                                              user = u,
+                                          }).Where(x => x.tbl.completed == true).OrderByDescending(x => x.tbl.Id).ToList();
+
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+
+
+
+            //  ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+
+            return _context.tblMessages != null ?
+
+                PartialView(joins) :
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+
+
         }
 
         //Complete wala
