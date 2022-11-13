@@ -87,6 +87,7 @@ namespace BankFull.Controllers
             //  payments.AdminBank = abc.Name;
             int b = int.Parse(payments.AdminBank);
 
+            //var b = payments.AdminBank;
             
 
 
@@ -98,6 +99,9 @@ namespace BankFull.Controllers
                 _context.Add(payments);
            
             _context.SaveChanges();
+
+
+
             int a = payments.Id;
             var abc = _context.AdminBanks.Find(b);
             decimal aa = _context.Paymentss.Where(x => x.Id == a).FirstOrDefault().Payment;
@@ -106,11 +110,31 @@ namespace BankFull.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index","UserDetail");
             
-            ViewData["UserId"] = new SelectList(_context.user, "Id", "Address", payments.UserId);
-            return View(payments);
+        //    ViewData["UserId"] = new SelectList(_context.user, "Id", "Address", payments.UserId);
+          //  return View(payments);
         }
 
+        [HttpPost]
+     
+        public async Task<IActionResult> Creating([Bind("Id,Payment,Rate,UserId")] Payments payments)
+        {
+
+           
+
+            
+           _context.Add(payments);
+
+            _context.SaveChanges();
+
+
+
+           
+            return RedirectToAction("Index", "UserDetail");
+
        
+        }
+
+
 
         // GET: Payments/Edit/5
         public async Task<IActionResult> Edit(int? id)

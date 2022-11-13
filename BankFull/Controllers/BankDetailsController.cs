@@ -21,9 +21,7 @@ namespace BankFull.Controllers
             _context = context;
         }
 
-        public BankDetailsController()
-        {
-        }
+       
 
         // GET: BankDetails
         public async Task<IActionResult> Index()

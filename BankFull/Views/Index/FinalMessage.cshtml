@@ -62,7 +62,9 @@
              <th>
                 Final_Document (अन्तिम कागजात)
             </th>
-            
+              <th>
+                Wholesaler
+            </th>
           
          
             
@@ -113,7 +115,11 @@
                     <td>
                          <img src="~/@Html.DisplayFor(modelItem => item.photosen.Photo)" style="cursor:pointer;" class="imgprev"  data-toggle="modal" data-target="#exampleModals"  width="50px"/>
                         
-                    </td>     
+                    </td>   
+                      <td>
+
+                         @Html.DisplayFor(modelItem => item.user.Name)
+                    </td>
 
                 </tr>
             
@@ -124,7 +130,7 @@
             <tr>
                 <th hidden></th> 
                 <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
-                   <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th hidden></th><th></th>
+                   <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th hidden></th><th></th><th></th>
             </tr>
         </tfoot>
 </table>

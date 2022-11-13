@@ -68,8 +68,8 @@
              <th>
                 Final_Document  (अन्तिम कागजात)
             </th>
-            <th>Choose Bank (बैंक रोजनूस)</th>
-             <th>Pay to Admin (तिरने रकम)</th>
+         @*   <th>Choose Bank (बैंक रोजनूस)</th>
+             <th>Pay to Admin (तिरने रकम)</th>*@
               <th></th>
                <th></th>
             
@@ -131,13 +131,13 @@
                         
                     </td>    
                     
-                     <td>
+                   @*  <td>
                          <select id="bankadmin"  asp-items="ViewBag.bankAdmin"> </select> 
 
                     </td>
                     <td>
                         <input type="number" id="pay" class="check" placeholder="Pay Amount in Won" name="payamount"/>
-                    </td>
+                    </td>*@
                     <td>
                         <button type="button" class="bankSubmit btn btn-info" value="submit">Submit</button>
                     </td>
@@ -163,7 +163,7 @@
              <th hidden></th>
              <th hidden></th>
              <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
-             <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th hidden></th>  <th></th> <th></th><th></th><th></th>
+             <th></th> <th></th>  <th></th>  <th></th>  <th></th>  <th hidden></th>  <th></th><th></th>
              <th></th>
          
             </tr>
@@ -244,22 +244,22 @@ $(document).ready(function(e) {
               e.preventDefault();
 
                 // var ammountAdmin = $(this).closest('tr').find("td:eq(4)").text();
-                var adminbank1 =  $('#bankadmin').find(":selected").text(); 
+             //   var adminbank1 =  $('#bankadmin').find(":selected").text(); 
                 var mid = $(this).closest('tr').find("td:eq(0)").text();
-                var ammountAdmin = $(this).closest('tr').find(".check").val(); 
+               // var ammountAdmin = $(this).closest('tr').find(".check").val(); 
                 var userid = $(this).closest('tr').find("td:eq(2)").text();
             //   var abc = #('#pay').text();
               // var adminbank = $(this).closest('tr').find("td:eq(8)").text();
                console.log(userid);
-               console.log(adminbank1);
+             //  console.log(adminbank1);
               console.log(mid);
-              console.log(ammountAdmin);
+            //  console.log(ammountAdmin);
 
                
        $.ajax({
             'url': '@Url.Action("BankLimit","AdminBanks")',
             'type': 'post',
-            'data': { ammountAdmin,adminbank1,mid,userid},
+            'data': { mid,userid},
 
             'success': function() {
 
