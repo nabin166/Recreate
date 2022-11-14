@@ -105,7 +105,7 @@ namespace BankFull.Controllers
 
 
                
-                return  Json( image);
+                return  Json(image);
 
 
             }

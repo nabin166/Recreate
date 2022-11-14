@@ -406,32 +406,28 @@ namespace BankFull.Controllers
             
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
             int b = _context.UserMessages.Where(x => x.UserId == uid).FirstOrDefault().Id;
-          //  int d = _context.tblMessages.Where(x=>x.)
-       //   int tbid = _context.tblMessages.Where(x=>x.UserMessages.Where(x=>x.Id==b).)
-
-
-           // int c = _context.tblMessages.Where(x=>x.u)
-           // int a = _context.tblMessages.Where(x => x.UserMessages.Where(x => x.UserId == b).FirstOrDefault().Id == uid).FirstOrDefault().Id;
-
-            List<UserMessage> Assign = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x=>x.tblMessage.BankDetail.User.Status == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToListAsync();
-            List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
-
-            
-
-
-            dynamic model = new System.Dynamic.ExpandoObject();
-
-            model.Assign = Assign ;
-            model.AssignComplete = AssignComplete ;
+      
+            List<UserMessage> Assign = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x=>x.tblMessage.BankDetail.User.Status == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToList();
+            //  List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
 
 
 
 
 
 
-            return _context.tblMessages != null ?
-            View( model) :
-            Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+            // dynamic model = new System.Dynamic.ExpandoObject();
+
+            //  model.Assign = Assign ;
+            //    model.AssignComplete = AssignComplete ;
+
+
+
+
+
+
+            return View(Assign);
+           
+        
 
 
         }
@@ -470,4 +466,14 @@ namespace BankFull.Controllers
           return (_context.user?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
+}
+internal class MessagerateViewimg
+{
+    public tblMessage tbllist { get; set; }
+    public TransactionRate ratelist { get; set; }
+
+    public UserMessage usermess { get; set; }
+    public BankDetail bankdet { get; set; }
+    public User usr { get; set; }
+    public Role rol { get; set; }
 }

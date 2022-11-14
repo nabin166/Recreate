@@ -1,14 +1,15 @@
 ﻿
-@*model IEnumerable<BankFull.Models.UserMessage?> *@
-    @using BankFull.Controllers;  
+@model IEnumerable<BankFull.Models.UserMessage?> 
+  @using BankFull.Controllers;  
 
 
-   @model dynamic
+
 
 @{
     ViewData["Title"] = "Index";
+  
 }
- 
+
     <!--Bootstrap modal -->
     <div class="modal fade" id="exampleMod" tabindex="-1"
         role="dialog" aria-labelledby="exampleModalLabel"
@@ -100,7 +101,7 @@
         
     </thead>
     <tbody>
-@foreach (UserMessage item in Model.Assign) {
+@foreach (UserMessage item in Model) {
                         if(item.User.Status != false)
                         {
                             <tr>  
@@ -177,99 +178,8 @@
 
         <div id="menu1" class="tab-pane fade bg-white">
     @*Submitted_data*@
-    <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
-     <table id="exam"  class="mb-4 table tablecolor wid table-bordered widt" >
-    <thead class="bg-danger ">
-          <tr>
-              <th hidden></th>
-              <th>
-               Date
-            </th>
-             <th>
-               Bank Name
-            </th>
-             
-             <th>
-               Address 
-            </th>
-              <th>Account No</th>
-               <th>
-               Amount
-            </th>
-            <th>
-          
-              Message
-            </th>
-              <th>Wholesaler</th>
-            
-           
-            
-            
-           
-            
-          
-         
-            
-        </tr>
-            
-        
-    </thead>
-    <tbody>
-@foreach (UserMessage item in Model.AssignComplete) {
-
-
-             if (item.tblMessage.UserMessages.Where(x=>x.User.Status != false).Count() <= 1)
-             {
-                            
-               {
-                   <tr>
-                                <td hidden>
-                        @Html.DisplayFor(modelItem => item.MessageId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Date)
-                    </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Name)
-                    </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.Address)
-                    </td>
-                     <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.AccountNumber)
-                    </td>
-                       <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.Amount)
-                    </td>
-                     <td>
-
-                     @*   <img src="~/@Html.DisplayFor(modelItem => item.tblMessage.DocumentPath)" width="50px"/>  *@
-                      @Html.DisplayFor(modelItem => item.tblMessage.Messages)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tblMessage.BankDetail.User.Name)
-                    </td>
-                   
-
-                       
-
-                </tr>
-              }
-            }
-            
-        }
-    </tbody>
-     <tfoot class="table-danger">
-            <tr>
-                <th hidden></th>
-                <th colspan="1" style="text-align:right">Total: <br/> Sub Total:</th>
-                <th></th><th></th><th></th><th></th><th></th><th></th>
-               
-            </tr>
-        </tfoot>
-</table>
-
-</div>
+  
+          <div id="completeinde"></div>
 
     </div>
 
@@ -279,11 +189,13 @@
 
 
 
-
+     @section scripts{
 <script>
 
 
 $(document).ready(function() {
+    $("#completeinde").load("/Index/Assigncomplete");
+    
     $('#exam').DataTable(
 
         {
@@ -459,7 +371,7 @@ $(document).ready(function() {
    
 
 </script>
- @section scripts{
+
                      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
  
 <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>

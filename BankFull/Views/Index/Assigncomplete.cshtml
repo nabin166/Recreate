@@ -1,0 +1,219 @@
+﻿@using BankFull.Controllers;  
+@model IEnumerable<PhotoSendModel>
+
+    
+
+    
+    <!--Bootstrap modal -->
+    <div class="modal fade " id="exampleMols" tabindex="-1"
+        role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Modal heading -->
+                <div class="modal-header">
+
+                   
+                    <h5 class="modal-title" id="exampleModalLabel">
+                       <i class="fa-solid fa-images"></i>
+                    </h5>
+                    <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">
+                            ×
+                        </span>
+                    </button>
+                </div>
+                <!-- Modal body with image -->
+                <div class="modal-body">
+                     <div id="appens"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
+   <table id="das" class="mb-4 table  tablecolor wid table-bordered widt " >
+    <thead class="bg-danger">
+          <tr>
+              <th hidden></th>
+               <th>
+                Date (मिति)
+            </th>
+             <th>
+                Bank Name (बैंक नाम)
+            </th>
+             <th>
+                Address (ठेगाना)
+            </th>
+             <th>
+                Account_number (खाता नंबर)
+            </th>
+            <th>
+                Amount (रकम)
+            </th>
+           
+            <th>
+                Message (खबर)
+            </th>
+            <th hidden>
+            @*    Wholesaler *@
+            </th>
+            
+             <th>
+                Final_Document (अन्तिम कागजात)
+            </th>
+              <th>
+                Wholesaler
+            </th>
+          
+         
+            
+        </tr>
+            
+        
+    </thead>
+    <tbody>
+@foreach (PhotoSendModel item in Model) {
+
+              
+
+                    <tr>  
+                        <td class="id" hidden>
+                        @Html.DisplayFor(modelItem => item.tbl.Id) 
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Date)
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Name)
+                    </td>
+                       <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.Address)
+                    </td>
+                     <td>
+                        @Html.DisplayFor(modelItem => item.bankdet.AccountNumber)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tbl.Amount)
+                    </td>
+                   
+
+
+                    <td>
+
+                         @Html.DisplayFor(modelItem => item.tbl.Messages)
+                    </td>
+
+                     <td hidden>
+
+                      
+                    </td>
+
+
+                    <td>
+                         <img src="~/@Html.DisplayFor(modelItem => item.photosen.Photo)" style="cursor:pointer;" class="imgpev"  data-toggle="modal" data-target="#exampleMols"  width="50px"/>
+                        
+                    </td>   
+                      <td>
+
+                         @Html.DisplayFor(modelItem => item.user.Name)
+                    </td>
+
+                </tr>
+            
+        }
+    </tbody>
+
+       <tfoot class="table-danger">
+            <tr>
+                <th hidden></th> 
+                <th colspan="1" style="text-align:right">Total: <br/>Sub Total:</th>
+                   <th></th>  <th></th>  <th></th>  <th></th>  <th></th> <th hidden></th><th></th><th></th>
+            </tr>
+        </tfoot>
+</table>
+</div>
+<script>
+$(document).ready(function(e) {
+
+     $('#das').DataTable(
+     
+         {
+        footerCallback: function (row, data, start, end, display) {
+            var api = this.api();
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function (i) {
+                return typeof i === 'string' ? i.replace(/[\$,]/g, '') * 1 : typeof i === 'number' ? i : 0;
+            };
+ 
+            // Total over all pages
+            total = api
+                .column(5)
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Total over this page
+            pageTotal = api
+                .column(5, { page: 'current' })
+                .data()
+                .reduce(function (a, b) {
+                    return intVal(a) + intVal(b);
+                }, 0);
+ 
+            // Update footer
+            $(api.column(5).footer()).html( pageTotal  + ' <br/> ' + total );
+        },
+    }
+     
+     
+     
+     );
+
+    $(".imgpev").click(function(e) {
+           e.preventDefault();
+        var cid = $(this).closest('tr').find("td:eq(0)").text();
+        console.log(cid);
+       
+
+
+        $.ajax({
+
+            'url': '@Url.Action("Preview","Sender")',
+            'type': 'post',
+            'data': { cid
+             },
+            'success': function(image) {
+                   $("#appens").empty().append('<image style="width:30vw;" src ="' +image+'"/>');
+                     
+            
+            },
+            'error': function() {
+                 
+            },
+        }); 
+
+
+      
+
+         
+    });
+});
+
+</script>
+
+
+
+
+     @section scripts{
+                     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.13.1/b-2.3.2/b-html5-2.3.2/b-print-2.3.2/datatables.min.js"></script>
+
+
+
+                 }

@@ -15,7 +15,47 @@ namespace BankFull.Controllers
         {
             _context = transferOffContext;
         }
+        //Assign Complete
+        [HttpGet]
+        public IActionResult Assigncomplete()
+        {
 
+            string email = User.Identity.Name;
+            int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
+            List<tblMessage> tbl = _context.tblMessages.ToList();
+            List<PhotoSend> photosen = _context.PhotoSends.ToList();
+            List<BankDetail> bankdet = _context.BankDetails.ToList();
+            List<User> user = _context.user.ToList();
+            List<UserMessage> usermess = _context.UserMessages.ToList();
+
+            List<PhotoSendModel> joins = (from t in tbl
+                                          join p in photosen on t.Id equals p.MessageId
+                                          join b in bankdet on t.BankId equals b.Id
+                                          join u in user on b.User.Email equals u.Email
+                                          join us in usermess on t.Id equals us.MessageId
+                                          select new PhotoSendModel()
+                                          {
+                                              tbl = t,
+                                              photosen = p,
+                                              bankdet = b,
+                                              user = u,
+                                              usermess = us,
+                                          }).Where(x => x.usermess.UserId == uid).OrderByDescending(x => x.tbl.Id).ToList();
+
+          
+
+
+
+            //  ViewData["bankAdmin"] = new SelectList(_context.AdminBanks.Where(x => x.Ammount < 600000), "Id", "CheckName");
+
+            return _context.tblMessages != null ?
+
+                PartialView(joins) :
+
+                Problem("Entity set 'TransferOffContext.tblMessages'  is null.");
+
+
+        }
 
         //Not_Complete_View
         public async Task<IActionResult> Index()
@@ -225,6 +265,7 @@ namespace BankFull.Controllers
         public PhotoSend photosen;
         public BankDetail bankdet;
         public User user;
+        public UserMessage usermess;
     }
 
 }

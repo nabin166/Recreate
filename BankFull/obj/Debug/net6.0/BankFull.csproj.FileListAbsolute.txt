@@ -2370,3 +2370,4 @@ E:\final Version 1.2.1\final Version 1.2.1\BankFull\obj\Debug\net6.0\refint\Bank
 E:\final Version 1.2.1\final Version 1.2.1\BankFull\obj\Debug\net6.0\BankFull.pdb
 E:\final Version 1.2.1\final Version 1.2.1\BankFull\obj\Debug\net6.0\BankFull.genruntimeconfig.cache
 E:\final Version 1.2.1\final Version 1.2.1\BankFull\obj\Debug\net6.0\ref\BankFull.dll
+D:\Recreate\BankFull\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
