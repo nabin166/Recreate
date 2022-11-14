@@ -405,7 +405,7 @@ namespace BankFull.Controllers
             string email = User.Identity.Name;
             
             int uid = _context.user.Where(x => x.Email == email).FirstOrDefault().Id;
-            int b = _context.UserMessages.Where(x => x.UserId == uid).FirstOrDefault().Id;
+          //  int b = _context.UserMessages.Where(x => x.UserId == uid).FirstOrDefault().Id;
       
             List<UserMessage> Assign = _context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x=>x.tblMessage.BankDetail.User.Status == true).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() >= 1).Where(x => x.UserId == uid).ToList();
             //  List<UserMessage> AssignComplete = await this._context.UserMessages.Include(x => x.User).Include(x => x.tblMessage).Include(x => x.tblMessage.BankDetail).Include(x => x.tblMessage.BankDetail.User).Where(x => x.tblMessage.Transactions.Where(x => x.DrAmount == null).Count() == 0).Where(x => x.UserId == uid).ToListAsync();
