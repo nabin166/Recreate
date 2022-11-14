@@ -172,6 +172,12 @@ $(document).ready(function(e) {
      $('#urd').DataTable(
      
          {
+        dom: 'Bfrtip',
+             buttons: [{
+                 extend: 'excel', className: 'bg-success text-white',text:'Import as Excel'
+             }
+        ],
+
         footerCallback: function (row, daTabta, start, end, display) {
             var api = this.api();
  
