@@ -45,7 +45,8 @@
 
                     <div class="text-center my-4"><a  class="text-white "><strong> @if (@User.Identity.IsAuthenticated)
                                 {
-                                    <p> Welcome !</p> @User.Identity.Name
+                                    <p> Welcome! @if(@User.IsInRole("Admin")){<span class="text-danger">Admin</span>} </p> @User.Identity.Name
+                                  
                                 }
                                 else
                                 {
@@ -186,7 +187,9 @@
 
                     <div class="text-center my-4"><a  class="text-white "><strong> @if (@User.Identity.IsAuthenticated)
                                 {
-                                    <p> Welcome !</p>
+                                    <p class="ml-4"> Hi!</p>
+                                     <p class="fa-sm mt-2 ml-4">Admin</p>
+
                                 }
                                 else
                                 {
@@ -196,30 +199,30 @@
 
 
           <div class="col d-flex flex-column border-info mt-4 " >
-            <a class="a row py-2 p-0 text-white text-center border-sm pl-4 act home " id="Test1" style=" border-bottom: 0.3px solid burlywood; "
+            <a class="a row py-2 p-0 text-white text-center border-sm pl-4 act home  d-flex flex-column" id="Test1" style=" border-bottom: 0.3px solid burlywood; "
             asp-controller="Home" asp-action="Index"
-              style=" active border-bottom: 0.3px solid burlywood;  " ><i
-                class="fa-solid fa-home" style="margin-top: 13px;   "></i>
-              <p class="ml-2 mt-2">Home</p>
+              style=" active border-bottom: 0.3px solid burlywood;  " >
+              <i class="fa-solid fa-home fa-xs" style="margin-top: 13px;   "></i>
+              <p class=" mt-4 fa-xs">Home</p>
             </a>
              @if (@User.Identity.IsAuthenticated)
                         {
                             if (@User.IsInRole("Admin"))
                             {
-                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 Bank act" asp-controller="BankDetails" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                                 <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 Bank act d-flex flex-column" asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-xs fa-solid fa-money-check "
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Bank Details</p>
+              <p class=" mt-4 fa-xs">Banks</p>
             </a>
-             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 tblmessage act" asp-controller="tblMessages" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 tblmessage act d-flex flex-column" asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Message</p>
+              <p class="fa-xs mt-4">Message</p>
 
-              <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transactionrate " asp-controller="TransactionRates" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+              <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Transactionrate d-flex flex-column" asp-controller="TransactionRates" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Transaction Rate</p>
+              <p class="fa-xs mt-4"> Rate</p>
                                 </a>
               </a>
               @*
@@ -229,20 +232,20 @@
               <p class="ml-2 mt-2">Transaction</p>
                                 </a>
                                 *@
-                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail" asp-controller="UserDetail" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                                 <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail d-flex flex-column" asp-controller="UserDetail" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Payment</p>
+              <p class="fa-xs mt-4">Payment</p>
                                 </a>
-                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act AdminBank" asp-controller="AdminBanks" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
+                                   <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act AdminBank d-flex flex-column" asp-controller="AdminBanks" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Add Banks</p>
+              <p class="fa-xs mt-4">Add Banks</p>
                                 </a>
-                                  <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting " asp-controller="Users" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears"
+                                  <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Setting d-flex flex-column" asp-controller="Users" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-gears fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Setting</p>
+              <p class="fa-xs mt-4">Setting</p>
                                 </a>
                               
 
@@ -251,33 +254,33 @@
                             else if (@User.IsInRole("User"))
                             {
                                                 
-                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 act Bank " asp-controller="BankDetails" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class=" fa-solid fa-money-check "
+                                <a class=" a row py-2 p-0 text-white text-center border-sm pl-4 act Bank d-flex flex-column" asp-controller="BankDetails" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-xs fa-solid fa-money-check "
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Bank Details</p>
+              <p class="fa-xs mt-4">Bank Details</p>
             </a>
-             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act tblmessage" asp-controller="tblMessages" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act tblmessage d-flex flex-column" asp-controller="tblMessages" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Message</p>
-                <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail" asp-controller="UserDetail" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+              <p class="fa-xs mt-4">Message</p>
+                <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail d-flex flex-column" asp-controller="UserDetail" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2"> Payment</p>
+              <p class="fa-xs mt-4"> Payment</p>
                                 </a>
                                 </a>
                             }
                             else if (@User.IsInRole("Agent"))
                             {
-                                 <a class="row a py-2 p-0 text-white text-center Assign border-sm pl-4 act " asp-controller="Users" asp-action="Assign"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                                 <a class="row a py-2 p-0 text-white text-center Assign border-sm pl-4 act d-flex flex-column" asp-controller="Users" asp-action="Assign"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Assign</p>
+              <p class="fa-xs mt-4">Assign</p>
             </a>
-              <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail" asp-controller="UserDetail" asp-action="Index"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+              <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act userdetail d-flex flex-column" asp-controller="UserDetail" asp-action="Index"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs"
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2"> Payment</p>
+              <p class="fa-xs mt-4"> Payment</p>
                                 </a>
                             }
 
@@ -295,10 +298,10 @@
 
             @if (!@User.Identity.IsAuthenticated)
                         {
-                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Register" asp-controller="Account" asp-action="Register"
-              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar "
+                             <a class="row a py-2 p-0 text-white text-center border-sm pl-4 act Register d-flex flex-column" asp-controller="Account" asp-action="Register"
+              style=" border-bottom: 0.3px solid burlywood;  " ><i class="fa-solid fa-money-check-dollar fa-xs "
                 style="margin-top: 13px;"></i>
-              <p class="ml-2 mt-2">Register</p>
+              <p class="fa-xs mt-4">Register</p>
             </a>
                             
                         }
@@ -309,7 +312,7 @@
 
                     @if (@User.Identity.IsAuthenticated)
                     {
-                         <div class="text-center mb-4"><a  class="a text-white" asp-controller="Account" asp-action="Logout"><i
+                         <div class="text-center mb-4"><a  class="a text-white " asp-controller="Account" asp-action="Logout"><i
                 class="fa-solid fa-right-from-bracket"></i>Logout</a></div>
                     }
                     else
