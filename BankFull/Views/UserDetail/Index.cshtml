@@ -129,7 +129,7 @@
         <div id="menu1" class="tab-pane fade in bg-white"  >
          <div style="width:83vw; scroll-behavior:smooth; overflow:scroll;">
             <!--   <div id="wholesalerpay"></div> -->
-            <table id="dat" class=" table-responsive table tablecolor wid table-bordered widt"  >
+            <table id="dat" class=" table tablecolor  wid table-bordered widt "   >
                 <thead class="bg-info">
                     <tr>
                         <th hidden></th>
@@ -541,14 +541,23 @@ $(document).ready(function () {
        
              
         },
-           dom: 'Bfrtip',
-        buttons: [ {
+           dom: 'lBfrtip',
+        buttons: [   {
+                extend: 'spacer',
+                style: 'bar',
+                text: '  '
+            },{
             extend: 'excelHtml5',
             autoFilter: true,
             sheetName: 'Exported data',
             text:'Export to excel',
             className: 'bg-success text-white'
-         } ]
+         } ,{
+           
+                 extend: 'copy', className: 'bg-success text-white',text:'Copy '
+             },
+        
+        ]
     }
      
      
@@ -590,14 +599,28 @@ $(document).ready(function () {
 
              
         },
-            dom: 'Bfrtip',
-        buttons: [ {
+           
+    
+            dom: 'lBfrtip',
+        buttons: [
+            
+              {
+                extend: 'spacer',
+                style: 'bar',
+                text: '  '
+            },{
             extend: 'excelHtml5',
             autoFilter: true,
             sheetName: 'Exported data',
             text:'Export to excel',
             className: 'bg-success text-white'
-         } ]
+         } ,{
+           
+                 extend: 'copy', className: 'bg-success text-white',text:'Copy '
+             },
+        
+        
+          ]
 
         
          
