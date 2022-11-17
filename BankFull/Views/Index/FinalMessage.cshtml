@@ -167,7 +167,23 @@ $(document).ready(function(e) {
  
             // Update footer
             $(api.column(5).footer()).html( pageTotal  + ' <br/> ' + total );
-        },
+        },dom: 'lBfrtip',
+        buttons: [   {
+                extend: 'spacer',
+                style: 'bar',
+                text: '  '
+            },{
+            extend: 'excelHtml5',
+            autoFilter: true,
+            sheetName: 'Exported data',
+            text:'Export to excel',
+            className: 'bg-success text-white'
+         } ,{
+           
+                 extend: 'copy', className: 'bg-success text-white',text:'Copy '
+             },
+        
+        ]
     }
      
      

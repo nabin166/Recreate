@@ -172,10 +172,17 @@ $(document).ready(function(e) {
      $('#urd').DataTable(
      
          {
-        dom: 'Bfrtip',
-             buttons: [{
+        dom: 'lBfrtip',
+             buttons: [  {
+                extend: 'spacer',
+                style: 'bar',
+                text: '  '
+            },{
                  extend: 'excel', className: 'bg-success text-white',text:'Import as Excel'
-             }
+             }, {
+           
+                 extend: 'copy', className: 'bg-success text-white',text:'Copy '
+             },
         ],
 
         footerCallback: function (row, daTabta, start, end, display) {
